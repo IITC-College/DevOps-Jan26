@@ -1,0 +1,61 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 1
+================================================================================
+
+Welcome to Level 3 - The Final Challenge!
+
+You've learned the basics. Now let's put it all together.
+
+EXERCISE:
+---------
+Navigate through a complex path and find hidden information.
+
+INSTRUCTIONS:
+-------------
+1. Start from lab root:
+   Run: cd ~/linux_navigation_basics
+   Run: pwd
+
+2. Your mission: Find a secret code hidden in the lab structure.
+   The code is in a hidden file somewhere in the projects directory.
+
+3. Navigate to projects:
+   Run: cd projects
+   Run: ls -a
+   What directories do you see?
+
+4. Check each subdirectory for hidden files:
+   Run: cd Documents
+   Run: ls -a
+   (Look for files starting with .)
+   
+   Run: cd ../Pictures
+   Run: ls -a
+   
+   Run: cd ../workspace
+   Run: ls -a
+
+5. When you find a hidden file, read it:
+   Run: cat .<filename>
+   (Replace <filename> with the actual hidden file name)
+
+6. The hidden file contains a code - write it down!
+
+COMMANDS TO USE:
+----------------
+- cd projects
+- ls -a (in each subdirectory)
+- cat .<hidden_file> (to read hidden files)
+
+WHAT TO FIND:
+-------------
+- Which subdirectory contains a hidden file?
+- What is the secret code in that file?
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- Where did you find the hidden file? (full path)
+- What is the secret code?
+
+Next: clue2.txt

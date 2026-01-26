@@ -1,0 +1,57 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 2
+================================================================================
+
+Great navigation skills! Now let's explore different ls options.
+
+EXERCISE:
+---------
+Learn about different ways to list files with ls.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the projects directory:
+   Run: cd ~/linux_navigation_basics/projects
+   (Adjust path as needed)
+
+2. List files normally:
+   Run: ls
+   What do you see?
+
+3. List files with details:
+   Run: ls -l
+   What additional information appears?
+
+4. List all files including hidden:
+   Run: ls -la
+   Compare with previous outputs
+
+5. List files with human-readable sizes:
+   Run: ls -lh
+   (If files have sizes, they'll be in KB, MB format)
+
+6. List files sorted by time (newest first):
+   Run: ls -lt
+   Notice the order
+
+COMMANDS TO USE:
+----------------
+- ls (basic list)
+- ls -l (long format with details)
+- ls -la (all files with details)
+- ls -lh (human-readable sizes)
+- ls -lt (sorted by time)
+
+WHAT TO OBSERVE:
+----------------
+- What information does -l add?
+- How does -a change the output?
+- What's the difference between -l and -lh?
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What does the -l flag show that regular ls doesn't?
+- What does the -a flag do?
+
+Next: clue3.txt

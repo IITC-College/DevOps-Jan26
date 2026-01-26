@@ -1,0 +1,83 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 3
+================================================================================
+
+FINAL CHALLENGE!
+
+You've mastered navigation basics. Now complete this final mission.
+
+EXERCISE:
+---------
+Complete a navigation journey using everything you've learned.
+
+INSTRUCTIONS:
+-------------
+Your mission: Navigate through the entire lab structure and collect information.
+
+1. Start from lab root:
+   Run: cd ~/linux_navigation_basics
+   Run: pwd
+
+2. Journey through all directories:
+   
+   a) Go to data/logs and read navigation.log:
+      Run: cd data/logs
+      Run: cat navigation.log
+      What tip is mentioned?
+   
+   b) Go to data/secrets and read tips.txt:
+      Run: cd ../secrets
+      Run: cat tips.txt
+      What is the final advice?
+   
+   c) Go to hidden directory and list all files:
+      Run: cd ../../hidden
+      Run: ls -la
+      How many files total? (including . and ..)
+   
+   d) Go to projects/workspace:
+      Run: cd ../projects/workspace
+      Run: ls -a
+      What files are here?
+
+3. Return to lab root:
+   Run: cd ../..
+   Run: pwd
+   Verify you're back at the start
+
+4. Create your final answer file:
+   Run: cat > my_answers.txt
+   (Then type your answers, press Ctrl+D when done)
+   
+   OR use an editor to create my_answers.txt with all your answers
+
+COMMANDS TO USE:
+----------------
+- All the commands you've learned!
+- cd, cd .., pwd, ls, ls -a, ls -la, cat
+
+FINAL QUESTIONS:
+----------------
+Answer these in my_answers.txt:
+
+1. What tip was in navigation.log?
+2. What was the final advice in tips.txt?
+3. How many files (including . and ..) are in the hidden directory?
+4. What did you learn about Linux navigation?
+
+CONGRATULATIONS!
+================
+
+You've completed the Linux Navigation Basics Lab!
+
+You now know:
+- How to navigate with cd
+- How to go back with cd ..
+- How to see hidden files with ls -a
+- How to read error messages
+- How to use pwd to track your location
+
+Great job! Keep practicing these commands - they're the foundation
+of everything you'll do in Linux!
+
+================================================================================

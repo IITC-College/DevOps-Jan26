@@ -1,0 +1,65 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 3
+================================================================================
+
+Excellent! You're becoming a navigation expert.
+
+Now let's combine everything you've learned.
+
+EXERCISE:
+---------
+Navigate through multiple directories and use different commands together.
+
+INSTRUCTIONS:
+-------------
+1. Start from lab root:
+   Run: cd ~/linux_navigation_basics
+   Run: pwd
+
+2. Navigate to hidden directory and list all files:
+   Run: cd hidden
+   Run: ls -la
+   Count how many files you see (including . and ..)
+
+3. Go back to root:
+   Run: cd ..
+   Run: pwd
+
+4. Navigate to data/secrets:
+   Run: cd data/secrets
+   Run: ls -a
+   What files are here?
+
+5. Go back to root using multiple levels:
+   Run: cd ../..
+   Run: pwd
+
+6. Navigate to projects/Pictures:
+   Run: cd projects/Pictures
+   Run: ls -l
+   What do you see?
+
+7. Return to lab root:
+   Run: cd ../..
+   Run: pwd
+
+COMMANDS TO USE:
+----------------
+- Combine cd, pwd, and ls in sequence
+- Use cd .. to go back
+- Use ls -la to see everything
+
+WHAT TO PRACTICE:
+-----------------
+- Moving forward and backward confidently
+- Always checking your location with pwd
+- Using ls with different options
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- How many files (including . and ..) are in the hidden directory?
+- What is the full path to data/secrets?
+
+CONGRATULATIONS! You've completed Level 2!
+Now advance to Level 3: cd ../clues/level3

@@ -1,0 +1,13 @@
+Hidden File Information
+========================
+
+This is a hidden file (starts with a dot).
+
+Hidden files are used for:
+- Configuration files (.bashrc, .gitconfig)
+- System files (.gitignore)
+- User preferences (.vimrc)
+
+To see hidden files, always use: ls -a
+
+Good job finding this file!

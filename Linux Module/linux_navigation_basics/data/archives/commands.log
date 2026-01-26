@@ -1,0 +1,13 @@
+[2026-01-26 07:00:00] Command history archive
+[2026-01-26 07:00:15] pwd - shows current working directory
+[2026-01-26 07:00:30] cd - change directory
+[2026-01-26 07:00:45] cd .. - go up one directory level
+[2026-01-26 07:01:00] cd ~ - go to home directory
+[2026-01-26 07:01:15] ls - list files in current directory
+[2026-01-26 07:01:30] ls -a - list all files including hidden
+[2026-01-26 07:01:45] ls -l - list files with details
+[2026-01-26 07:02:00] ls -la - list all files with details
+[2026-01-26 07:02:15] cat - display file contents
+[2026-01-26 07:02:30] Error: No such file or directory - path doesn't exist
+[2026-01-26 07:02:45] Remember: Hidden files start with a dot (.)
+[2026-01-26 07:03:00] Archive complete

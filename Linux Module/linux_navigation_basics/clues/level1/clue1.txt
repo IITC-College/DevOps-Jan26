@@ -1,0 +1,48 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 1
+================================================================================
+
+Welcome to Level 1!
+
+Your first exercise: Understanding error messages.
+
+BACKGROUND:
+-----------
+In Linux, when you try to do something that doesn't work, the system
+tells you exactly what went wrong. Learning to read these messages is
+a crucial skill!
+
+EXERCISE:
+---------
+Try to navigate to a directory that doesn't exist.
+
+INSTRUCTIONS:
+-------------
+1. From your current location, try to change to a non-existing path
+2. Run this command:
+
+   cd /this/path/does/not/exist
+
+3. Look at the error message that appears
+4. Read it carefully - what is Linux telling you?
+
+COMMANDS TO USE:
+----------------
+- cd /this/path/does/not/exist
+
+WHAT TO OBSERVE:
+----------------
+- What error message appears?
+- What does it say?
+- Is it clear and helpful?
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in one sentence:
+- What is the problem?
+
+You can write your answer in a file called my_answers.txt in the main lab directory.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: Don't be afraid of errors - they're teaching you something!

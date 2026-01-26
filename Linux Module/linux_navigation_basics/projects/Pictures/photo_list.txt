@@ -1,0 +1,11 @@
+Photo List
+==========
+
+This directory would contain picture files.
+
+Navigation practice:
+- You navigated here using cd
+- You can go back with cd ..
+- You can list files with ls
+
+Good job!

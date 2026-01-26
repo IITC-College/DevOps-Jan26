@@ -1,0 +1,11 @@
+Documents Directory
+===================
+
+This directory contains document files.
+
+You can practice navigation here by:
+- Using cd to enter this directory
+- Using cd .. to go back
+- Using ls to see files
+
+Keep practicing!

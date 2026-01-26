@@ -1,0 +1,62 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 1
+================================================================================
+
+Welcome to Level 2!
+
+You've mastered the basics. Now let's practice more advanced navigation.
+
+EXERCISE:
+---------
+Practice using pwd to track your location through complex navigation.
+
+INSTRUCTIONS:
+-------------
+1. Start from the lab root directory (linux_navigation_basics)
+   Run: cd ~/linux_navigation_basics
+   (Adjust path as needed)
+   
+2. Check your location:
+   Run: pwd
+   Write down what you see
+
+3. Navigate to projects/workspace:
+   Run: cd projects/workspace
+   Run: pwd
+   Write down the new location
+
+4. Go up one level:
+   Run: cd ..
+   Run: pwd
+   What directory are you in now?
+
+5. Navigate to data/logs:
+   Run: cd ../data/logs
+   Run: pwd
+   Where are you now?
+
+6. Go back to the lab root:
+   Run: cd ../../..
+   Run: pwd
+   (Adjust the number of .. based on your current location)
+
+COMMANDS TO USE:
+----------------
+- pwd (check location after each move)
+- cd <path> (navigate forward)
+- cd .. (navigate backward)
+- cd ../.. (go up multiple levels)
+
+WHAT TO LEARN:
+--------------
+- Always use pwd to verify where you are
+- Count the levels when using multiple ..
+- Practice makes perfect!
+
+WRITE YOUR ANSWER:
+------------------
+After completing all steps, write in my_answers.txt:
+- What is the full path to projects/workspace?
+- How many levels up do you need to go from data/logs to lab root?
+
+Next: clue2.txt

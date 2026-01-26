@@ -1,0 +1,59 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 2
+================================================================================
+
+Great detective work! You found the hidden file.
+
+Now let's practice troubleshooting common navigation errors.
+
+EXERCISE:
+---------
+Identify and fix navigation mistakes.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to lab root:
+   Run: cd ~/linux_navigation_basics
+
+2. Try these commands and observe the errors:
+   
+   a) Try to go to a directory that doesn't exist:
+      Run: cd nonexistent_folder
+      What error do you get?
+      What does it tell you?
+   
+   b) Try to go up too many levels:
+      Run: cd ../../../../../../..
+      Where do you end up? (Use pwd to check)
+      How do you get back to the lab?
+   
+   c) Try to list files in a wrong path:
+      Run: ls /wrong/path/here
+      What error appears?
+      Is it similar to the cd error?
+
+3. Practice fixing errors:
+   - If you're lost, use: cd ~/linux_navigation_basics
+   - Always use pwd to check where you are
+   - Read error messages - they tell you what's wrong
+
+COMMANDS TO USE:
+----------------
+- cd <wrong_path> (to see errors)
+- pwd (to check location)
+- cd ~/linux_navigation_basics (to get back)
+
+WHAT TO LEARN:
+--------------
+- Error messages are helpful, not scary
+- You can always get back with cd ~
+- Reading errors helps you fix problems
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What is the main difference between "No such file or directory" 
+  for cd vs ls?
+- How do you get back to the lab root if you're lost?
+
+Next: clue3.txt (Final Challenge!)

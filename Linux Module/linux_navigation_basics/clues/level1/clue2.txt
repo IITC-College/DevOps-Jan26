@@ -1,0 +1,64 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 2
+================================================================================
+
+Great job! You've seen your first error message and learned from it.
+
+Now let's practice moving forward and backward between directories.
+
+EXERCISE:
+---------
+Navigate to different directories and learn to go back.
+
+INSTRUCTIONS:
+-------------
+1. First, check where you are:
+   Run: pwd
+
+2. Go to your home directory (if you're not already there):
+   Run: cd ~
+   
+   (The ~ symbol represents your home directory)
+
+3. Now, navigate to the lab's projects directory:
+   Run: cd linux_navigation_basics/projects/Documents
+   
+   (Adjust the path if needed based on where you extracted the lab)
+
+4. Check where you are now:
+   Run: pwd
+
+5. Go back one level:
+   Run: cd ..
+
+6. Check where you are:
+   Run: pwd
+
+7. Enter the Documents directory again:
+   Run: cd Documents
+
+8. Check where you are:
+   Run: pwd
+
+COMMANDS TO USE:
+----------------
+- pwd (check current location)
+- cd ~ (go to home directory)
+- cd projects/Documents (enter a directory)
+- cd .. (go back one level)
+- cd Documents (enter directory again)
+
+WHAT TO OBSERVE:
+----------------
+- How does pwd show your location?
+- What happens when you use cd ..?
+- Can you go back and forth easily?
+
+WRITE YOUR ANSWER:
+------------------
+After completing the steps above, write:
+- What does `..` represent?
+
+Add your answer to my_answers.txt in the main lab directory.
+
+Next exercise: clue3.txt

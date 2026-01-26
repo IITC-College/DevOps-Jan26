@@ -1,0 +1,57 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 3
+================================================================================
+
+Excellent work! You're getting comfortable with navigation.
+
+Now let's discover something important: hidden files!
+
+BACKGROUND:
+-----------
+In Linux, files that start with a dot (.) are hidden by default.
+They don't show up when you use the regular 'ls' command.
+This is useful for configuration files and other system files.
+
+EXERCISE:
+---------
+Find hidden files in the lab directory.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the 'hidden' directory in the lab:
+   Run: cd ../../hidden
+   
+   (From clues/level1, go up two levels, then into hidden)
+
+2. List files normally:
+   Run: ls
+
+3. What do you see? (Probably nothing or very few files)
+
+4. Now list ALL files, including hidden ones:
+   Run: ls -a
+
+5. Compare the two outputs!
+
+COMMANDS TO USE:
+----------------
+- cd ../../hidden (navigate to hidden directory)
+- ls (list files - regular view)
+- ls -a (list all files including hidden)
+
+WHAT TO OBSERVE:
+----------------
+- What files appear with 'ls'?
+- What NEW files appear with 'ls -a'?
+- How can you tell which files are hidden?
+
+WRITE YOUR ANSWER:
+------------------
+After comparing the outputs, write:
+- What new entries appear when you use 'ls -a'?
+- How can you recognize a hidden file?
+
+Add your answers to my_answers.txt.
+
+CONGRATULATIONS! You've completed Level 1!
+Now advance to Level 2: cd ../clues/level2
