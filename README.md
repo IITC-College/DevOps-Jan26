@@ -26,11 +26,16 @@ DevOps-Jan26/
 ## 📦 Available Modules
 
 ### Linux Module
-- **Lab**: File System Scavenger Hunt
-- **Version**: v1.0
-- **Focus**: Linux CLI basics (navigation, reading, searching)
-- **Duration**: 1-2 hours
-- **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+- **Lab 1**: File System Scavenger Hunt
+  - **Version**: v1.0
+  - **Focus**: Linux CLI basics (navigation, reading, searching)
+  - **Duration**: 1-2 hours
+  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+- **Lab 2**: Navigation Basics
+  - **Version**: v1.1
+  - **Focus**: Basic navigation (cd, ls, error messages, hidden files)
+  - **Duration**: 60-90 minutes
+  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
 
 ---
 
@@ -201,7 +206,7 @@ Every lab must meet these criteria:
 
 | Module | Labs | Total Files | Total Size |
 |--------|------|-------------|------------|
-| Linux  | 1    | 33          | ~13KB      |
+| Linux  | 2    | 54          | ~24KB      |
 | Docker | -    | -           | -          |
 | K8s    | -    | -           | -          |
 
