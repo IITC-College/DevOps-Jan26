@@ -36,6 +36,11 @@ DevOps-Jan26/
   - **Focus**: Linux CLI basics (navigation, reading, searching)
   - **Duration**: 1-2 hours
   - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+- **Lab 3**: File and Directory Management
+  - **Version**: v1.2
+  - **Focus**: File and directory management (mkdir, touch, cp, mv, rm, rmdir)
+  - **Duration**: 75-90 minutes
+  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
 
 ---
 
@@ -206,7 +211,7 @@ Every lab must meet these criteria:
 
 | Module | Labs | Total Files | Total Size |
 |--------|------|-------------|------------|
-| Linux  | 2    | 54          | ~24KB      |
+| Linux  | 3    | 72          | ~36KB      |
 | Docker | -    | -           | -          |
 | K8s    | -    | -           | -          |
 
