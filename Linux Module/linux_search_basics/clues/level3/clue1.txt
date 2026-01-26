@@ -1,0 +1,53 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 1
+================================================================================
+
+Welcome to Level 3!
+
+Now let's learn about finding files by extension using wildcards.
+
+EXERCISE 5 - Find Files by Extension:
+--------------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Run this command:
+
+   find /etc -name "*.conf"
+
+2. Observe the output:
+   - What kind of files are these?
+   - Are there many results or few?
+   - What do these files have in common?
+
+Note: You might need sudo for some directories:
+   sudo find /etc -name "*.conf"
+
+COMMANDS TO USE:
+----------------
+- find /etc -name "*.conf" (find files ending with .conf)
+- The * is a wildcard that matches any characters
+
+WHAT TO OBSERVE:
+----------------
+- find shows all files that match the pattern
+- *.conf matches any file ending with .conf
+- These are typically configuration files
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in my_answers.txt:
+
+1. What kind of files are these?
+   (These are configuration files. The .conf extension typically indicates
+   configuration files that contain settings for various programs and services.)
+
+2. Are there many results or few?
+   (There are usually many .conf files in /etc - this directory contains
+   most of the system's configuration files.)
+
+Add your answers to my_answers.txt.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: The * wildcard is very powerful for finding files by pattern!

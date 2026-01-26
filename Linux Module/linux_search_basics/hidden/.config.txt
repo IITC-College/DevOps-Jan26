@@ -1,0 +1,9 @@
+Hidden Configuration
+====================
+
+This is a hidden configuration file.
+
+You can find it using:
+  find . -name ".*"
+
+This file starts with a dot (.) so it's hidden.

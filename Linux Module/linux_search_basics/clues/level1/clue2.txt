@@ -1,0 +1,56 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 2
+================================================================================
+
+Great job! You've learned how grep searches for text.
+
+Now let's learn about case-insensitive searching.
+
+EXERCISE 2 - Case-Insensitive Search:
+--------------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Run this command:
+
+   grep -i RooT /etc/passwd
+
+2. Compare with the previous exercise:
+   - Is the output the same as Exercise 1?
+   - Does it find the same lines?
+
+3. Try another example:
+   - Run: echo "Hello World" > /tmp/test.txt
+   - Run: grep hello /tmp/test.txt
+   - Run: grep -i hello /tmp/test.txt
+   
+   What's the difference?
+
+COMMANDS TO USE:
+----------------
+- grep -i RooT /etc/passwd (case-insensitive search)
+- grep -i <word> <file> (general syntax)
+
+WHAT TO LEARN:
+--------------
+The -i flag makes grep ignore case (upper/lower case).
+So "RooT", "root", "ROOT", and "Root" are all treated as the same.
+
+WRITE YOUR ANSWER:
+------------------
+After running the commands, write in my_answers.txt:
+
+1. Is the output different from Exercise 1?
+   (No, the output is the same because "root" in /etc/passwd is always
+   lowercase. The -i flag doesn't change anything if the search word
+   and file content are already in the same case.)
+
+2. Why might -i be useful?
+   (The -i flag is useful when you're not sure about the case of the text
+   you're searching for, or when you want to find all variations regardless
+   of capitalization. For example, searching for "error", "Error", "ERROR"
+   all at once.)
+
+Add your answers to my_answers.txt.
+
+Next: clue3.txt

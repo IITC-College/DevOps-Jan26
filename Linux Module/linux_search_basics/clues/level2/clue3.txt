@@ -1,0 +1,54 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 3
+================================================================================
+
+Excellent! You've learned grep -r and find.
+
+Now let's combine them and practice in the lab directory.
+
+EXERCISE:
+---------
+Practice combining grep and find to locate information.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the lab root:
+   Run: cd ~/linux_search_basics
+
+2. Use grep -r to find all files containing "SECRET":
+   Run: grep -r SECRET .
+   
+   Which files contain this word?
+
+3. Use find to locate all .txt files:
+   Run: find . -name "*.txt"
+   
+   How many .txt files are there?
+
+4. Combine both: First find .log files, then search in them:
+   Run: find . -name "*.log"
+   (Note which log files exist)
+   
+   Then search in them:
+   Run: grep ERROR data/logs/application.log
+
+COMMANDS TO USE:
+----------------
+- grep -r <word> <directory> (search recursively)
+- find <directory> -name "<pattern>" (find files by pattern)
+
+WHAT TO LEARN:
+--------------
+- grep -r searches CONTENT in multiple files
+- find searches FILE NAMES
+- Use grep when you know what text you're looking for
+- Use find when you know what file name you're looking for
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What is the main difference between grep -r and find?
+- When would you use grep -r vs find?
+
+CONGRATULATIONS! You've completed Level 2!
+Now advance to Level 3: cd ../level3

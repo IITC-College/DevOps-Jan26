@@ -1,0 +1,80 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 3
+================================================================================
+
+FINAL CHALLENGE!
+
+You've mastered grep and find. Now complete this final mission.
+
+EXERCISE:
+---------
+Complete a comprehensive search task using everything you've learned.
+
+INSTRUCTIONS:
+-------------
+Your mission: Find hidden information using grep and find together.
+
+1. Start from lab root:
+   Run: cd ~/linux_search_basics
+   Run: pwd
+
+2. Search for the word "SECRET" in all files:
+   Run: grep -r SECRET .
+   
+   Which file contains SECRET information?
+   What is the secret message?
+
+3. Find all configuration files:
+   Run: find . -name "*.conf"
+   
+   List all the .conf files you found.
+
+4. Search for "IMPORTANT" in all .conf files:
+   First find them: find . -name "*.conf"
+   Then search in each one using grep
+
+5. Find hidden files:
+   Run: find . -name ".*" -type f
+   
+   What hidden files exist in the lab?
+
+6. Search for your own username in system files:
+   Run: grep -i $USER /etc/passwd
+   (This searches for your username)
+
+7. Create your final answer file:
+   Run: cat > my_answers.txt
+   (Then type all your answers, press Ctrl+D when done)
+
+COMMANDS TO USE:
+----------------
+- All the commands you've learned!
+- grep, grep -i, grep -r, find
+
+FINAL QUESTIONS:
+----------------
+Answer these in my_answers.txt:
+
+1. What is the main difference between grep and find?
+2. When would you use grep -r?
+3. When would you use find with wildcards?
+4. What secret message did you find with grep -r SECRET?
+5. What did you learn about searching in Linux?
+
+CONGRATULATIONS!
+================
+
+You've completed the Linux Search Basics Lab!
+
+You now know:
+- How to search inside files with grep
+- How to do case-insensitive search with grep -i
+- How to search recursively with grep -r
+- How to find files by name with find
+- How to use wildcards with find
+- The difference between searching content (grep) vs names (find)
+
+Great job! These search commands will save you countless hours of manual
+file scanning. Keep practicing - you'll use them every day in Linux!
+
+================================================================================

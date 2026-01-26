@@ -1,0 +1,17 @@
+Old Data Archive
+================
+
+This file contains archived data from previous operations.
+
+Search practice:
+- Use grep to find specific words in this file
+- Use find to locate this file by name
+- Practice case-insensitive searches
+
+Sample data entries:
+- localhost connection: SUCCESS
+- Remote connection: FAILED
+- Database backup: COMPLETED
+- Log rotation: SCHEDULED
+
+End of archive.

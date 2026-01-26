@@ -1,0 +1,54 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 1
+================================================================================
+
+Welcome to Level 1!
+
+Your first exercise: Search for a word inside a file.
+
+EXERCISE 1 - Search for a Word Inside a File:
+----------------------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Run this command:
+
+   grep root /etc/passwd
+
+2. Observe the output:
+   - What lines are returned?
+   - How many lines contain the word "root"?
+   - What information do you see in each line?
+
+COMMANDS TO USE:
+----------------
+- grep root /etc/passwd (search for "root" in /etc/passwd)
+
+WHAT TO OBSERVE:
+----------------
+- grep returns only the lines that contain the search word
+- Each line is displayed in full
+- The word "root" appears in different contexts
+
+ABOUT /etc/passwd:
+------------------
+This is a system file that contains user account information.
+Each line represents one user account.
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in my_answers.txt:
+
+1. What lines are returned?
+   (Lines that contain the word "root" - typically you'll see the root user
+   account and possibly other entries with root in them)
+
+2. What does the word "root" represent in this file?
+   (root is the superuser account - the system administrator account with
+   full privileges on the system)
+
+Add your answers to my_answers.txt (create it in the lab directory).
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: grep searches for text INSIDE files and shows you the matching lines.

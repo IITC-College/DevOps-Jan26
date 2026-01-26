@@ -1,0 +1,66 @@
+================================================================================
+    WELCOME TO THE LINUX SEARCH BASICS LAB!
+================================================================================
+
+Hello, Linux Explorer!
+
+This lab is designed to help you practice searching for information
+efficiently using the Linux command line. You will learn to use grep
+to search inside files and find to locate files by name.
+
+================================================================================
+    YOUR FIRST TASK
+================================================================================
+
+1. Check where you are right now:
+   Run: pwd
+
+2. Navigate to the lab directory:
+   Run: cd linux_search_basics
+
+3. Read the first exercise:
+   Run: cat clues/level1/clue1.txt
+
+================================================================================
+    HOW THIS LAB WORKS
+================================================================================
+
+- Each level contains exercises that build on previous skills
+- You'll search in real system files and practice files
+- You'll learn when to use grep vs find
+- Pay attention to what each command does differently!
+
+================================================================================
+    ALLOWED COMMANDS
+================================================================================
+
+In this lab, you may only use these commands:
+
+- grep (search inside files)
+- grep -i (case-insensitive search)
+- grep -r (recursive search in directories)
+- find (find files by name)
+
+Plus navigation commands: cd, ls, pwd, cat
+
+================================================================================
+    IMPORTANT REMINDERS
+================================================================================
+
+* grep searches INSIDE files (content)
+* find searches for FILES (names and paths)
+* Use -r with grep to search in multiple files
+* Don't use sudo unless mentioned in the exercise
+* Don't use regex or pipes - focus on basic usage
+* Read error messages carefully - they help you
+* Take notes as you progress through the exercises
+
+================================================================================
+    READY? LET'S BEGIN!
+================================================================================
+
+Your first destination: clues/level1/clue1.txt
+
+Navigate there and read the file to begin your practice!
+
+Good luck!

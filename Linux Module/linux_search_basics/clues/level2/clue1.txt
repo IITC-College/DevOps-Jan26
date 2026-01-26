@@ -1,0 +1,53 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 1
+================================================================================
+
+Welcome to Level 2!
+
+Now let's learn about recursive searching with grep -r.
+
+EXERCISE 3 - Recursive Search in a Directory:
+----------------------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Run this command:
+
+   grep -r localhost /etc
+
+2. Observe the output:
+   - What type of output do you see?
+   - Does grep search only one file or multiple files?
+   - How does grep show which file each match came from?
+
+Note: You may see "Permission denied" errors for some files - this is normal.
+grep -r will still show results from files it can access.
+
+COMMANDS TO USE:
+----------------
+- grep -r localhost /etc (recursive search)
+
+WHAT TO OBSERVE:
+----------------
+- grep -r searches in ALL files inside the directory
+- Output format: filename:matching line
+- Some files may be inaccessible (Permission denied)
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in my_answers.txt:
+
+1. What type of output do you see?
+   (You see lines that contain "localhost" from multiple files. Each line
+   is prefixed with the filename where it was found, in the format:
+   filename:matching line content)
+
+2. Does grep search only one file or multiple files?
+   (grep -r searches MULTIPLE files. The -r flag stands for "recursive" -
+   it searches in all files within the directory and its subdirectories.)
+
+Add your answers to my_answers.txt.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: grep -r is very powerful for searching across many files at once!

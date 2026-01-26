@@ -1,0 +1,57 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 3
+================================================================================
+
+Excellent! You're mastering grep.
+
+Now let's practice more with grep on different files.
+
+EXERCISE:
+---------
+Practice searching in the lab's data files.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the lab's data/logs directory:
+   Run: cd ~/linux_search_basics/data/logs
+
+2. Search for "ERROR" in application.log:
+   Run: grep ERROR application.log
+   
+   How many lines contain "ERROR"?
+
+3. Search for "localhost" in system.log:
+   Run: grep localhost system.log
+   
+   What do you find?
+
+4. Try case-insensitive search:
+   Run: grep -i error application.log
+   
+   Does it find more lines than grep ERROR?
+
+5. Search for a word that doesn't exist:
+   Run: grep nonexistent application.log
+   
+   What happens? Any output?
+
+COMMANDS TO USE:
+----------------
+- grep <word> <file> (search for word)
+- grep -i <word> <file> (case-insensitive)
+
+WHAT TO LEARN:
+--------------
+- grep only shows lines that match
+- If no match is found, grep shows nothing (silent)
+- grep -i finds all case variations
+- grep is case-sensitive by default
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- How does grep behave when no matches are found?
+- Why is grep -i useful for searching logs?
+
+CONGRATULATIONS! You've completed Level 1!
+Now advance to Level 2: cd ../level2

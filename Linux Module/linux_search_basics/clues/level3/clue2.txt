@@ -1,0 +1,56 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 2
+================================================================================
+
+Great job! You've learned about wildcard searching.
+
+Now let's practice finding files in the lab directory.
+
+EXERCISE:
+---------
+Practice finding files with different patterns in the lab.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the lab root:
+   Run: cd ~/linux_search_basics
+
+2. Find all .conf files in the lab:
+   Run: find . -name "*.conf"
+   
+   How many .conf files are in the projects directory?
+
+3. Find all .log files:
+   Run: find . -name "*.log"
+   
+   Where are the log files located?
+
+4. Find all .txt files:
+   Run: find . -name "*.txt"
+   
+   How many .txt files exist?
+
+5. Find files that start with a dot (hidden files):
+   Run: find . -name ".*"
+   
+   What hidden files are found?
+
+COMMANDS TO USE:
+----------------
+- find . -name "*.extension" (find by extension)
+- find . -name ".*" (find hidden files)
+- find . -name "pattern*" (find files starting with pattern)
+
+WHAT TO LEARN:
+--------------
+- The * wildcard matches any characters
+- You can use * at the beginning, end, or both sides
+- find is very efficient for locating files by name pattern
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- How many .conf files did you find in the lab?
+- What's the advantage of using wildcards with find?
+
+Next: clue3.txt (Final Challenge!)

@@ -1,0 +1,44 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 2
+================================================================================
+
+Great job with grep -r! Now let's learn about finding files by name.
+
+EXERCISE 4 - Find a File by Name:
+----------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Run this command:
+
+   sudo find /etc -name "hosts"
+
+2. Observe the output:
+   - What path is returned?
+   - Does find search for content or file names?
+
+Note: We use sudo here because some directories in /etc need elevated permissions.
+
+COMMANDS TO USE:
+----------------
+- sudo find /etc -name "hosts" (find file by name)
+
+WHAT TO LEARN:
+--------------
+- find searches for FILE NAMES, not content
+- find looks at file and directory names
+- The -name option matches exact file names
+- find shows the full path to each match
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in my_answers.txt:
+
+What path is returned?
+(Typically you'll see paths like:
+ /etc/hosts
+and possibly other paths that contain files named "hosts")
+
+Add your answer to my_answers.txt.
+
+Next: clue3.txt
