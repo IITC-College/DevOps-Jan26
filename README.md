@@ -46,6 +46,11 @@ DevOps-Jan26/
   - **Focus**: Reading files (cat, less, head, tail)
   - **Duration**: 60-75 minutes
   - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+- **Lab 5**: Search Basics
+  - **Version**: v1.4
+  - **Focus**: Searching with grep and find
+  - **Duration**: 60-75 minutes
+  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
 
 ---
 
@@ -216,7 +221,7 @@ Every lab must meet these criteria:
 
 | Module | Labs | Total Files | Total Size |
 |--------|------|-------------|------------|
-| Linux  | 4    | 89          | ~49KB      |
+| Linux  | 5    | 109         | ~60KB      |
 | Docker | -    | -           | -          |
 | K8s    | -    | -           | -          |
 
