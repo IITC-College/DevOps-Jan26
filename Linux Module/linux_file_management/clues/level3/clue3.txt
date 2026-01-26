@@ -1,0 +1,85 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 3
+================================================================================
+
+FINAL CHALLENGE!
+
+You've mastered file and directory management. Now complete this final mission.
+
+EXERCISE:
+---------
+Complete a comprehensive file management task using everything you've learned.
+
+INSTRUCTIONS:
+-------------
+Your mission: Create, organize, and manage a complete project structure.
+
+1. Start fresh - remove your old linux_lab (if you want):
+   Run: rm -r linux_lab
+   (This removes everything - be careful!)
+
+2. Create a new project structure:
+   Run: mkdir -p linux_lab/project/src
+   Run: mkdir -p linux_lab/project/docs
+   Run: mkdir -p linux_lab/project/tests
+   Run: mkdir -p linux_lab/backups
+
+3. Create some files:
+   Run: touch linux_lab/project/src/main.sh
+   Run: touch linux_lab/project/src/utils.sh
+   Run: touch linux_lab/project/docs/README.txt
+
+4. Copy files to backup:
+   Run: cp linux_lab/project/src/main.sh linux_lab/backups/
+   Run: cp linux_lab/project/src/utils.sh linux_lab/backups/
+
+5. Move a file to the wrong place (on purpose):
+   Run: mv linux_lab/project/docs/README.txt linux_lab/project/src/
+
+6. Fix the mistake:
+   Run: mv linux_lab/project/src/README.txt linux_lab/project/docs/
+
+7. Rename a file:
+   Run: mv linux_lab/project/src/utils.sh linux_lab/project/src/utilities.sh
+
+8. Delete a backup file:
+   Run: rm linux_lab/backups/utils.sh
+
+9. Verify your final structure:
+   Run: find linux_lab -type f
+   Run: tree linux_lab/  (if tree is installed)
+   OR: ls -R linux_lab/
+
+COMMANDS TO USE:
+----------------
+- All the commands you've learned!
+- mkdir, mkdir -p, touch, cp, mv, rm, rmdir
+- find, ls -R
+
+FINAL QUESTIONS:
+----------------
+Answer these in my_answers.txt:
+
+1. What is the main difference between mkdir and mkdir -p?
+2. What is the difference between cp and mv?
+3. What warning does Linux NOT give you when using rm?
+4. What did you learn about file management in Linux?
+
+CONGRATULATIONS!
+================
+
+You've completed the Linux File Management Lab!
+
+You now know:
+- How to create directories (mkdir, mkdir -p)
+- How to create files (touch)
+- How to copy files (cp)
+- How to move and rename files (mv)
+- How to delete files and directories (rm, rmdir)
+- How to fix mistakes
+- How to read error messages
+
+Great job! These commands are the foundation of file management in Linux.
+Keep practicing - they'll become second nature!
+
+================================================================================

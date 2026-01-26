@@ -1,0 +1,66 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 3
+================================================================================
+
+Excellent work! You're getting comfortable with deletion.
+
+Now let's learn about copying files with cp.
+
+EXERCISE:
+---------
+Practice copying files.
+
+INSTRUCTIONS:
+-------------
+1. First, recreate the docs directory (we deleted it):
+   Run: mkdir linux_lab/docs
+
+2. Create a source file:
+   Run: touch linux_lab/scripts/run.sh
+
+3. Copy the file to docs directory:
+   Run: cp linux_lab/scripts/run.sh linux_lab/docs/
+
+4. Verify both files exist:
+   Run: ls linux_lab/scripts/
+   Run: ls linux_lab/docs/
+
+5. Create another file with content (we'll use echo):
+   Run: echo "#!/bin/bash" > linux_lab/scripts/config.sh
+   Run: echo "echo Hello" >> linux_lab/scripts/config.sh
+
+6. Copy it to logs directory:
+   Run: cp linux_lab/scripts/config.sh linux_lab/logs/
+
+7. Verify the copy:
+   Run: cat linux_lab/scripts/config.sh
+   Run: cat linux_lab/logs/config.sh
+
+8. Modify the original:
+   Run: echo "echo World" >> linux_lab/scripts/config.sh
+
+9. Compare original and copy:
+   Run: cat linux_lab/scripts/config.sh
+   Run: cat linux_lab/logs/config.sh
+
+COMMANDS TO USE:
+----------------
+- cp <source> <destination> (copy file)
+- cat <file> (display file contents)
+- echo "text" > file (write to file)
+- echo "text" >> file (append to file)
+
+WHAT TO LEARN:
+--------------
+- cp creates a COPY - the original remains
+- After copying, changes to original don't affect the copy
+- cp works with files, not directories (use cp -r for directories)
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What is the difference between cp and rm?
+- After modifying the original file, did the copy change? Why?
+
+CONGRATULATIONS! You've completed Level 1!
+Now advance to Level 2: cd ../level2

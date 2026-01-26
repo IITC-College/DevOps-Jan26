@@ -1,0 +1,53 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 2
+================================================================================
+
+Great understanding! Now let's practice with complex directory structures.
+
+EXERCISE:
+---------
+Create complex nested directory structures.
+
+INSTRUCTIONS:
+-------------
+1. Create a complex structure with mkdir -p:
+   Run: mkdir -p linux_lab/projects/app1/src
+   Run: mkdir -p linux_lab/projects/app1/docs
+   Run: mkdir -p linux_lab/projects/app2/tests
+
+2. Verify the structure:
+   Run: ls -R linux_lab/projects/
+
+3. Try creating a deep structure:
+   Run: mkdir -p linux_lab/deep/nested/directory/structure/here
+
+4. Verify:
+   Run: ls -R linux_lab/deep/
+
+5. Create files in the nested directories:
+   Run: touch linux_lab/projects/app1/src/main.sh
+   Run: touch linux_lab/projects/app1/docs/README.txt
+   Run: touch linux_lab/deep/nested/directory/structure/here/file.txt
+
+6. Verify files are in place:
+   Run: find linux_lab -type f
+
+COMMANDS TO USE:
+----------------
+- mkdir -p <deep/path> (create nested directories)
+- ls -R (list recursively)
+- find <directory> -type f (find all files)
+
+WHAT TO LEARN:
+--------------
+- mkdir -p is essential for creating complex structures
+- You can create many levels at once
+- Always use -p when you're not sure if parent directories exist
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- How many directory levels did you create in the "deep" structure?
+- Why is mkdir -p so useful?
+
+Next: clue3.txt (Final Challenge!)

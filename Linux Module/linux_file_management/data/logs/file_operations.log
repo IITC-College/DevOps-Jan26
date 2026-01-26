@@ -1,0 +1,19 @@
+[2026-01-26 09:00:00] File operations session started
+[2026-01-26 09:00:15] User created directory structure: linux_lab/
+[2026-01-26 09:00:30] Created subdirectories: docs, scripts, logs
+[2026-01-26 09:01:00] File created: notes.txt in docs/
+[2026-01-26 09:01:15] File deleted: notes.txt (rm command)
+[2026-01-26 09:01:30] Observation: No confirmation prompt, file deleted immediately
+[2026-01-26 09:02:00] File recreated: notes.txt
+[2026-01-26 09:02:15] Attempted rmdir on non-empty directory - error received
+[2026-01-26 09:02:30] Learned: rmdir only works on empty directories
+[2026-01-26 09:03:00] File copied: run.sh from scripts/ to docs/
+[2026-01-26 09:03:15] File moved back: run.sh from docs/ to scripts/
+[2026-01-26 09:03:30] Observation: mv moves file, doesn't keep copy
+[2026-01-26 09:04:00] File renamed: my_very_long_script_name.sh -> short.sh
+[2026-01-26 09:04:15] Learned: mv can both move and rename
+[2026-01-26 09:05:00] Attempted mkdir on nested path - error: parent doesn't exist
+[2026-01-26 09:05:15] Used mkdir -p - success!
+[2026-01-26 09:05:30] Learned: mkdir -p creates parent directories automatically
+[2026-01-26 09:06:00] Created complex nested structure with mkdir -p
+[2026-01-26 09:06:15] File operations session completed successfully

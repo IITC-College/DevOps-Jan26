@@ -1,0 +1,53 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 2
+================================================================================
+
+Great job fixing the mistake!
+
+Now let's learn that mv can also rename files.
+
+EXERCISE:
+---------
+Practice renaming files with mv.
+
+INSTRUCTIONS:
+-------------
+1. Create a file with a long name:
+   Run: touch linux_lab/scripts/my_very_long_script_name.sh
+
+2. List the file:
+   Run: ls linux_lab/scripts/
+
+3. Rename it to something shorter:
+   Run: mv linux_lab/scripts/my_very_long_script_name.sh linux_lab/scripts/short.sh
+
+4. Verify the rename:
+   Run: ls linux_lab/scripts/
+
+5. Create another file:
+   Run: touch linux_lab/docs/old_name.txt
+
+6. Rename it:
+   Run: mv linux_lab/docs/old_name.txt linux_lab/docs/new_name.txt
+
+7. Verify:
+   Run: ls linux_lab/docs/
+
+COMMANDS TO USE:
+----------------
+- mv <old_name> <new_name> (rename file)
+- ls (list files)
+
+WHAT TO LEARN:
+--------------
+- mv can move files between directories
+- mv can also rename files (when source and destination are in same directory)
+- mv is both "move" and "rename" - it's the same command!
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What are the two uses of mv?
+- How is mv different from cp when renaming?
+
+Next: clue3.txt

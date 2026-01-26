@@ -1,0 +1,8 @@
+This is an example file for practice.
+
+You can use this file to practice:
+- cp (copy this file)
+- mv (move or rename this file)
+- rm (delete this file - but be careful!)
+
+Practice makes perfect!

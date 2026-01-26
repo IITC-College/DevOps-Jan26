@@ -1,0 +1,63 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 2
+================================================================================
+
+Great job! You've learned about file deletion.
+
+Now let's practice more with rm and learn about rmdir.
+
+EXERCISE:
+---------
+Practice deleting files and empty directories.
+
+INSTRUCTIONS:
+-------------
+1. Create several files in different directories:
+   Run: touch linux_lab/docs/file1.txt
+   Run: touch linux_lab/docs/file2.txt
+   Run: touch linux_lab/scripts/script1.sh
+   Run: touch linux_lab/logs/log1.txt
+
+2. List what you created:
+   Run: ls linux_lab/docs/
+   Run: ls linux_lab/scripts/
+   Run: ls linux_lab/logs/
+
+3. Delete one file:
+   Run: rm linux_lab/docs/file1.txt
+   Run: ls linux_lab/docs/
+
+4. Try to delete a directory that contains files:
+   Run: rmdir linux_lab/docs
+   
+   What error do you get?
+
+5. Delete all files in docs first:
+   Run: rm linux_lab/docs/file2.txt
+   Run: rm linux_lab/docs/notes.txt
+
+6. Now try to delete the empty directory:
+   Run: rmdir linux_lab/docs
+
+7. Verify it's gone:
+   Run: ls linux_lab/
+
+COMMANDS TO USE:
+----------------
+- rm <file> (delete file)
+- rmdir <directory> (delete empty directory)
+- ls (list files)
+
+WHAT TO LEARN:
+--------------
+- rmdir only works on EMPTY directories
+- If a directory has files, you must delete the files first
+- Or use: rm -r <directory> (but be careful!)
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- What error did you get when trying to rmdir a non-empty directory?
+- What does this teach you about rmdir?
+
+Next: clue3.txt

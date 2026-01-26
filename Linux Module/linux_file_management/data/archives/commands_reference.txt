@@ -1,0 +1,113 @@
+================================================================================
+                    FILE MANAGEMENT COMMANDS REFERENCE
+================================================================================
+
+Quick reference guide for file and directory management commands.
+
+================================================================================
+                            DIRECTORY COMMANDS
+================================================================================
+
+mkdir <directory>
+-----------------
+Creates a single directory.
+Requires parent directory to exist.
+
+Example:
+  mkdir mydir
+
+Error if parent doesn't exist:
+  mkdir parent/child  (fails if 'parent' doesn't exist)
+
+
+mkdir -p <path>
+---------------
+Creates directory and all parent directories as needed.
+The -p flag stands for "parents".
+
+Example:
+  mkdir -p projects/app1/src  (creates all three levels)
+
+
+rmdir <directory>
+-----------------
+Removes an EMPTY directory only.
+Fails if directory contains files.
+
+Example:
+  rmdir emptydir
+
+================================================================================
+                            FILE COMMANDS
+================================================================================
+
+touch <file>
+------------
+Creates an empty file, or updates timestamp if file exists.
+
+Example:
+  touch myfile.txt
+
+
+cp <source> <destination>
+-------------------------
+Copies a file. Original file remains unchanged.
+
+Example:
+  cp file1.txt file2.txt
+  cp script.sh backups/
+
+
+mv <source> <destination>
+-------------------------
+Moves a file (or renames if in same directory).
+Original file is removed from source location.
+
+Examples:
+  mv oldname.txt newname.txt  (rename)
+  mv file.txt otherdir/       (move)
+
+
+rm <file>
+---------
+Deletes a file immediately. NO confirmation prompt.
+Use with caution!
+
+Example:
+  rm unwanted.txt
+
+Warning: rm does NOT ask for confirmation by default.
+         Files deleted with rm cannot be easily recovered.
+
+================================================================================
+                            COMMON MISTAKES
+================================================================================
+
+1. Using mkdir without -p for nested paths
+   Wrong: mkdir a/b/c  (fails if a/b doesn't exist)
+   Right: mkdir -p a/b/c
+
+2. Using rmdir on non-empty directory
+   Wrong: rmdir mydir  (fails if mydir has files)
+   Right: Delete files first, then rmdir
+
+3. Confusing cp and mv
+   cp: Creates copy, original remains
+   mv: Moves file, original is removed
+
+4. Expecting confirmation from rm
+   rm does NOT ask "Are you sure?" by default
+   Always double-check before using rm
+
+================================================================================
+                            BEST PRACTICES
+================================================================================
+
+- Always use mkdir -p when creating nested structures
+- Use cp when you want to keep the original
+- Use mv when you want to move or rename
+- Be very careful with rm - no undo!
+- Read error messages - they tell you what's wrong
+- Use ls to verify before and after operations
+
+================================================================================

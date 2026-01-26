@@ -1,0 +1,65 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 1
+================================================================================
+
+Welcome to Level 2!
+
+Now let's practice moving files - and making mistakes on purpose!
+
+EXERCISE 2 - Move a File to the Wrong Location, Then Fix It:
+-------------------------------------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Make sure you're in your home directory:
+   Run: cd ~
+   Run: pwd
+
+2. Make sure your linux_lab structure exists:
+   Run: ls linux_lab/
+
+3. Create a file in the scripts directory:
+   Run: touch linux_lab/scripts/run.sh
+
+4. Verify the file was created:
+   Run: ls linux_lab/scripts/
+
+5. Move the file to the WRONG directory (docs):
+   Run: mv linux_lab/scripts/run.sh linux_lab/docs/
+
+6. Verify the mistake using ls:
+   Run: ls linux_lab/scripts/
+   Run: ls linux_lab/docs/
+
+   Where is the file now?
+
+7. Fix the mistake by moving the file back to scripts:
+   Run: mv linux_lab/docs/run.sh linux_lab/scripts/
+
+8. Verify it's back in the right place:
+   Run: ls linux_lab/scripts/
+   Run: ls linux_lab/docs/
+
+COMMANDS TO USE:
+----------------
+- mv <source> <destination> (move file)
+- ls (list files to verify)
+
+WHAT TO OBSERVE:
+----------------
+- What happened to the file in the original location?
+- Did mv create a copy or move the file?
+- How easy was it to fix the mistake?
+
+WRITE YOUR ANSWER:
+------------------
+After completing the steps above, write in my_answers.txt:
+
+1. Where was the file moved incorrectly? (docs directory)
+2. How did you fix it? (moved it back with mv)
+
+Add your answers to my_answers.txt.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: mv moves the file (doesn't keep a copy), unlike cp.

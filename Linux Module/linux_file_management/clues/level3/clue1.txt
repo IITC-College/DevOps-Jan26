@@ -1,0 +1,74 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 1
+================================================================================
+
+Welcome to Level 3!
+
+Now let's learn the crucial difference between mkdir and mkdir -p.
+
+EXERCISE 3 - mkdir vs mkdir -p:
+--------------------------------
+
+INSTRUCTIONS:
+-------------
+1. Make sure you're in your home directory:
+   Run: cd ~
+   Run: pwd
+
+2. Try to create this path using mkdir:
+   Run: mkdir linux_lab/projects/app1
+
+3. Observe the error message.
+   What does it say?
+
+4. Check if the projects directory exists:
+   Run: ls linux_lab/
+
+5. Create the projects directory first:
+   Run: mkdir linux_lab/projects
+
+6. Now try again:
+   Run: mkdir linux_lab/projects/app1
+
+7. Verify it worked:
+   Run: ls linux_lab/projects/
+
+8. Remove what you created:
+   Run: rmdir linux_lab/projects/app1
+   Run: rmdir linux_lab/projects
+
+9. Now create the same path using mkdir -p:
+   Run: mkdir -p linux_lab/projects/app1
+
+10. Verify it worked:
+    Run: ls -R linux_lab/projects/
+
+COMMANDS TO USE:
+----------------
+- mkdir <directory> (create single directory)
+- mkdir -p <path> (create nested directories)
+- ls -R (list recursively)
+- rmdir (remove empty directory)
+
+WHAT TO OBSERVE:
+----------------
+- What error did you get with mkdir?
+- Why did mkdir fail?
+- Why did mkdir -p succeed?
+- What does the -p flag do?
+
+WRITE YOUR ANSWER:
+------------------
+After completing the steps above, write in my_answers.txt:
+
+1. Why did the first command (mkdir) fail?
+   (Because the parent directory 'projects' didn't exist)
+
+2. Why did the second command (mkdir -p) succeed?
+   (Because -p creates parent directories automatically)
+
+Add your answers to my_answers.txt.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: The -p flag stands for "parents" - it creates parent directories as needed.

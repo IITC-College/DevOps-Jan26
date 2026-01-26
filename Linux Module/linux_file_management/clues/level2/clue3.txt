@@ -1,0 +1,60 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 3
+================================================================================
+
+Excellent! You're mastering mv.
+
+Now let's combine cp and mv in a practical exercise.
+
+EXERCISE:
+---------
+Practice combining copy and move operations.
+
+INSTRUCTIONS:
+-------------
+1. Create a source file with content:
+   Run: echo "Version 1.0" > linux_lab/scripts/app.sh
+
+2. Copy it to docs as backup:
+   Run: cp linux_lab/scripts/app.sh linux_lab/docs/app_backup.sh
+
+3. Modify the original:
+   Run: echo "Version 2.0" > linux_lab/scripts/app.sh
+
+4. Compare original and backup:
+   Run: cat linux_lab/scripts/app.sh
+   Run: cat linux_lab/docs/app_backup.sh
+
+5. Move the backup to logs directory:
+   Run: mv linux_lab/docs/app_backup.sh linux_lab/logs/app_backup.sh
+
+6. Verify the move:
+   Run: ls linux_lab/docs/
+   Run: ls linux_lab/logs/
+
+7. Rename the backup:
+   Run: mv linux_lab/logs/app_backup.sh linux_lab/logs/app_v1.sh
+
+8. Verify:
+   Run: ls linux_lab/logs/
+
+COMMANDS TO USE:
+----------------
+- cp (copy - keeps original)
+- mv (move - removes from source)
+- cat (view file contents)
+
+WHAT TO PRACTICE:
+-----------------
+- When to use cp (keep original)
+- When to use mv (move/rename)
+- Combining operations
+
+WRITE YOUR ANSWER:
+------------------
+In my_answers.txt, write:
+- When would you use cp instead of mv?
+- When would you use mv instead of cp?
+
+CONGRATULATIONS! You've completed Level 2!
+Now advance to Level 3: cd ../level3

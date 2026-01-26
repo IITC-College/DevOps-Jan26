@@ -1,0 +1,364 @@
+================================================================================
+                    LAB SOLUTIONS - INSTRUCTOR COPY
+================================================================================
+
+This file contains all answers to the Linux File Management lab.
+Keep this file secure and do not share with students.
+
+================================================================================
+                            LEVEL 1 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Setup + Delete the Wrong File
+------------------------------------------
+Setup Commands:
+1. cd ~
+2. mkdir linux_lab
+3. mkdir linux_lab/docs
+4. mkdir linux_lab/scripts
+5. mkdir linux_lab/logs
+
+Exercise 1 Commands:
+1. touch linux_lab/docs/notes.txt
+2. ls linux_lab/docs/  (verify creation)
+3. rm linux_lab/docs/notes.txt
+4. ls linux_lab/docs/  (verify deletion)
+5. touch linux_lab/docs/notes.txt  (recreate)
+
+Answers:
+1. Why was the file deleted immediately?
+   The file was deleted immediately because rm (remove) command in Linux
+   does not ask for confirmation by default. Unlike GUI file managers
+   that show a "Are you sure?" dialog, rm executes immediately.
+
+2. What warning did Linux NOT give you?
+   Linux did NOT give a confirmation prompt or warning message asking
+   "Are you sure you want to delete this file?" The deletion happened
+   instantly without any interactive confirmation.
+
+Key Learning: rm is immediate and silent by default. Always double-check
+the file path before running rm. Use rm -i for interactive mode.
+
+EXERCISE 2 - rmdir Practice
+---------------------------
+Commands:
+1. touch linux_lab/docs/file1.txt
+2. touch linux_lab/docs/file2.txt
+3. touch linux_lab/scripts/script1.sh
+4. touch linux_lab/logs/log1.txt
+5. rm linux_lab/docs/file1.txt
+6. rmdir linux_lab/docs  (will fail - directory not empty)
+7. rm linux_lab/docs/file2.txt
+8. rm linux_lab/docs/notes.txt
+9. rmdir linux_lab/docs  (will succeed - directory is now empty)
+
+Answers:
+- Error when trying to rmdir non-empty directory:
+  "rmdir: failed to remove 'linux_lab/docs': Directory not empty"
+
+- What this teaches about rmdir:
+  rmdir only works on EMPTY directories. If a directory contains any files
+  or subdirectories, rmdir will fail. You must delete all contents first,
+  or use rm -r (recursive delete) instead.
+
+Key Learning: rmdir is safe because it only removes empty directories.
+This prevents accidental deletion of directories with content.
+
+EXERCISE 3 - cp Command
+-----------------------
+Commands:
+1. mkdir linux_lab/docs
+2. touch linux_lab/scripts/run.sh
+3. cp linux_lab/scripts/run.sh linux_lab/docs/
+4. echo "#!/bin/bash" > linux_lab/scripts/config.sh
+5. echo "echo Hello" >> linux_lab/scripts/config.sh
+6. cp linux_lab/scripts/config.sh linux_lab/logs/
+7. cat linux_lab/scripts/config.sh
+8. cat linux_lab/logs/config.sh
+9. echo "echo World" >> linux_lab/scripts/config.sh
+10. cat linux_lab/scripts/config.sh
+11. cat linux_lab/logs/config.sh
+
+Answers:
+- Difference between cp and rm:
+  cp creates a COPY of the file, leaving the original intact.
+  rm DELETES the file permanently.
+
+- After modifying original, did copy change?
+  No, the copy did NOT change. After copying, the original and copy are
+  independent. Changes to one do not affect the other.
+
+Key Learning: cp creates independent copies. The original and copy are
+separate files after copying.
+
+================================================================================
+                            LEVEL 2 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Move to Wrong Location, Then Fix
+----------------------------------------------
+Commands:
+1. cd ~
+2. touch linux_lab/scripts/run.sh
+3. ls linux_lab/scripts/  (verify)
+4. mv linux_lab/scripts/run.sh linux_lab/docs/  (move to wrong place)
+5. ls linux_lab/scripts/  (file gone)
+6. ls linux_lab/docs/  (file here)
+7. mv linux_lab/docs/run.sh linux_lab/scripts/  (fix mistake)
+8. ls linux_lab/scripts/  (file back)
+9. ls linux_lab/docs/  (file gone)
+
+Answers:
+1. Where was the file moved incorrectly?
+   The file was moved to the docs/ directory instead of staying in scripts/.
+
+2. How did you fix it?
+   Fixed by moving the file back: mv linux_lab/docs/run.sh linux_lab/scripts/
+
+Key Learning: mv moves the file (doesn't keep a copy). Unlike cp, the
+original location no longer has the file after mv.
+
+EXERCISE 2 - Renaming Files with mv
+------------------------------------
+Commands:
+1. touch linux_lab/scripts/my_very_long_script_name.sh
+2. ls linux_lab/scripts/
+3. mv linux_lab/scripts/my_very_long_script_name.sh linux_lab/scripts/short.sh
+4. ls linux_lab/scripts/
+5. touch linux_lab/docs/old_name.txt
+6. mv linux_lab/docs/old_name.txt linux_lab/docs/new_name.txt
+7. ls linux_lab/docs/
+
+Answers:
+- Two uses of mv:
+  1. Move files between directories
+  2. Rename files (when source and destination are in same directory)
+
+- How is mv different from cp when renaming?
+  mv renames the file (original is removed, new name appears).
+  cp would create a copy with new name (both old and new would exist).
+
+Key Learning: mv serves dual purpose - moving and renaming. It's the same
+command, Linux figures out what you want based on the paths.
+
+EXERCISE 3 - Combining cp and mv
+---------------------------------
+Commands:
+1. echo "Version 1.0" > linux_lab/scripts/app.sh
+2. cp linux_lab/scripts/app.sh linux_lab/docs/app_backup.sh
+3. echo "Version 2.0" > linux_lab/scripts/app.sh
+4. cat linux_lab/scripts/app.sh
+5. cat linux_lab/docs/app_backup.sh
+6. mv linux_lab/docs/app_backup.sh linux_lab/logs/app_backup.sh
+7. ls linux_lab/docs/
+8. ls linux_lab/logs/
+9. mv linux_lab/logs/app_backup.sh linux_lab/logs/app_v1.sh
+10. ls linux_lab/logs/
+
+Answers:
+- When to use cp instead of mv:
+  Use cp when you want to keep the original file and create a copy.
+  Example: Creating backups, duplicating files.
+
+- When to use mv instead of cp:
+  Use mv when you want to relocate a file or rename it, and don't need
+  the original location. Example: Organizing files, renaming.
+
+Key Learning: cp = keep original, mv = relocate/rename. Choose based on
+whether you need the original to remain.
+
+================================================================================
+                            LEVEL 3 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - mkdir vs mkdir -p
+-------------------------------
+Commands:
+1. cd ~
+2. mkdir linux_lab/projects/app1  (will fail)
+3. Error: "mkdir: cannot create directory 'linux_lab/projects/app1': 
+          No such file or directory"
+4. ls linux_lab/  (projects doesn't exist)
+5. mkdir linux_lab/projects
+6. mkdir linux_lab/projects/app1  (will succeed)
+7. ls linux_lab/projects/
+8. rmdir linux_lab/projects/app1
+9. rmdir linux_lab/projects
+10. mkdir -p linux_lab/projects/app1  (succeeds in one command)
+11. ls -R linux_lab/projects/
+
+Answers:
+1. Why did the first command (mkdir) fail?
+   The first command failed because the parent directory 'projects' did
+   not exist. mkdir can only create one directory at a time, and requires
+   all parent directories to already exist.
+
+2. Why did the second command (mkdir -p) succeed?
+   The second command succeeded because the -p flag tells mkdir to create
+   all parent directories automatically. So it created both 'projects' and
+   'app1' in a single command.
+
+Key Learning: mkdir -p is essential for creating nested directory structures.
+The -p flag stands for "parents" and creates parent directories as needed.
+
+EXERCISE 2 - Complex Directory Structures
+------------------------------------------
+Commands:
+1. mkdir -p linux_lab/projects/app1/src
+2. mkdir -p linux_lab/projects/app1/docs
+3. mkdir -p linux_lab/projects/app2/tests
+4. ls -R linux_lab/projects/
+5. mkdir -p linux_lab/deep/nested/directory/structure/here
+6. ls -R linux_lab/deep/
+7. touch linux_lab/projects/app1/src/main.sh
+8. touch linux_lab/projects/app1/docs/README.txt
+9. touch linux_lab/deep/nested/directory/structure/here/file.txt
+10. find linux_lab -type f
+
+Answers:
+- How many directory levels in "deep" structure?
+  5 levels: deep -> nested -> directory -> structure -> here
+
+- Why is mkdir -p so useful?
+  mkdir -p is useful because it allows creating complex nested directory
+  structures in a single command, without needing to create each level
+  separately. It's safer and more convenient than regular mkdir.
+
+Key Learning: mkdir -p is the standard way to create directory structures.
+Always use -p unless you're absolutely sure all parent directories exist.
+
+EXERCISE 3 - Final Challenge
+-----------------------------
+Commands (comprehensive example):
+1. rm -r linux_lab  (optional - start fresh)
+2. mkdir -p linux_lab/project/src
+3. mkdir -p linux_lab/project/docs
+4. mkdir -p linux_lab/project/tests
+5. mkdir -p linux_lab/backups
+6. touch linux_lab/project/src/main.sh
+7. touch linux_lab/project/src/utils.sh
+8. touch linux_lab/project/docs/README.txt
+9. cp linux_lab/project/src/main.sh linux_lab/backups/
+10. cp linux_lab/project/src/utils.sh linux_lab/backups/
+11. mv linux_lab/project/docs/README.txt linux_lab/project/src/  (wrong place)
+12. mv linux_lab/project/src/README.txt linux_lab/project/docs/  (fix)
+13. mv linux_lab/project/src/utils.sh linux_lab/project/src/utilities.sh
+14. rm linux_lab/backups/utils.sh
+15. find linux_lab -type f
+16. ls -R linux_lab/
+
+Final Answers:
+1. Main difference between mkdir and mkdir -p:
+   mkdir creates a single directory and requires parent to exist.
+   mkdir -p creates nested directories and creates parents automatically.
+
+2. Difference between cp and mv:
+   cp creates a copy (original remains).
+   mv moves/renames the file (original is removed from source).
+
+3. Warning Linux does NOT give with rm:
+   Linux does NOT ask "Are you sure?" or give any confirmation prompt.
+   The file is deleted immediately and silently.
+
+4. What you learned:
+   (Student's personal reflection - various valid answers about file
+   management, command differences, error handling, etc.)
+
+================================================================================
+                        COMPLETE ANSWERS SUMMARY
+================================================================================
+
+LEVEL 1:
+--------
+1. Exercise 1: File deleted immediately because rm doesn't ask for confirmation
+2. Exercise 1: Linux did NOT give a warning/confirmation prompt
+3. Exercise 2: rmdir only works on empty directories
+4. Exercise 3: cp creates copies, original and copy are independent
+
+LEVEL 2:
+--------
+1. Exercise 1: File moved to docs/, fixed by moving back to scripts/
+2. Exercise 2: mv can both move and rename files
+3. Exercise 3: Use cp to keep original, use mv to relocate/rename
+
+LEVEL 3:
+--------
+1. Exercise 1: mkdir failed because parent didn't exist, mkdir -p succeeded
+2. Exercise 2: mkdir -p creates nested structures in one command
+3. Exercise 3: Comprehensive file management practice
+
+================================================================================
+                        COMMANDS STUDENTS SHOULD USE
+================================================================================
+
+Directory Management:
+- mkdir <directory> (create single directory)
+- mkdir -p <path> (create nested directories)
+- rmdir <directory> (remove empty directory)
+
+File Creation:
+- touch <file> (create empty file)
+
+File Operations:
+- cp <source> <destination> (copy file)
+- mv <source> <destination> (move/rename file)
+- rm <file> (delete file)
+
+Verification:
+- ls (list files)
+- ls -R (list recursively)
+- find <directory> -type f (find all files)
+
+================================================================================
+                        GRADING RUBRIC (SUGGESTION)
+================================================================================
+
+Level 1 - Basic Operations (30 points)
+- Exercise 1: Setup and rm understanding (10 points)
+- Exercise 2: rmdir understanding (10 points)
+- Exercise 3: cp understanding (10 points)
+
+Level 2 - Moving and Renaming (30 points)
+- Exercise 1: mv to wrong place and fix (10 points)
+- Exercise 2: Renaming with mv (10 points)
+- Exercise 3: Combining cp and mv (10 points)
+
+Level 3 - Advanced Directory Management (30 points)
+- Exercise 1: mkdir vs mkdir -p (10 points)
+- Exercise 2: Complex structures (10 points)
+- Exercise 3: Complete challenge (10 points)
+
+Documentation (10 points)
+- Created my_answers.txt
+- Provided clear, complete answers
+- Showed understanding of concepts
+
+TOTAL: 100 points
+
+================================================================================
+                            NOTES FOR INSTRUCTOR
+================================================================================
+
+Common Student Mistakes:
+1. Forgetting to use mkdir -p for nested paths
+2. Expecting confirmation from rm
+3. Confusing cp and mv
+4. Trying to rmdir non-empty directories
+5. Not reading error messages
+
+Tips for Helping Students:
+- Emphasize that rm is immediate - no undo
+- Show them mkdir -p is always safer
+- Clarify cp vs mv difference clearly
+- Encourage reading error messages
+- Practice on test files first
+
+Typical Completion Time:
+- Fast students: 45-60 minutes
+- Average students: 75-90 minutes
+- Struggling students: 90-120 minutes
+
+This lab reinforces file management skills and should be achievable for
+all students who understand basic Linux commands.
+
+================================================================================

@@ -1,0 +1,84 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 1
+================================================================================
+
+Welcome to Level 1!
+
+Your first task: Set up your lab structure and practice deleting files.
+
+SETUP (Guided - Do This First):
+---------------------------------
+From your home directory (~), build the following structure:
+
+```
+linux_lab/
+├── docs/
+├── scripts/
+├── logs/
+```
+
+INSTRUCTIONS:
+-------------
+1. Make sure you're in your home directory:
+   Run: cd ~
+   Run: pwd
+
+2. Create the main directory:
+   Run: mkdir linux_lab
+
+3. Create the subdirectories:
+   Run: mkdir linux_lab/docs
+   Run: mkdir linux_lab/scripts
+   Run: mkdir linux_lab/logs
+
+4. Verify the structure:
+   Run: ls -la linux_lab/
+
+You should see three directories: docs, scripts, and logs.
+
+EXERCISE 1 - Delete the Wrong File (On Purpose):
+-------------------------------------------------
+Now let's practice with file deletion.
+
+1. Inside linux_lab/docs, create a file named notes.txt:
+   Run: touch linux_lab/docs/notes.txt
+
+2. Verify the file was created:
+   Run: ls linux_lab/docs/
+
+3. Delete the file:
+   Run: rm linux_lab/docs/notes.txt
+
+4. Verify it's gone:
+   Run: ls linux_lab/docs/
+
+5. Recreate the same file again:
+   Run: touch linux_lab/docs/notes.txt
+
+COMMANDS TO USE:
+----------------
+- mkdir <directory> (create directory)
+- touch <file> (create empty file)
+- rm <file> (delete file)
+- ls (list files)
+
+WHAT TO OBSERVE:
+----------------
+- What happened when you ran rm?
+- Did Linux ask for confirmation?
+- Did Linux warn you?
+- How quickly did the file disappear?
+
+WRITE YOUR ANSWER:
+------------------
+After completing the steps above, write in my_answers.txt (create it in the 
+lab directory: linux_file_management/my_answers.txt):
+
+1. Why was the file deleted immediately?
+2. What warning did Linux NOT give you?
+
+Add your answers to my_answers.txt.
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: Think about what happens when you delete a file in a GUI vs command line.

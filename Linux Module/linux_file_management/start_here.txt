@@ -1,0 +1,74 @@
+================================================================================
+    WELCOME TO THE LINUX FILE MANAGEMENT LAB!
+================================================================================
+
+Hello, Linux Explorer!
+
+This lab is designed to help you practice file and directory management
+commands in Linux. You will create directories, create files, move them,
+copy them, and delete them - all using the command line.
+
+IMPORTANT: Unlike other labs, in this lab YOU will create the directory
+structure yourself. Follow the instructions carefully!
+
+================================================================================
+    YOUR FIRST TASK
+================================================================================
+
+1. Check where you are right now:
+   Run: pwd
+
+2. Make sure you're in your home directory:
+   Run: cd ~
+
+3. Navigate to the lab directory:
+   Run: cd linux_file_management
+
+4. Read the first exercise:
+   Run: cat clues/level1/clue1.txt
+
+================================================================================
+    HOW THIS LAB WORKS
+================================================================================
+
+- Each level contains exercises that build on previous skills
+- You'll create your own directory structure (linux_lab/) in your home directory
+- Some exercises will intentionally create errors so you can learn from them
+- Pay attention to what Linux tells you - error messages are helpful!
+
+================================================================================
+    ALLOWED COMMANDS
+================================================================================
+
+In this lab, you may only use these commands:
+
+- mkdir
+- mkdir -p
+- touch
+- cp
+- mv
+- rm
+- rmdir
+
+Plus navigation commands: cd, ls, pwd
+
+================================================================================
+    IMPORTANT REMINDERS
+================================================================================
+
+* Work in your home directory (~) - it's safe there
+* Read error messages carefully - they help you understand what went wrong
+* Don't use GUI tools - use only the command line
+* Don't use sudo - not needed for this lab
+* Take notes as you progress through the exercises
+* Mistakes are learning opportunities!
+
+================================================================================
+    READY? LET'S BEGIN!
+================================================================================
+
+Your first destination: clues/level1/clue1.txt
+
+Navigate there and read the file to begin your practice!
+
+Good luck!
