@@ -78,9 +78,16 @@ Labs are numbered in the order they should be completed, following the course st
   - **Duration**: 60-75 minutes
   - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
 
-- **Lab 8**: Understanding sudo - When and Why
+- **Lab 8**: Ownership and Groups
   - **Version**: v2.7
-  - **Lab ID**: `linux_lab8_sudo_mindset`
+  - **Lab ID**: `linux_lab8_ownership_and_groups`
+  - **Focus**: Understanding ownership and groups - chown and group permissions
+  - **Duration**: 60-75 minutes
+  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+
+- **Lab 9**: Understanding sudo - When and Why
+  - **Version**: v2.8
+  - **Lab ID**: `linux_lab9_sudo_mindset`
   - **Focus**: Understanding sudo - When to use it, when not to, and understanding audit logging
   - **Duration**: 60-75 minutes
   - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
@@ -254,7 +261,7 @@ Every lab must meet these criteria:
 
 | Module | Labs | Total Files | Total Size |
 |--------|------|-------------|------------|
-| Linux  | 8    | 135+        | ~85KB      |
+| Linux  | 9    | 160+        | ~100KB     |
 | Docker | -    | -           | -          |
 | K8s    | -    | -           | -          |
 
