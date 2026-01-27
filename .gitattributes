@@ -1,0 +1,29 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Shell scripts should always use LF
+*.sh text eol=lf
+
+# Batch files should use CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# PowerShell scripts should use CRLF
+*.ps1 text eol=crlf
+
+# Text files
+*.txt text
+*.md text
+*.json text
+*.yml text
+*.yaml text
+
+# Source code files
+*.py text
+*.js text
+*.ts text
+*.java text
+*.c text
+*.cpp text
+*.h text
+*.hpp text
