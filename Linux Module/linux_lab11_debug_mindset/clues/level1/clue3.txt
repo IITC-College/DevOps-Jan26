@@ -1,0 +1,90 @@
+================================================================================
+                    LEVEL 1 - EXERCISE 3
+                    Can't Create File in Directory
+================================================================================
+
+TASK: Debug why you can't create a file in a directory
+
+You're trying to create a new file in a directory, but the command fails.
+Use the 4-step debug methodology to solve this problem.
+
+================================================================================
+    THE SCENARIO
+================================================================================
+
+Navigate to the broken scenario:
+  cd ../../broken_scenarios/scenario3_cant_write
+
+Try to create a file:
+  touch newfile.txt
+
+You'll get an error. DON'T just try random commands! Follow the 4 steps.
+
+================================================================================
+    YOUR MISSION
+================================================================================
+
+Apply the 4-Step Debug Methodology:
+
+STEP 1: OBSERVE
+- What is the exact error message?
+- What command failed?
+- What were you trying to do?
+
+STEP 2: INSPECT
+- Check where you are: pwd
+- Check directory permissions: ls -ld .
+- Check directory contents: ls -la
+- Check your user: whoami
+- Check if directory exists: ls -ld .
+
+STEP 3: DIAGNOSE
+- Based on your inspection, what's the root cause?
+- What permission is needed to CREATE a file in a directory?
+- Is it a directory permission problem?
+- Is it an ownership problem?
+- What exactly is preventing you from creating the file?
+
+STEP 4: RESOLVE
+- Apply the correct fix based on your diagnosis
+- Fix the root cause, not just work around it
+- Verify your fix worked: try creating the file again
+
+================================================================================
+    QUESTIONS TO ANSWER
+================================================================================
+
+After solving the problem, answer these in your notes:
+
+1. What error message did you OBSERVE?
+2. What did you see when you INSPECTED (ls -ld output)?
+3. What did you DIAGNOSE as the root cause?
+4. How did you RESOLVE it (what command did you use)?
+5. Did your fix work? How did you verify?
+
+================================================================================
+    HINTS
+================================================================================
+
+- Remember: Follow the 4 steps in order
+- Don't skip INSPECT - gather evidence first
+- The directory exists, so it's not a path problem
+- Think about what permissions are needed to WRITE to a directory
+- Note: Creating a file requires write permission on the DIRECTORY,
+  not on the file (which doesn't exist yet)
+
+================================================================================
+    NEXT STEP
+================================================================================
+
+Once you've solved this exercise and documented your 4-step process,
+you've completed Level 1! 
+
+Navigate to Level 2:
+  cd ../../clues/level2
+
+Read clue1.txt to begin Level 2 exercises.
+
+Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+
+================================================================================

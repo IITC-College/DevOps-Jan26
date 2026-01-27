@@ -1,0 +1,91 @@
+================================================================================
+                    LEVEL 3 - EXERCISE 1
+                    Chain of Issues
+================================================================================
+
+TASK: Debug multiple problems in sequence
+
+This scenario has MULTIPLE problems. You must debug each one separately
+using the 4-step methodology. Don't jump to conclusions - solve them
+one at a time!
+
+================================================================================
+    THE SCENARIO
+================================================================================
+
+Navigate to the broken scenario:
+  cd ../../broken_scenarios/scenario6_mixed_issues
+
+You need to run a script called "run_backup.sh" that should create a
+backup file. Try to run it:
+  ./run_backup.sh
+
+You'll encounter problems. DON'T just try random commands! Follow the
+4 steps for EACH problem you encounter.
+
+================================================================================
+    YOUR MISSION
+================================================================================
+
+Apply the 4-Step Debug Methodology to EACH problem you encounter:
+
+STEP 1: OBSERVE (for each problem)
+- What is the exact error message?
+- What command failed?
+- What were you trying to do?
+
+STEP 2: INSPECT (for each problem)
+- Check where you are: pwd
+- Check file permissions: ls -l
+- Check file ownership: ls -l
+- Check your user: whoami
+- Check what files exist: ls -la
+
+STEP 3: DIAGNOSE (for each problem)
+- Based on your inspection, what's the root cause?
+- Is it permissions? ownership? path? something else?
+- What exactly is preventing the operation?
+
+STEP 4: RESOLVE (for each problem)
+- Apply the correct fix based on your diagnosis
+- Fix the root cause, not just work around it
+- Verify your fix worked
+
+IMPORTANT: After fixing one problem, you may encounter another. Apply
+the 4-step process to EACH new problem separately!
+
+================================================================================
+    QUESTIONS TO ANSWER
+================================================================================
+
+After solving all problems, answer these in your notes:
+
+1. How many problems did you encounter? List them.
+2. For EACH problem:
+   a. What did you OBSERVE?
+   b. What did you INSPECT?
+   c. What did you DIAGNOSE?
+   d. How did you RESOLVE it?
+3. Why is it important to solve problems one at a time?
+4. Did your final fix work? How did you verify?
+
+================================================================================
+    HINTS
+================================================================================
+
+- Remember: Follow the 4 steps for EACH problem
+- Don't try to fix everything at once
+- Solve problem 1, then see what problem 2 is
+- Each problem might be different: permissions, ownership, path, etc.
+- Be systematic - one problem at a time!
+
+================================================================================
+    NEXT STEP
+================================================================================
+
+Once you've solved all problems in this exercise and documented your
+4-step process for each, proceed to clue2.txt
+
+Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE (for each problem!)
+
+================================================================================

@@ -1,0 +1,721 @@
+================================================================================
+                    LAB SOLUTIONS - INSTRUCTOR COPY
+================================================================================
+
+This file contains all answers to the Debug Mindset: 4-Step Debug Flow Lab.
+Keep this file secure and do not share with students.
+
+================================================================================
+                            LEVEL 1 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Permission Denied on File Read
+-------------------------------------------------------
+Location: broken_scenarios/scenario1_read_failure/
+File: secret.txt
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "cat: secret.txt: Permission denied"
+- Command that failed: cat secret.txt
+- Symptom: Cannot read the file despite it existing
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario1_read_failure
+  pwd
+  ls -l secret.txt
+  whoami
+
+Expected output:
+  -rw------- 1 user user 456 Jan 27 10:00 secret.txt
+  (or similar - file has permissions 000 or very restrictive)
+
+Evidence gathered:
+- File exists (not a path problem)
+- Permissions are 000 (no read, write, or execute for anyone)
+- File is owned by current user (not an ownership problem)
+- Current user matches file owner
+
+STEP 3: DIAGNOSE
+Root cause: File has no read permission (000). Even though the user owns
+the file, the restrictive permissions (000) prevent reading.
+
+Diagnosis: Missing read (r) permission for the owner.
+
+STEP 4: RESOLVE
+Fix command:
+  chmod 400 secret.txt
+  OR
+  chmod u+r secret.txt
+
+Verification:
+  cat secret.txt
+  (should now display file contents)
+
+Expected file contents after fix:
+  "Congratulations! You successfully debugged the permission problem!"
+
+Key Learning: Even if you own a file, you need read permission to read it.
+Permissions override ownership in terms of access control.
+
+================================================================================
+
+EXERCISE 2 - Script Won't Execute
+-------------------------------------------------------
+Location: broken_scenarios/scenario2_script_broken/
+File: deploy.sh
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "bash: ./deploy.sh: Permission denied"
+  OR
+  "Permission denied"
+- Command that failed: ./deploy.sh
+- Symptom: Script exists but won't execute
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario2_script_broken
+  pwd
+  ls -l deploy.sh
+  file deploy.sh
+  whoami
+
+Expected output:
+  -rw-r--r-- 1 user user 234 Jan 27 10:00 deploy.sh
+  (or similar - file has NO execute permission)
+
+Evidence gathered:
+- File exists (not a path problem)
+- File is a bash script (file deploy.sh shows "Bourne-Again shell script")
+- Permissions are -rw-r--r-- (read and write for owner, read for others)
+- Missing execute (x) permission
+- File is owned by current user (not an ownership problem)
+
+STEP 3: DIAGNOSE
+Root cause: File is missing execute (x) permission. In Linux, files need
+execute permission to be run as programs/scripts.
+
+Diagnosis: Missing execute permission for the owner (and possibly others).
+
+STEP 4: RESOLVE
+Fix command:
+  chmod +x deploy.sh
+  OR
+  chmod 755 deploy.sh
+  OR
+  chmod u+x deploy.sh
+
+Verification:
+  ./deploy.sh
+  (should now execute and display output)
+
+Expected output after fix:
+  "Congratulations! You successfully debugged the execute permission problem!"
+
+Key Learning: Scripts and executables need execute (x) permission to run.
+The x permission is separate from read (r) and write (w) permissions.
+
+================================================================================
+
+EXERCISE 3 - Can't Create File in Directory
+-------------------------------------------------------
+Location: broken_scenarios/scenario3_cant_write/
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "touch: cannot touch 'newfile.txt': Permission denied"
+- Command that failed: touch newfile.txt
+- Symptom: Cannot create new file in directory
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario3_cant_write
+  pwd
+  ls -ld .
+  ls -la
+  whoami
+
+Expected output:
+  dr-xr-xr-x 2 user user 4096 Jan 27 10:00 .
+  (or similar - directory has 555 permissions, missing write permission)
+
+Evidence gathered:
+- Directory exists (not a path problem)
+- Directory permissions are 555 (r-xr-xr-x) - read and execute, NO write
+- Current user owns the directory (not an ownership problem)
+- Directory is missing write (w) permission
+
+STEP 3: DIAGNOSE
+Root cause: Directory is missing write (w) permission. To create a file in
+a directory, you need write permission on the DIRECTORY itself, not on the
+file (which doesn't exist yet).
+
+Diagnosis: Missing write permission on the directory.
+
+STEP 4: RESOLVE
+Fix command:
+  chmod 755 .
+  OR
+  chmod u+w .
+  OR
+  chmod +w .
+
+Verification:
+  touch newfile.txt
+  ls -l newfile.txt
+  (should now successfully create the file)
+
+Key Learning: Creating files requires write permission on the DIRECTORY,
+not on the file (which doesn't exist yet). Directory write permission
+allows creating, deleting, and renaming files within that directory.
+
+================================================================================
+                            LEVEL 2 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Ownership Mismatch
+-------------------------------------------------------
+Location: broken_scenarios/scenario4_ownership_mess/
+File: important.txt
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "cat: important.txt: Permission denied"
+- Command that failed: cat important.txt
+- Symptom: Cannot read file despite seeing permissions that look readable
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario4_ownership_mess
+  pwd
+  ls -l important.txt
+  whoami
+  id
+
+Expected output:
+  -rw------- 1 root root 456 Jan 27 10:00 important.txt
+  (or similar - file owned by root, restrictive permissions)
+
+Evidence gathered:
+- File exists (not a path problem)
+- File permissions are -rw------- (read/write for owner only)
+- File is owned by "root", not by current user
+- Current user is NOT root
+- File has no group or other permissions
+
+STEP 3: DIAGNOSE
+Root cause: File is owned by root (different user) and has no group or
+other permissions. Even though permissions show "rw" for owner, the current
+user is not the owner, so they cannot access it.
+
+Diagnosis: Ownership mismatch - file belongs to root, not current user, and
+has no group/other access permissions.
+
+STEP 4: RESOLVE
+Fix command:
+  sudo chown $USER:$USER important.txt
+  OR
+  sudo chown $(whoami):$(whoami) important.txt
+
+Verification:
+  ls -l important.txt
+  (should show current user as owner)
+  cat important.txt
+  (should now display file contents)
+
+Expected file contents after fix:
+  "Congratulations! You successfully debugged the ownership problem!"
+
+Key Learning: Ownership matters! Even if permissions look OK, if you're not
+the owner and there's no group/other permission, you can't access the file.
+Ownership + permissions together determine access.
+
+================================================================================
+
+EXERCISE 2 - Lost in Wrong Directory
+-------------------------------------------------------
+Location: broken_scenarios/scenario5_lost_path/
+File: instructions.txt
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "cat: instructions.txt: No such file or directory"
+- Command that failed: cat instructions.txt
+- Symptom: File doesn't appear to exist
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario5_lost_path
+  pwd
+  ls
+  ls -la
+  whoami
+
+Expected output:
+  pwd shows: /path/to/lab/broken_scenarios/scenario5_lost_path
+  ls shows: (may show .config or nothing, depending on hidden files)
+  ls -la shows: .config (hidden file), instructions.txt
+
+Evidence gathered:
+- Current directory is correct (scenario5_lost_path)
+- Regular ls doesn't show instructions.txt (or shows different files)
+- ls -la shows instructions.txt exists
+- File exists in current directory
+
+STEP 3: DIAGNOSE
+Root cause: Student may be looking in wrong location or not seeing the file
+due to not using ls -la. However, if file truly doesn't exist, it's a path
+problem. Most likely: file exists but student needs to verify location.
+
+Diagnosis: Path awareness issue - either wrong directory or need to verify
+file location with ls -la.
+
+STEP 4: RESOLVE
+Fix: Verify you're in the right place and file exists:
+  pwd
+  ls -la
+  cat instructions.txt
+
+If file doesn't exist, navigate to correct location or check if it's in
+a different directory.
+
+Verification:
+  cat instructions.txt
+  (should display file contents)
+
+Expected file contents:
+  "This file contains instructions about path awareness in Linux debugging."
+
+Key Learning: Always check your current location with pwd and use ls -la
+to see all files. Path awareness is crucial for debugging.
+
+================================================================================
+
+EXERCISE 3 - Hidden File Access Issues
+-------------------------------------------------------
+Location: broken_scenarios/scenario5_lost_path/
+File: .config (hidden file)
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "cat: config: No such file or directory"
+  OR
+  "cat: .config: Permission denied" (if found but can't read)
+- Command that failed: cat config (or cat .config)
+- Symptom: File referenced in instructions but can't be found or accessed
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario5_lost_path
+  pwd
+  ls
+  ls -la
+  ls -l .config
+  whoami
+
+Expected output:
+  ls shows: instructions.txt (or nothing)
+  ls -la shows: .config (hidden file), instructions.txt, . and ..
+  ls -l .config shows: -rw------- 1 user user (or 000 permissions)
+
+Evidence gathered:
+- Regular ls doesn't show .config (it's hidden)
+- ls -la shows .config exists (starts with dot)
+- File may have restrictive permissions (000)
+- File is hidden (starts with .)
+
+STEP 3: DIAGNOSE
+Root cause: File is hidden (starts with .) so regular ls doesn't show it.
+Additionally, file may have restrictive permissions preventing access.
+
+Diagnosis: Hidden file problem - need ls -la to see it, and may need to
+fix permissions to read it.
+
+STEP 4: RESOLVE
+Fix commands:
+  # First, see the hidden file:
+  ls -la
+  
+  # Then, if permissions are wrong:
+  chmod 644 .config
+  OR
+  chmod u+r .config
+  
+  # Then read it:
+  cat .config
+
+Verification:
+  cat .config
+  (should display file contents)
+
+Expected file contents after fix:
+  "Congratulations! You successfully found and accessed the hidden file!"
+
+Key Learning: Files starting with . (dot) are hidden in Linux. Use ls -la
+to see them. Hidden files are still regular files and need proper permissions.
+
+================================================================================
+                            LEVEL 3 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Chain of Issues
+-------------------------------------------------------
+Location: broken_scenarios/scenario6_mixed_issues/
+File: run_backup.sh
+
+4-STEP BREAKDOWN (Multiple Problems):
+
+PROBLEM 1: Script Won't Execute
+
+STEP 1: OBSERVE
+- Error: "bash: ./run_backup.sh: Permission denied"
+
+STEP 2: INSPECT
+  ls -l run_backup.sh
+  Expected: -rw-r--r-- (missing execute permission)
+
+STEP 3: DIAGNOSE
+  Missing execute permission
+
+STEP 4: RESOLVE
+  chmod +x run_backup.sh
+
+PROBLEM 2: After fixing execute, script may try to access data.txt
+
+STEP 1: OBSERVE
+- Error: "Permission denied" when script tries to read data.txt
+  OR script runs but can't access data
+
+STEP 2: INSPECT
+  ls -l data.txt
+  Expected: -rw------- 1 root root (or restrictive permissions)
+
+STEP 3: DIAGNOSE
+  Ownership/permission problem with data.txt
+
+STEP 4: RESOLVE
+  sudo chown $USER:$USER data.txt
+  OR
+  chmod 644 data.txt (if owned by user)
+
+PROBLEM 3: Can't create output file
+
+STEP 1: OBSERVE
+- Error: "touch: cannot touch 'backup.txt': Permission denied"
+
+STEP 2: INSPECT
+  ls -ld .
+  Expected: dr--r--r-- (missing write permission on directory)
+
+STEP 3: DIAGNOSE
+  Directory missing write permission
+
+STEP 4: RESOLVE
+  chmod 755 .
+
+Key Learning: Multiple problems require applying 4-step process to EACH
+problem separately. Don't try to fix everything at once - solve them
+sequentially.
+
+================================================================================
+
+EXERCISE 2 - Nested Directory Permission Problem
+-------------------------------------------------------
+Location: broken_scenarios/scenario6_mixed_issues/deep/nested/path/
+File: important.txt
+
+4-STEP BREAKDOWN:
+
+STEP 1: OBSERVE
+- Error message: "cat: deep/nested/path/important.txt: No such file or directory"
+  OR
+  "bash: cd: deep: Permission denied"
+- Command that failed: cat deep/nested/path/important.txt
+  OR
+  cd deep (fails)
+- Symptom: Cannot access file in nested directory structure
+
+STEP 2: INSPECT
+Commands to run:
+  cd broken_scenarios/scenario6_mixed_issues
+  pwd
+  ls -ld deep
+  cd deep
+  ls -ld nested
+  cd nested
+  ls -ld path
+  ls -l path/important.txt
+
+Expected output (if permissions are broken):
+  drw-r--r-- 2 user user 4096 Jan 27 10:00 deep
+  (missing execute permission - can't cd into it)
+
+OR if can get to deep:
+  drw-r--r-- 2 user user 4096 Jan 27 10:00 nested
+  (missing execute permission on nested)
+
+Evidence gathered:
+- Parent directories (deep/, deep/nested/, deep/nested/path/) are missing
+  execute (x) permission
+- Cannot traverse (cd into) directories without execute permission
+- File may have correct permissions, but can't reach it
+
+STEP 3: DIAGNOSE
+Root cause: To access a file in a nested path, you need execute (x)
+permission on ALL parent directories to traverse the path. If any parent
+directory is missing execute permission, you cannot reach the file.
+
+Diagnosis: Missing execute permission on one or more parent directories
+in the path: deep/, deep/nested/, and/or deep/nested/path/.
+
+STEP 4: RESOLVE
+Fix commands (fix ALL parent directories):
+  chmod 755 deep/
+  chmod 755 deep/nested/
+  chmod 755 deep/nested/path/
+
+OR fix all at once:
+  find deep -type d -exec chmod 755 {} \;
+
+Verification:
+  cd deep/nested/path
+  cat important.txt
+  (should now display file contents)
+
+Expected file contents:
+  "Congratulations! You successfully navigated through nested directories!"
+
+Key Learning: Directory execute (x) permission is needed to TRAVERSE
+(enter) a directory. To access a file in deep/nested/path/, you need
+execute permission on ALL parent directories in the path.
+
+================================================================================
+
+EXERCISE 3 - Complete Debug Challenge
+-------------------------------------------------------
+Location: broken_scenarios/scenario6_mixed_issues/
+
+This exercise requires fixing MULTIPLE problems. Students must apply
+4-step methodology to each problem separately.
+
+PROBLEMS TO FIX:
+
+1. README.md - permissions 000 (can't read)
+   - OBSERVE: "Permission denied"
+   - INSPECT: ls -l README.md shows 000
+   - DIAGNOSE: No read permission
+   - RESOLVE: chmod 644 README.md
+
+2. run_backup.sh - missing execute permission
+   - OBSERVE: "Permission denied" when running
+   - INSPECT: ls -l shows -rw-r--r--
+   - DIAGNOSE: Missing execute permission
+   - RESOLVE: chmod +x run_backup.sh
+
+3. data.txt - ownership/permission issue
+   - OBSERVE: "Permission denied" when reading
+   - INSPECT: ls -l shows owned by root or restrictive permissions
+   - DIAGNOSE: Ownership mismatch or restrictive permissions
+   - RESOLVE: sudo chown $USER:$USER data.txt OR chmod 644 data.txt
+
+4. Directory - missing write permission
+   - OBSERVE: "Permission denied" when creating file
+   - INSPECT: ls -ld . shows 444 (no write)
+   - DIAGNOSE: Directory missing write permission
+   - RESOLVE: chmod 755 .
+
+5. deep/nested/path/ - missing execute on parent directories
+   - OBSERVE: Can't cd into deep or nested directories
+   - INSPECT: ls -ld shows missing execute on parent dirs
+   - DIAGNOSE: Parent directories missing execute permission
+   - RESOLVE: chmod 755 deep/ deep/nested/ deep/nested/path/
+
+Students should document each problem with full 4-step breakdown in
+my_answers.txt.
+
+Key Learning: Real-world debugging often involves multiple problems.
+Apply the methodology systematically to each problem separately.
+
+================================================================================
+                        COMPLETE ANSWERS SUMMARY
+================================================================================
+
+LEVEL 1:
+--------
+1. Exercise 1: Permission denied on file read
+   - Root cause: Missing read permission (000)
+   - Fix: chmod 400 or chmod u+r
+
+2. Exercise 2: Script won't execute
+   - Root cause: Missing execute permission
+   - Fix: chmod +x
+
+3. Exercise 3: Can't create file in directory
+   - Root cause: Directory missing write permission
+   - Fix: chmod 755 . or chmod u+w .
+
+LEVEL 2:
+--------
+1. Exercise 1: Ownership mismatch
+   - Root cause: File owned by different user, no group/other access
+   - Fix: sudo chown $USER:$USER
+
+2. Exercise 2: Lost in wrong directory
+   - Root cause: Path awareness issue
+   - Fix: Verify location with pwd and ls -la
+
+3. Exercise 3: Hidden file access
+   - Root cause: File is hidden (starts with .) and may have wrong permissions
+   - Fix: Use ls -la to see it, then fix permissions if needed
+
+LEVEL 3:
+--------
+1. Exercise 1: Chain of issues
+   - Multiple problems requiring sequential 4-step application
+   - Fix each problem separately
+
+2. Exercise 2: Nested directory permissions
+   - Root cause: Parent directories missing execute permission
+   - Fix: chmod 755 on all parent directories
+
+3. Exercise 3: Complete debug challenge
+   - Multiple problems: README.md, script, data.txt, directory, nested paths
+   - Apply 4-step methodology to each separately
+
+================================================================================
+                        COMMANDS STUDENTS SHOULD USE
+================================================================================
+
+OBSERVE (Step 1):
+- Read error messages carefully
+- Note exact error text
+- Identify what command failed
+
+INSPECT (Step 2):
+- pwd (where am I?)
+- ls -l (file permissions and ownership)
+- ls -la (all files including hidden)
+- ls -ld (directory permissions)
+- whoami (current username)
+- id (user ID and groups)
+- file <name> (file type)
+
+DIAGNOSE (Step 3):
+- Analyze evidence from INSPECT
+- Identify root cause
+- Determine if it's permissions, ownership, path, or hidden file
+
+RESOLVE (Step 4):
+- chmod <permissions> <file> (fix file permissions)
+- chmod <permissions> <directory> (fix directory permissions)
+- sudo chown <user>:<group> <file> (fix ownership)
+- cd <path> (navigate to correct location)
+- Use correct command with proper path
+
+================================================================================
+                        KEY LEARNING POINTS
+================================================================================
+
+1. Follow the 4 steps systematically
+   - OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+   - Don't skip steps
+   - Don't use trial-and-error
+
+2. Gather evidence before making changes
+   - Use INSPECT commands to understand the situation
+   - Base diagnosis on evidence, not guesses
+
+3. Fix root causes, not symptoms
+   - Understand why something is broken
+   - Apply the correct fix for the root cause
+
+4. Multiple problems require multiple applications
+   - Apply 4-step process to EACH problem separately
+   - Don't try to fix everything at once
+
+5. Methodology transfers to all problems
+   - This process works for ANY Linux problem
+   - Not just permissions - applies to all debugging
+
+================================================================================
+                        GRADING RUBRIC (SUGGESTION)
+================================================================================
+
+Level 1 - Single-Issue Debugging (30 points)
+- Exercise 1: Permission denied (10 points)
+- Exercise 2: Script won't execute (10 points)
+- Exercise 3: Can't create file (10 points)
+
+Level 2 - Ownership and Path Issues (30 points)
+- Exercise 1: Ownership mismatch (10 points)
+- Exercise 2: Wrong directory path (10 points)
+- Exercise 3: Hidden file access (10 points)
+
+Level 3 - Complex Mixed Scenarios (30 points)
+- Exercise 1: Chain of issues (10 points)
+- Exercise 2: Nested directory permissions (10 points)
+- Exercise 3: Complete debug challenge (10 points)
+
+Documentation (10 points)
+- Created my_answers.txt
+- Documented 4-step process for each exercise
+- Showed understanding of methodology
+- Answered reflection questions thoughtfully
+
+TOTAL: 100 points
+
+================================================================================
+                        NOTES FOR INSTRUCTOR
+================================================================================
+
+Common Student Mistakes:
+1. Skipping INSPECT step and guessing
+2. Using trial-and-error instead of methodology
+3. Trying to fix multiple problems at once
+4. Not reading error messages carefully
+5. Forgetting to check hidden files with ls -la
+6. Not understanding directory vs file permissions
+7. Not understanding ownership vs permissions relationship
+
+Tips for Helping Students:
+- Emphasize: Follow the 4 steps in order
+- Remind: Gather evidence before making changes
+- Encourage: Document each step as they go
+- Help: Guide them through INSPECT if stuck
+- Reinforce: Methodology over quick fixes
+- Remind: Multiple problems = multiple 4-step applications
+
+Typical Completion Time:
+- Fast students: 50-60 minutes
+- Average students: 60-75 minutes
+- Struggling students: 75-90 minutes
+
+Important Reminders:
+- This lab is about methodology, not just solving problems
+- Students should develop systematic debugging habits
+- The 4-step process applies to ALL Linux problems
+- Encourage documentation and reflection
+- Emphasize evidence-based debugging
+
+This lab builds on:
+- Lab 6 (Permission Encounter): Understanding permissions
+- Lab 7 (Why Script Doesn't Run): Execute permissions
+- Lab 8 (Ownership and Groups): Understanding ownership
+- Lab 8 (sudo mindset): Critical thinking about fixes
+
+This lab teaches:
+- Systematic debugging methodology
+- Evidence-based problem solving
+- Root cause analysis
+- Process discipline
+- Methodology that transfers to all future problems
+
+================================================================================

@@ -1,0 +1,9 @@
+================================================================================
+                    PATH AWARENESS
+================================================================================
+
+This file contains instructions about path awareness in Linux debugging.
+
+Always check where you are with pwd before assuming file locations.
+
+================================================================================

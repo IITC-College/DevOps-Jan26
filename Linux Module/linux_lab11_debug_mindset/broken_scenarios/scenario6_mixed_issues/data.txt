@@ -1,0 +1,10 @@
+================================================================================
+                    IMPORTANT DATA
+================================================================================
+
+This file contains important data that needs to be accessible.
+
+If you can read this, you've successfully fixed the ownership/permission
+issues!
+
+================================================================================

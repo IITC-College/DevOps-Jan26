@@ -1,0 +1,24 @@
+================================================================================
+                    NESTED DIRECTORY SUCCESS
+================================================================================
+
+Congratulations! You successfully navigated through nested directories!
+
+This file is deep in a directory structure. To access it, you needed execute
+permission on ALL parent directories:
+- deep/
+- deep/nested/
+- deep/nested/path/
+
+You used the 4-step methodology:
+1. OBSERVED the error when trying to access the file
+2. INSPECTED each directory's permissions with ls -ld
+3. DIAGNOSED that parent directories were missing execute permission
+4. RESOLVED by fixing execute permissions on all parent directories
+
+Key learning: To access a file in a nested path, you need execute (x)
+permission on ALL parent directories to traverse the path.
+
+Well done!
+
+================================================================================

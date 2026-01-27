@@ -1,0 +1,90 @@
+================================================================================
+                    LEVEL 2 - EXERCISE 3
+                    Hidden File Access Issues
+================================================================================
+
+TASK: Debug why you can't access a file that should exist
+
+Instructions reference a file, but when you try to access it, it doesn't
+appear to exist. Use the 4-step debug methodology to solve this problem.
+
+================================================================================
+    THE SCENARIO
+================================================================================
+
+You're still in scenario5_lost_path. The instructions mention a file
+called "config" but you can't find it when you list files.
+
+Try to read the file:
+  cat config
+
+You'll get an error. DON'T just try random commands! Follow the 4 steps.
+
+================================================================================
+    YOUR MISSION
+================================================================================
+
+Apply the 4-Step Debug Methodology:
+
+STEP 1: OBSERVE
+- What is the exact error message?
+- What command failed?
+- What were you trying to do?
+
+STEP 2: INSPECT
+- Check where you are: pwd
+- Check what files exist: ls
+- Check ALL files including hidden: ls -la
+- Look for files starting with . (dot)
+- Check file permissions: ls -la
+
+STEP 3: DIAGNOSE
+- Based on your inspection, what's the root cause?
+- Does the file exist but is hidden?
+- What makes a file "hidden" in Linux?
+- What command shows hidden files?
+- What exactly is preventing you from seeing/accessing the file?
+
+STEP 4: RESOLVE
+- Apply the correct fix based on your diagnosis
+- Fix the root cause, not just work around it
+- Verify your fix worked: try accessing the file again
+
+================================================================================
+    QUESTIONS TO ANSWER
+================================================================================
+
+After solving the problem, answer these in your notes:
+
+1. What error message did you OBSERVE?
+2. What did you see when you INSPECTED (ls vs ls -la output)?
+3. What did you DIAGNOSE as the root cause?
+4. How did you RESOLVE it (what command did you use)?
+5. Did your fix work? How did you verify?
+
+================================================================================
+    HINTS
+================================================================================
+
+- Remember: Follow the 4 steps in order
+- Don't skip INSPECT - gather evidence first
+- Compare the output of `ls` vs `ls -la`
+- Files starting with . (dot) are hidden in Linux
+- Hidden files require the -a flag to see them
+- Once you see the hidden file, you can access it by name
+
+================================================================================
+    NEXT STEP
+================================================================================
+
+Once you've solved this exercise and documented your 4-step process,
+you've completed Level 2! 
+
+Navigate to Level 3:
+  cd ../../clues/level3
+
+Read clue1.txt to begin Level 3 exercises (the most challenging ones!).
+
+Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+
+================================================================================
