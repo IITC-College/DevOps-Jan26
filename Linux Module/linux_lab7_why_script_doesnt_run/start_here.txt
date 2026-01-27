@@ -2,6 +2,12 @@
     WELCOME TO THE WHY SCRIPT DOESN'T RUN LAB!
 ================================================================================
 
+⚠️  INSTRUCTOR NOTE: Before students start this lab, you MUST run:
+   sudo ./setup_environment.sh
+   This sets up the lab environment with correct file permissions.
+
+================================================================================
+
 Hello, Linux Explorer!
 
 This lab is designed to teach you how to fix scripts that won't run. You will

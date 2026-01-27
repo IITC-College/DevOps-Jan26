@@ -2,6 +2,13 @@
     WELCOME TO THE OWNERSHIP AND GROUPS LAB!
 ================================================================================
 
+⚠️  INSTRUCTOR NOTE: Before students start this lab, you MUST run:
+   sudo ./setup_environment.sh
+   This is CRITICAL - it creates the developers group, adds students to it,
+   and sets up file ownership for all exercises. Without this, the lab won't work!
+
+================================================================================
+
 Hello, Linux Explorer!
 
 This lab is designed to teach you about file ownership and groups in Linux. You

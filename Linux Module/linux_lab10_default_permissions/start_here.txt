@@ -2,6 +2,12 @@
     WELCOME TO THE DEFAULT PERMISSIONS LAB (umask)!
 ================================================================================
 
+⚠️  INSTRUCTOR NOTE: Before students start this lab, you MUST run:
+   sudo ./setup_environment.sh
+   This sets up example files with permissions matching different umask values.
+
+================================================================================
+
 Hello, Linux Explorer!
 
 This lab is designed to teach you about umask and default file permissions. You will

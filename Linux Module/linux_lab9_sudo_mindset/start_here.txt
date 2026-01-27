@@ -2,6 +2,12 @@
     WELCOME TO THE UNDERSTANDING SUDO LAB!
 ================================================================================
 
+⚠️  INSTRUCTOR NOTE: Before students start this lab, you MUST run:
+   sudo ./setup_environment.sh
+   This sets up protected files owned by root and configures the lab environment.
+
+================================================================================
+
 Hello, Linux Explorer!
 
 This lab is designed to teach you when sudo is actually needed and how to use
