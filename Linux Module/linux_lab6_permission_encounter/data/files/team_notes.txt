@@ -1,0 +1,31 @@
+================================================================================
+                    TEAM NOTES FILE
+================================================================================
+
+This file contains team collaboration notes.
+
+File: team_notes.txt
+Owner: bob
+Group: developers
+Permissions: rw-rw-r-- (owner: read+write, group: read+write, others: read)
+
+Content:
+--------
+Team meeting notes - 2026-01-27
+
+Attendees: alice, bob, charlie
+
+Agenda:
+1. Project status update
+2. Code review process
+3. Next sprint planning
+
+Notes:
+- All team members can read and write to this file
+- This allows collaborative editing
+- Others (non-team members) can only read
+
+This file demonstrates the -rw-rw-r-- permission pattern, which allows
+both the owner and group members to modify the file.
+
+================================================================================

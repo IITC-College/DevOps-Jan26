@@ -1,0 +1,9 @@
+Team Project Logs
+
+[2026-01-27 10:00] Project started
+[2026-01-27 10:15] Initial configuration completed
+[2026-01-27 10:30] Team members added
+[2026-01-27 10:45] First milestone reached
+
+This log file is readable by everyone (rw-rw-r--) but only the owner
+and group members can modify it.

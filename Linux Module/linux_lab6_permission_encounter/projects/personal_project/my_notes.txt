@@ -1,0 +1,15 @@
+Personal Notes - Private
+
+This file contains personal notes that should only be accessible by alice.
+
+File: my_notes.txt
+Owner: alice
+Group: developers
+Permissions: rw------- (owner: read+write, group: none, others: none)
+
+Content:
+- Personal reminders
+- Private thoughts
+- Confidential information
+
+This demonstrates a private file that even group members cannot access.

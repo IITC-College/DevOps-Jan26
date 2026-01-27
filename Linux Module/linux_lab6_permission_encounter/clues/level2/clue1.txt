@@ -1,0 +1,71 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 1
+                    "Decoding Permission Strings" - Understanding rwx
+================================================================================
+
+Welcome to Level 2!
+
+You've seen permission strings like `-rw-r--r--`. Now let's learn to decode
+what they mean. This is the foundation of understanding Linux permissions.
+
+EXERCISE:
+---------
+Learn to read and understand permission strings (rwx patterns).
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the projects directory:
+   cd ../../projects
+
+2. List files with detailed information:
+   ls -l
+
+3. Look at the permission strings (first column). Each has 10 characters:
+   - Position 1: File type (- for regular file, d for directory)
+   - Positions 2-4: Owner permissions (r = read, w = write, x = execute)
+   - Positions 5-7: Group permissions
+   - Positions 8-10: Others permissions
+
+4. For each file, identify:
+   - Owner permissions (positions 2-4)
+   - Group permissions (positions 5-7)
+   - Others permissions (positions 8-10)
+
+COMMANDS TO USE:
+----------------
+- cd ../../projects
+- ls -l
+
+UNDERSTANDING PERMISSION CHARACTERS:
+-------------------------------------
+- r = read (can view file contents)
+- w = write (can modify file)
+- x = execute (can run file as program)
+- - = no permission (cannot do that action)
+
+EXAMPLES:
+---------
+-rw-r--r-- means:
+  Owner:   rw-  (read + write, no execute)
+  Group:   r--  (read only)
+  Others:  r--  (read only)
+
+-rwx------ means:
+  Owner:   rwx  (read + write + execute)
+  Group:   ---  (no permissions)
+  Others:  ---  (no permissions)
+
+-r-------- means:
+  Owner:   r--  (read only)
+  Group:   ---  (no permissions)
+  Others:  ---  (no permissions)
+
+WRITE YOUR ANSWER:
+------------------
+After examining the files, write in my_answers.txt:
+- What are the owner permissions for team_script.sh?
+- What are the group permissions for config.json?
+- What are the others permissions for logs.txt?
+- What does "rwx" mean? (explain in your own words)
+
+Next: clue2.txt

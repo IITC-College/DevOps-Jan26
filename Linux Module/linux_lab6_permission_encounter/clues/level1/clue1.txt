@@ -1,0 +1,57 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 1
+                    "The Locked File" - Your First Permission Denied
+================================================================================
+
+Welcome to Level 1!
+
+Your first exercise: Encountering "Permission denied" for the first time.
+
+BACKGROUND:
+-----------
+In Linux, many files are protected for security reasons. When you try to
+access a protected file, you'll see "Permission denied". This is NOT a bug
+or error - it's the system working correctly to protect sensitive information.
+
+EXERCISE:
+---------
+Try to read a protected system file and see what happens.
+
+INSTRUCTIONS:
+-------------
+1. Try to read a system file that contains sensitive information:
+   
+   cat /etc/shadow
+
+2. Look at the message that appears
+3. Read it carefully - what is Linux telling you?
+
+COMMANDS TO USE:
+----------------
+- cat /etc/shadow
+
+WHAT TO OBSERVE:
+----------------
+- What error message appears?
+- What does it say?
+- Does it make sense that this file is protected?
+
+IMPORTANT:
+----------
+This "Permission denied" message is EXPECTED and NORMAL. The /etc/shadow
+file contains encrypted passwords and is protected by design. This is a
+security feature, not a problem to fix!
+
+WRITE YOUR ANSWER:
+------------------
+After running the command, write in one sentence:
+- What error message did you see?
+- Why do you think this file is protected?
+
+You can write your answer in a file called my_answers.txt in the main lab
+directory (go back with: cd ../../..)
+
+Then proceed to the next exercise: clue2.txt in this same directory.
+
+Hint: Don't be afraid of "Permission denied" - it's teaching you about
+Linux security!

@@ -1,0 +1,64 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 3
+                    "Who Owns What?" - Identifying Owners and Groups
+================================================================================
+
+Welcome to Exercise 3!
+
+Now let's practice identifying file owners and groups. This is important
+because ownership affects who can access files.
+
+EXERCISE:
+---------
+Practice reading `ls -l` output to identify file owners and groups.
+
+INSTRUCTIONS:
+-------------
+1. Make sure you're in the data/files directory:
+   cd ../../data/files
+   (or use: pwd to check your location)
+
+2. List files with detailed information:
+   ls -l
+
+3. For each file, identify:
+   - The owner (third column)
+   - The group (fourth column)
+
+4. Notice which files belong to the same owner
+5. Notice which files belong to the same group
+
+COMMANDS TO USE:
+----------------
+- ls -l
+- pwd (to check your location)
+
+WHAT TO OBSERVE:
+----------------
+- Which files have the same owner?
+- Which files have the same group?
+- How many different owners are there?
+- How many different groups are there?
+
+UNDERSTANDING:
+-------------
+In Linux, every file has:
+- An OWNER (the user who created it or was assigned ownership)
+- A GROUP (a collection of users who share certain permissions)
+- PERMISSIONS (what the owner, group, and others can do)
+
+The owner and group determine who can access the file, along with the
+permissions.
+
+WRITE YOUR ANSWER:
+------------------
+After examining the files, write in my_answers.txt:
+- List all the different owners you found
+- List all the different groups you found
+- Which files belong to the same owner? (list at least one example)
+- Which files belong to the same group? (list at least one example)
+
+Congratulations! You've completed Level 1!
+
+Now proceed to Level 2: cd ../../clues/level2
+Read clue1.txt to continue your permission journey.

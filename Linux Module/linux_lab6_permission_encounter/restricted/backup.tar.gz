@@ -1,0 +1,13 @@
+This is a backup archive file that should be protected.
+
+File: backup.tar.gz
+Owner: root
+Group: root
+Permissions: rw------- (owner: read+write, group: none, others: none)
+
+Note: This is a text file representing a backup archive. In a real system,
+this would be a binary tar.gz file. For this lab, it's a text file to
+demonstrate permission concepts.
+
+Regular users should not be able to access backup files as they may
+contain sensitive system data.

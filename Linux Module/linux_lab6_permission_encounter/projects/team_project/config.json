@@ -1,0 +1,7 @@
+{
+  "project": "team_project",
+  "owner": "bob",
+  "group": "developers",
+  "permissions": "rw-rw----",
+  "description": "Team configuration file that can be modified by owner and group members"
+}

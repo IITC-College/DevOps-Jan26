@@ -1,0 +1,63 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 2
+                    "System Files Exploration" - Real-World Permissions
+================================================================================
+
+Welcome to Exercise 2!
+
+Now let's explore REAL system files and understand why they have different
+permissions. This connects what you've learned to the actual Linux system.
+
+EXERCISE:
+---------
+Explore system files and understand why each has its specific permissions.
+
+INSTRUCTIONS:
+-------------
+1. Check permissions on several system files:
+   ls -l /etc/passwd
+   ls -l /etc/shadow
+   ls -l /etc/hostname
+   ls -l /etc/group
+
+2. Try to read each file:
+   cat /etc/passwd
+   cat /etc/shadow
+   cat /etc/hostname
+   cat /etc/group
+
+3. Observe which ones you can read and which give "Permission denied"
+
+4. Think about WHY each file has its specific permissions
+
+COMMANDS TO USE:
+----------------
+- ls -l /etc/passwd
+- ls -l /etc/shadow
+- ls -l /etc/hostname
+- ls -l /etc/group
+- cat /etc/passwd (try reading)
+- cat /etc/shadow (try reading - will fail)
+- cat /etc/hostname (try reading)
+- cat /etc/group (try reading)
+
+UNDERSTANDING SYSTEM FILES:
+---------------------------
+- /etc/passwd: Contains user account information (readable by all)
+- /etc/shadow: Contains encrypted passwords (protected, readable only by root)
+- /etc/hostname: Contains the system hostname (usually readable by all)
+- /etc/group: Contains group information (readable by all)
+
+The permissions reflect the security needs:
+- Public information (like usernames) → readable by all
+- Sensitive information (like passwords) → protected
+
+WRITE YOUR ANSWER:
+------------------
+After exploring the system files, write in my_answers.txt:
+- What are the permissions on /etc/passwd? Can you read it? Why?
+- What are the permissions on /etc/shadow? Can you read it? Why not?
+- Why do you think /etc/passwd is readable by everyone but /etc/shadow is not?
+- What security principle does this demonstrate?
+
+Next: clue3.txt

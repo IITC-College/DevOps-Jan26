@@ -1,0 +1,11 @@
+[2026-01-27 10:00:00] System startup
+[2026-01-27 10:00:15] Services initialized
+[2026-01-27 10:01:00] User alice logged in
+[2026-01-27 10:02:30] User bob logged in
+[2026-01-27 10:05:00] Database connection established
+[2026-01-27 10:10:00] Cache refreshed
+[2026-01-27 10:15:00] Backup completed successfully
+[2026-01-27 10:20:00] System running normally
+
+This is a system log file that tracks system events.
+It should be readable by administrators and system monitoring tools.

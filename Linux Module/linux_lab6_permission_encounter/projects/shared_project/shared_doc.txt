@@ -1,0 +1,11 @@
+Shared Project Documentation
+
+This file is part of a shared project where multiple users collaborate.
+
+File: shared_doc.txt
+Owner: alice
+Group: developers
+Permissions: rw-rw-r-- (owner: read+write, group: read+write, others: read)
+
+This demonstrates a collaborative file where both the owner and group
+members can modify the content, while others can only read it.

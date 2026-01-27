@@ -1,0 +1,63 @@
+================================================================================
+                            LEVEL 3 - EXERCISE 1
+                    "The Detective Challenge" - Finding Accessible Files
+================================================================================
+
+Welcome to Level 3!
+
+You're now a permission detective! Your mission: Find all files you CAN read
+by using `ls -l` to predict access, then verify your predictions.
+
+EXERCISE:
+---------
+Scan the entire lab directory structure and identify which files you can
+actually read, using only `ls -l` for prediction.
+
+INSTRUCTIONS:
+-------------
+1. Start from the lab root directory:
+   cd ../../..
+
+2. Scan each directory with `ls -l`:
+   - data/files/
+   - data/logs/
+   - data/secrets/
+   - projects/personal_project/
+   - projects/team_project/
+   - projects/shared_project/
+   - restricted/
+
+3. For each directory:
+   a. Run `ls -l` to see permissions
+   b. PREDICT which files you can read (based on owner/group/permissions)
+   c. TRY to read one file to verify
+   d. RECORD the result
+
+4. Create a list of:
+   - Files you CAN read (and why)
+   - Files you CANNOT read (and why)
+
+COMMANDS TO USE:
+----------------
+- ls -l <directory>
+- cat <file> (to test reading)
+- id (to check your user ID)
+- groups (to check your groups)
+
+DETECTIVE TIPS:
+---------------
+Remember the access check order:
+1. Are you the owner? → Check owner permissions
+2. Are you in the group? → Check group permissions
+3. Otherwise → Check others permissions
+
+If 'r' is in the relevant permission set → You can read!
+
+WRITE YOUR ANSWER:
+------------------
+After scanning all directories, write in my_answers.txt:
+- List at least 3 files you CAN read and explain why for each
+- List at least 2 files you CANNOT read and explain why for each
+- What pattern do you notice about accessible vs. inaccessible files?
+
+Next: clue2.txt

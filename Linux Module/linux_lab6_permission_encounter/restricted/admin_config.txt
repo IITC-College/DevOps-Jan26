@@ -1,0 +1,27 @@
+================================================================================
+                    ADMIN CONFIGURATION FILE
+================================================================================
+
+WARNING: This file is restricted and should only be accessible by the
+administrator (root user).
+
+File: admin_config.txt
+Owner: root
+Group: root
+Permissions: rw------- (owner: read+write, group: none, others: none)
+
+Content:
+--------
+This file contains sensitive administrative configuration that should
+not be accessible by regular users.
+
+Admin settings:
+- Database credentials
+- API keys
+- System configuration
+- Security parameters
+
+Regular users should receive "Permission denied" when trying to access
+this file. This is the expected and correct behavior.
+
+================================================================================

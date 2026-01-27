@@ -1,0 +1,63 @@
+================================================================================
+                            LEVEL 1 - EXERCISE 2
+                    "Understanding ls -l" - Reading File Details
+================================================================================
+
+Welcome to Exercise 2!
+
+Now that you've seen "Permission denied", let's learn how to READ permissions
+before trying to access files. This is the key skill: READ BEFORE ACTING.
+
+EXERCISE:
+---------
+Learn to read the detailed output of `ls -l` to understand file permissions,
+owners, and groups.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the data/files directory:
+   cd ../../data/files
+
+2. List files with detailed information:
+   ls -l
+
+3. Look at the output carefully. Each line shows:
+   - File permissions (like -rw-r--r--)
+   - Number of links
+   - Owner name
+   - Group name
+   - File size
+   - Date and time
+   - File name
+
+4. Identify the owner of each file
+
+COMMANDS TO USE:
+----------------
+- cd ../../data/files
+- ls -l
+
+WHAT TO LEARN:
+--------------
+The `ls -l` output format:
+-rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
+│ │  │  │  │ │    │         │     │           │
+│ │  │  │  │ │    │         │     │           └─ File name
+│ │  │  │  │ │    │         │     └───────────── Date and time
+│ │  │  │  │ │    │         └─────────────────── File size (bytes)
+│ │  │  │  │ │    └───────────────────────────── Group name
+│ │  │  │  │ └────────────────────────────────── Owner name
+│ │  │  │  └──────────────────────────────────── Number of links
+│ │  │  └──────────────────────────────────────── Permissions for "others"
+│ │  └─────────────────────────────────────────── Permissions for "group"
+│ └────────────────────────────────────────────── Permissions for "owner"
+└───────────────────────────────────────────────── File type (- = regular file)
+
+WRITE YOUR ANSWER:
+------------------
+After running ls -l, write in my_answers.txt:
+- What is the owner of public_data.txt?
+- What is the owner of private_notes.txt?
+- What is the group of report.sh?
+
+Next: clue3.txt

@@ -1,0 +1,32 @@
+================================================================================
+                    SHARED REPORT FILE
+================================================================================
+
+This file is a shared report that everyone can read and write.
+
+File: shared_report.txt
+Owner: alice
+Group: developers
+Permissions: rw-rw-rw- (owner: read+write, group: read+write, others: read+write)
+
+Content:
+--------
+Shared Project Report
+
+This file can be modified by anyone - owner, group members, and others.
+This is useful for collaborative documents where everyone needs write access.
+
+Status: Draft
+Version: 1.0
+Last modified by: alice
+
+Sections:
+1. Executive Summary
+2. Technical Details
+3. Recommendations
+
+Note: This permission pattern (rw-rw-rw-) is rarely used in production
+because it allows anyone to modify the file. It's shown here for educational
+purposes.
+
+================================================================================

@@ -1,0 +1,62 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 3
+                    "Practice Reading Before Acting" - Building the Habit
+================================================================================
+
+Welcome to Exercise 3!
+
+This exercise reinforces the most important habit: ALWAYS check permissions
+with `ls -l` BEFORE trying to access a file. This prevents frustration and
+helps you understand the system.
+
+EXERCISE:
+---------
+Practice the "read before acting" pattern across multiple directories.
+
+INSTRUCTIONS:
+-------------
+For each directory below, follow this pattern:
+1. Navigate to the directory
+2. Run `ls -l` FIRST
+3. PREDICT which files you can read (based on permissions)
+4. TRY to read one file
+5. VERIFY your prediction
+
+Directories to check:
+- projects/personal_project/
+- projects/team_project/
+- restricted/
+
+COMMANDS TO USE:
+----------------
+- cd projects/personal_project
+- ls -l
+- cat <filename> (try reading a file)
+- cd ../team_project
+- ls -l
+- cat <filename>
+- cd ../../restricted
+- ls -l
+- cat <filename>
+
+PREDICTION PROCESS:
+-------------------
+1. Look at `ls -l` output
+2. Check: Are you the owner? (compare with `id` output)
+3. Check: Are you in the group? (compare with `groups` output)
+4. Check: What permissions apply to you?
+5. If 'r' is present in your permission set → You can read
+6. If 'r' is NOT present → You'll get Permission denied
+
+WRITE YOUR ANSWER:
+------------------
+After checking all three directories, write in my_answers.txt:
+- In personal_project/: Which files can you read? Why?
+- In team_project/: Which files can you read? Why?
+- In restricted/: Can you read any files? Why or why not?
+- What did you learn about checking permissions first?
+
+Congratulations! You've completed Level 2!
+
+Now proceed to Level 3: cd ../../clues/level3
+Read clue1.txt for the final challenges.

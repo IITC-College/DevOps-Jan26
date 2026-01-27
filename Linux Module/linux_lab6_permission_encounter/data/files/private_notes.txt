@@ -1,0 +1,28 @@
+================================================================================
+                    PRIVATE NOTES FILE
+================================================================================
+
+This file contains private personal notes.
+
+File: private_notes.txt
+Owner: bob
+Group: developers
+Permissions: rw------- (owner: read+write, group: none, others: none)
+
+Content:
+--------
+Personal Notes - Confidential
+
+These are private notes that should only be accessible by bob (the owner).
+Even though bob is in the "developers" group, this file is set to be
+private to demonstrate that ownership takes precedence.
+
+Personal reminders:
+- Review code changes
+- Update documentation
+- Schedule team meeting
+
+This file demonstrates that file ownership and permissions are independent
+of group membership. A file can be private even if the owner is in a group.
+
+================================================================================

@@ -1,0 +1,436 @@
+================================================================================
+                    LAB SOLUTIONS - INSTRUCTOR COPY
+================================================================================
+
+This file contains all answers to the Permission Encounter Lab.
+Keep this file secure and do not share with students.
+
+================================================================================
+                            LEVEL 1 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - The Locked File
+------------------------------
+Command: cat /etc/shadow
+
+Expected Error Output:
+cat: /etc/shadow: Permission denied
+
+Answer: 
+- Error message: "Permission denied"
+- Why protected: The /etc/shadow file contains encrypted passwords and is
+  protected by design for security. Only root can read it.
+- This is EXPECTED and NORMAL behavior, not a bug.
+
+Key Learning: Permission denied is a security feature, not an error.
+System files like /etc/shadow are protected to prevent unauthorized access
+to sensitive information like passwords.
+
+EXERCISE 2 - Understanding ls -l
+----------------------------------
+Location: data/files/
+Command: ls -l
+
+Expected Output (example):
+-rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
+-rw------- 1 bob   developers  512 Jan 27 10:00 private_notes.txt
+-rwxr-xr-x 1 alice developers 2048 Jan 27 10:00 report.sh
+
+Answers:
+- Owner of public_data.txt: alice
+- Owner of private_notes.txt: bob
+- Group of report.sh: developers
+
+Key Learning: The ls -l output shows:
+- Permissions (first column)
+- Number of links
+- Owner (third column)
+- Group (fourth column)
+- Size, date, and filename
+
+EXERCISE 3 - Who Owns What?
+-----------------------------
+Location: data/files/
+Command: ls -l
+
+Expected Output:
+-rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
+-rw-rw-r-- 1 bob   developers  512 Jan 27 10:00 team_notes.txt
+-rw------- 1 bob   developers  256 Jan 27 10:00 private_log.txt
+-rw-rw-rw- 1 alice developers  768 Jan 27 10:00 shared_report.txt
+-r--r--r-- 1 alice developers  512 Jan 27 10:00 readonly_archive.txt
+-rw------- 1 bob   developers  256 Jan 27 10:00 private_notes.txt
+-rwxr-xr-x 1 alice developers 2048 Jan 27 10:00 report.sh
+
+Answers:
+- Different owners: alice, bob
+- Different groups: developers (all files in same group)
+- Files with same owner (alice): public_data.txt, shared_report.txt,
+  readonly_archive.txt, report.sh
+- Files with same owner (bob): team_notes.txt, private_log.txt,
+  private_notes.txt
+- All files belong to group: developers
+
+Key Learning: Multiple files can have the same owner or group. Ownership
+and group membership determine which permission set applies to a user.
+
+================================================================================
+                            LEVEL 2 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Decoding Permission Strings
+------------------------------------------
+Location: projects/
+Command: ls -l
+
+Expected Output (example):
+-rwx------ 1 alice developers 256 Jan 27 10:00 my_script.sh
+-rw------- 1 alice developers 128 Jan 27 10:00 my_notes.txt
+-rw-r--r-- 1 alice developers 256 Jan 27 10:00 README.md
+-rwxrwx--- 1 bob   developers 512 Jan 27 10:00 team_script.sh
+-rw-rw---- 1 bob   developers 256 Jan 27 10:00 config.json
+-rw-rw-r-- 1 bob   developers 128 Jan 27 10:00 logs.txt
+
+Answers:
+- Owner permissions for team_script.sh: rwx (read, write, execute)
+- Group permissions for config.json: rw- (read, write, no execute)
+- Others permissions for logs.txt: r-- (read only, no write, no execute)
+- What "rwx" means: r = read (can view), w = write (can modify),
+  x = execute (can run as program)
+
+Key Learning: Permission strings are read in groups of three:
+- Positions 2-4: Owner permissions
+- Positions 5-7: Group permissions
+- Positions 8-10: Others permissions
+Each position can be r (read), w (write), x (execute), or - (no permission).
+
+EXERCISE 2 - Why Can't I Read This?
+-------------------------------------
+Location: restricted/
+Commands:
+1. ls -l
+2. cat secret_file.txt
+
+Expected Output:
+ls -l shows:
+-r-------- 1 root root 512 Jan 27 10:00 secret_file.txt
+-rw------- 1 root root 256 Jan 27 10:00 admin_config.txt
+
+cat secret_file.txt:
+cat: secret_file.txt: Permission denied
+
+Answers:
+- Error message: "Permission denied"
+- Permissions for "others" on secret_file.txt: --- (no permissions)
+- Why can't read: The student is not the owner (root), not in the group
+  (root), so "others" permissions apply. Since "others" has no read
+  permission (---), access is denied.
+- What would need to change: The "others" permissions would need to
+  include 'r' (read), OR the student would need to be the owner or in
+  the group.
+
+Key Learning: Linux checks permissions in order:
+1. Are you the owner? → Use owner permissions
+2. Are you in the group? → Use group permissions
+3. Otherwise → Use others permissions
+If the relevant permission set doesn't have the required permission (r, w, x),
+access is denied.
+
+EXERCISE 3 - Practice Reading Before Acting
+---------------------------------------------
+Locations: projects/personal_project/, projects/team_project/, restricted/
+
+Expected Results:
+
+personal_project/:
+- my_script.sh: May or may not be readable (depends on student's user)
+- my_notes.txt: May or may not be readable (depends on student's user)
+- README.md: Should be readable (rw-r--r--)
+
+team_project/:
+- team_script.sh: May or may not be readable (depends on student's user)
+- config.json: May or may not be readable (depends on student's user)
+- logs.txt: Should be readable (rw-rw-r--)
+
+restricted/:
+- secret_file.txt: Should NOT be readable (r--------, owned by root)
+- admin_config.txt: Should NOT be readable (rw-------, owned by root)
+- backup.tar.gz: Should NOT be readable (rw-------, owned by root)
+
+Answers (will vary based on student's user):
+- personal_project/: README.md should be readable because it has r-- for
+  others. Other files depend on ownership.
+- team_project/: logs.txt should be readable because it has r-- for others.
+  Other files depend on group membership.
+- restricted/: No files should be readable because all are owned by root
+  and have no permissions for others.
+
+Key Learning: Always check ls -l first to predict access. The permission
+string tells you exactly what you can and cannot do.
+
+================================================================================
+                            LEVEL 3 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - The Detective Challenge
+--------------------------------------
+Location: Entire lab directory structure
+
+Expected Accessible Files (for typical student user):
+- data/files/public_data.txt (rw-r--r--)
+- data/files/shared_report.txt (rw-rw-rw-)
+- data/files/readonly_archive.txt (r--r--r--)
+- data/logs/system.log (if readable by others)
+- data/secrets/tips.txt (if readable by others)
+- projects/personal_project/README.md (rw-r--r--)
+- projects/team_project/logs.txt (rw-rw-r--)
+- projects/shared_project/shared_doc.txt (rw-rw-r--)
+
+Expected Inaccessible Files:
+- data/files/private_log.txt (rw-------, owned by bob)
+- data/files/private_notes.txt (rw-------, owned by bob)
+- projects/personal_project/my_script.sh (rwx------, owned by alice)
+- projects/personal_project/my_notes.txt (rw-------, owned by alice)
+- projects/team_project/team_script.sh (rwxrwx---, if student not in group)
+- projects/team_project/config.json (rw-rw----, if student not in group)
+- restricted/* (all files owned by root with no others permissions)
+
+Answers:
+- Files student CAN read: Any file where the student is owner, in group,
+  OR others has read permission
+- Files student CANNOT read: Files where student is not owner, not in
+  group, AND others has no read permission
+- Pattern: Files with r--, rw-, r-x, or rwx in the "others" position
+  (last 3 characters) are readable by everyone. Files with --- in others
+  position are only readable by owner or group members.
+
+Key Learning: Permission checking follows a hierarchy: owner → group → others.
+If you're not the owner and not in the group, only "others" permissions apply.
+
+EXERCISE 2 - System Files Exploration
+----------------------------------------
+Commands:
+- ls -l /etc/passwd
+- ls -l /etc/shadow
+- ls -l /etc/hostname
+- ls -l /etc/group
+
+Expected Output:
+-rw-r--r-- 1 root root 1234 Jan 27 10:00 /etc/passwd
+-rw-r----- 1 root shadow 567 Jan 27 10:00 /etc/shadow
+-rw-r--r-- 1 root root 12 Jan 27 10:00 /etc/hostname
+-rw-r--r-- 1 root root 890 Jan 27 10:00 /etc/group
+
+Reading attempts:
+- cat /etc/passwd: Should succeed (readable by all)
+- cat /etc/shadow: Should fail (Permission denied, protected)
+- cat /etc/hostname: Should succeed (readable by all)
+- cat /etc/group: Should succeed (readable by all)
+
+Answers:
+- /etc/passwd permissions: rw-r--r-- (readable by all)
+- Can read /etc/passwd: Yes, because others has read permission
+- /etc/shadow permissions: rw-r----- (readable only by owner and group)
+- Can read /etc/shadow: No, because others has no read permission
+- Why passwd readable but shadow not: /etc/passwd contains public user
+  information (usernames, UIDs) that needs to be accessible. /etc/shadow
+  contains encrypted passwords that must be protected. This demonstrates
+  the principle of least privilege - only expose what's necessary.
+- Security principle: Sensitive information (passwords) is protected, while
+  non-sensitive information (usernames) is accessible. This is defense in depth.
+
+Key Learning: System files have different permission levels based on their
+sensitivity. Public information is readable by all, while sensitive data
+is protected. This is by design, not by accident.
+
+EXERCISE 3 - Final Reflection
+-------------------------------
+Students should find three files with different permission patterns and
+explain them. Examples:
+
+Example 1: public_data.txt
+- Permissions: -rw-r--r--
+- Meaning: Owner can read/write, group can read, others can read
+- Why it makes sense: Public data should be readable by everyone but
+  only modifiable by the owner
+- Can read: Yes, because others has read permission
+
+Example 2: private_notes.txt
+- Permissions: -rw-------
+- Meaning: Only owner can read/write, no one else has access
+- Why it makes sense: Private notes should only be accessible by the owner
+- Can read: No (unless student is the owner), because others has no permissions
+
+Example 3: report.sh
+- Permissions: -rwxr-xr-x
+- Meaning: Owner can read/write/execute, group can read/execute, others
+  can read/execute
+- Why it makes sense: Executable script that everyone can run but only
+  owner can modify
+- Can read: Yes, because others has read permission
+
+Reflection should include:
+- Understanding that permission denied is normal
+- Importance of reading ls -l before acting
+- How ownership and groups affect access
+- Why different files need different permission levels
+
+Key Learning: Students should demonstrate understanding of:
+1. How to read permission strings
+2. How ownership and groups work
+3. Why permissions exist (security)
+4. The habit of checking permissions first
+
+================================================================================
+                        COMPLETE ANSWERS SUMMARY
+================================================================================
+
+LEVEL 1:
+--------
+1. Exercise 1: Permission denied is expected for /etc/shadow - it's protected
+2. Exercise 2: ls -l shows permissions, owner, group, size, date, filename
+3. Exercise 3: Files can have same owner or group; ownership affects access
+
+LEVEL 2:
+--------
+1. Exercise 1: Permission strings are rwx patterns for owner/group/others
+2. Exercise 2: Access denied when you're not owner/group and others has no 'r'
+3. Exercise 3: Always check ls -l first to predict access
+
+LEVEL 3:
+--------
+1. Exercise 1: Find accessible files by checking owner/group/others permissions
+2. Exercise 2: System files have different permissions based on sensitivity
+3. Exercise 3: Synthesize understanding by explaining different patterns
+
+================================================================================
+                        COMMANDS STUDENTS SHOULD USE
+================================================================================
+
+Reading Permissions:
+- ls -l (detailed file listing with permissions)
+- ls -la (all files including hidden, with permissions)
+- id (show user ID and groups)
+- groups (show groups user belongs to)
+
+Reading Files:
+- cat <file> (display file contents)
+- less <file> (view file page by page)
+
+Navigation:
+- cd <directory> (change directory)
+- pwd (show current location)
+- ls (list directory contents)
+
+System Files:
+- ls -l /etc/passwd (check permissions)
+- ls -l /etc/shadow (check permissions - will show protected)
+- cat /etc/passwd (try reading - should work)
+- cat /etc/shadow (try reading - will fail)
+
+================================================================================
+                        PERMISSION PATTERNS IN LAB
+================================================================================
+
+File Permissions Reference:
+
+data/files/:
+- public_data.txt: -rw-r--r-- (owner: rw, group: r, others: r)
+- team_notes.txt: -rw-rw-r-- (owner: rw, group: rw, others: r)
+- private_log.txt: -rw------- (owner: rw, group: ---, others: ---)
+- shared_report.txt: -rw-rw-rw- (owner: rw, group: rw, others: rw)
+- readonly_archive.txt: -r--r--r-- (owner: r, group: r, others: r)
+- private_notes.txt: -rw------- (owner: rw, group: ---, others: ---)
+- report.sh: -rwxr-xr-x (owner: rwx, group: rx, others: rx)
+
+projects/personal_project/:
+- my_script.sh: -rwx------ (owner: rwx, group: ---, others: ---)
+- my_notes.txt: -rw------- (owner: rw, group: ---, others: ---)
+- README.md: -rw-r--r-- (owner: rw, group: r, others: r)
+
+projects/team_project/:
+- team_script.sh: -rwxrwx--- (owner: rwx, group: rwx, others: ---)
+- config.json: -rw-rw---- (owner: rw, group: rw, others: ---)
+- logs.txt: -rw-rw-r-- (owner: rw, group: rw, others: r)
+
+restricted/:
+- admin_config.txt: -rw------- (owner: rw, group: ---, others: ---, owner: root)
+- secret_file.txt: -r-------- (owner: r, group: ---, others: ---, owner: root)
+- backup.tar.gz: -rw------- (owner: rw, group: ---, others: ---, owner: root)
+
+================================================================================
+                        GRADING RUBRIC (SUGGESTION)
+================================================================================
+
+Level 1 - First Encounter (30 points)
+- Exercise 1: Understanding Permission denied (10 points)
+- Exercise 2: Reading ls -l output (10 points)
+- Exercise 3: Identifying owners and groups (10 points)
+
+Level 2 - Reading Permissions (30 points)
+- Exercise 1: Decoding permission strings (10 points)
+- Exercise 2: Understanding access denial (10 points)
+- Exercise 3: Practice reading before acting (10 points)
+
+Level 3 - Connecting to Reality (30 points)
+- Exercise 1: Detective challenge (10 points)
+- Exercise 2: System files exploration (10 points)
+- Exercise 3: Final reflection (10 points)
+
+Documentation (10 points)
+- Created my_answers.txt
+- Provided clear, complete answers
+- Showed understanding of concepts
+- Demonstrated reflection on learning
+
+TOTAL: 100 points
+
+================================================================================
+                        NOTES FOR INSTRUCTOR
+================================================================================
+
+Common Student Mistakes:
+1. Trying to use chmod or sudo to fix permissions (remind: this lab is
+   about reading, not changing)
+2. Getting frustrated with Permission denied (remind: it's expected)
+3. Not understanding owner vs group vs others (use id and groups commands)
+4. Not checking ls -l before trying to access files
+5. Confusing read (r) with execute (x) permissions
+
+Tips for Helping Students:
+- Remind them that Permission denied is normal and expected
+- Show them how to use 'id' to see their user ID
+- Show them how to use 'groups' to see their group memberships
+- Emphasize the habit: ls -l BEFORE cat
+- Explain that ownership is checked first, then group, then others
+- Use real examples from the lab to illustrate concepts
+
+Typical Completion Time:
+- Fast students: 45-60 minutes
+- Average students: 60-75 minutes
+- Struggling students: 75-90 minutes
+
+Important Reminders:
+- This lab is about READING permissions, not CHANGING them
+- Students should NOT use chmod, chown, or sudo
+- Permission denied is the expected outcome for protected files
+- The goal is to develop the habit of checking permissions first
+
+This lab prepares students for future labs where they will learn to
+modify permissions. The foundation of understanding must come first.
+
+================================================================================
+                        EXPECTED USER SCENARIOS
+================================================================================
+
+Note: Actual access will depend on the student's user account. The lab is
+designed to work with any regular user (not root). Some files will be
+accessible, others will not, based on:
+- Whether the student is the file owner
+- Whether the student is in the file's group
+- What permissions are set for "others"
+
+The key learning is understanding WHY access is granted or denied, not
+necessarily being able to read every file.
+
+================================================================================

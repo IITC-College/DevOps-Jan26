@@ -1,0 +1,28 @@
+================================================================================
+                    PUBLIC DATA FILE
+================================================================================
+
+This file contains public information that should be readable by everyone.
+
+File: public_data.txt
+Owner: alice
+Group: developers
+Permissions: rw-r--r-- (owner: read+write, group: read, others: read)
+
+Content:
+--------
+This is a public data file. It contains information that is safe to share
+with all users. Anyone can read this file, but only the owner (alice) can
+modify it.
+
+Example data:
+- Project status: Active
+- Last updated: 2026-01-27
+- Team members: alice, bob, charlie
+- Public documentation link: https://example.com/docs
+
+This file demonstrates the -rw-r--r-- permission pattern, which is common
+for files that need to be readable by everyone but only modifiable by the
+owner.
+
+================================================================================

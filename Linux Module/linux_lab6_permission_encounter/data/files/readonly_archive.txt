@@ -1,0 +1,28 @@
+================================================================================
+                    READ-ONLY ARCHIVE FILE
+================================================================================
+
+This file is an archive that should not be modified.
+
+File: readonly_archive.txt
+Owner: alice
+Group: developers
+Permissions: r--r--r-- (owner: read only, group: read only, others: read only)
+
+Content:
+--------
+ARCHIVE - DO NOT MODIFY
+
+This file contains archived data from previous projects. It should be
+readable by everyone but never modified.
+
+Archived items:
+- Project Alpha documentation (2025)
+- Project Beta specifications (2025)
+- Legacy system configurations
+
+This file demonstrates the r--r--r-- permission pattern, which makes
+a file read-only for everyone, including the owner. This protects
+important archived data from accidental modification.
+
+================================================================================

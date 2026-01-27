@@ -1,0 +1,65 @@
+================================================================================
+                            LEVEL 2 - EXERCISE 2
+                    "Why Can't I Read This?" - Connecting Permissions to Access
+================================================================================
+
+Welcome to Exercise 2!
+
+Now let's connect what you see in `ls -l` to what actually happens when you
+try to access a file. This is the key skill: PREDICTING access based on
+permissions.
+
+EXERCISE:
+---------
+Try to read a file you don't have permission for, and understand WHY access
+was denied by looking at the permissions first.
+
+INSTRUCTIONS:
+-------------
+1. Navigate to the restricted directory:
+   cd ../restricted
+
+2. FIRST, check the permissions (READ BEFORE ACTING):
+   ls -l
+
+3. Look at the output. Notice:
+   - Who is the owner of each file?
+   - What are the permissions for "others" (last 3 characters)?
+   - Are you the owner? (Check with: id)
+
+4. Now try to read a file:
+   cat secret_file.txt
+   (or try: cat admin_config.txt)
+
+5. You should get "Permission denied"
+
+6. Explain WHY: Look at the permissions you saw in step 2
+
+COMMANDS TO USE:
+----------------
+- cd ../restricted
+- ls -l
+- id (to see your user ID)
+- cat secret_file.txt
+
+UNDERSTANDING ACCESS:
+---------------------
+Linux checks permissions in this order:
+1. Are you the OWNER? → Use owner permissions
+2. Are you in the GROUP? → Use group permissions
+3. Otherwise → Use others permissions
+
+If the relevant permission set doesn't have 'r' (read), you get
+"Permission denied".
+
+WRITE YOUR ANSWER:
+------------------
+After trying to read the file, write in my_answers.txt:
+- What error message did you get?
+- What are the permissions for "others" on secret_file.txt?
+- Why can't you read it? (Explain: you're not the owner, not in the group,
+  and others don't have read permission)
+- What would need to change for you to read it? (Just explain - don't change
+  anything!)
+
+Next: clue3.txt
