@@ -1,0 +1,12 @@
+This file was created with umask 077.
+
+With umask 077:
+- Files get permissions: 666 - 077 = 600 (rw-------)
+- Directories get permissions: 777 - 077 = 700 (rwx------)
+
+This means:
+- Owner: read + write
+- Group: nothing
+- Others: nothing
+
+This provides maximum security - only the owner can access the files. Use this for sensitive data!

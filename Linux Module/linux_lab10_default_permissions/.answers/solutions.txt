@@ -1,0 +1,427 @@
+================================================================================
+                    LAB SOLUTIONS - INSTRUCTOR COPY
+================================================================================
+
+This file contains all answers to the Default Permissions (umask) Lab.
+Keep this file secure and do not share with students.
+
+================================================================================
+                            LEVEL 1 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Check Current umask
+---------------------------------
+Location: Any directory
+Commands:
+1. umask
+2. umask -S
+
+Expected Output:
+- Numeric format: Usually 022, 002, or 077 (depends on system)
+- Symbolic format: u=rwx,g=rx,o=rx (for umask 022)
+
+Answers:
+- Current umask value: Varies by system (typically 022 on most Linux systems)
+- Numeric format shows: Octal number representing permissions to remove
+- Symbolic format shows: Same information in readable format (u=user, g=group, o=others)
+
+Key Learning: umask is a system setting that determines default permissions
+for new files and directories. The value is in octal notation.
+
+EXERCISE 2 - Create File and Observe Permissions
+--------------------------------------------------
+Location: Any directory
+Commands:
+1. touch test_file.txt
+2. ls -l test_file.txt
+
+Expected Output:
+For umask 022:
+  -rw-r--r-- 1 user group 0 Jan 27 10:00 test_file.txt
+
+For umask 002:
+  -rw-rw-r-- 1 user group 0 Jan 27 10:00 test_file.txt
+
+For umask 077:
+  -rw------- 1 user group 0 Jan 27 10:00 test_file.txt
+
+Calculation:
+- Maximum file permissions: 666 (rw-rw-rw-)
+- Formula: 666 - umask = resulting permissions
+- Example with umask 022: 666 - 022 = 644 (rw-r--r--)
+
+Answers:
+- File permissions observed: Depends on system umask
+- Calculation: 666 - (current umask) = (observed permissions)
+- Verification: The calculation should match the observed permissions
+- Key insight: Files never get execute permission by default (that's why max is 666)
+
+Key Learning: Files start with maximum permissions 666, then umask subtracts
+permissions. The formula is: 666 - umask = file permissions.
+
+EXERCISE 3 - Create Directory and Observe Permissions
+-------------------------------------------------------
+Location: Any directory
+Commands:
+1. mkdir test_directory
+2. ls -ld test_directory
+
+Expected Output:
+For umask 022:
+  drwxr-xr-x 2 user group 4096 Jan 27 10:00 test_directory
+
+For umask 002:
+  drwxrwxr-x 2 user group 4096 Jan 27 10:00 test_directory
+
+For umask 077:
+  drwx------ 2 user group 4096 Jan 27 10:00 test_directory
+
+Calculation:
+- Maximum directory permissions: 777 (rwxrwxrwx)
+- Formula: 777 - umask = resulting permissions
+- Example with umask 022: 777 - 022 = 755 (rwxr-xr-x)
+
+Answers:
+- Directory permissions observed: Depends on system umask
+- Calculation: 777 - (current umask) = (observed permissions)
+- Verification: The calculation should match the observed permissions
+- Key difference: Directories always have execute permission (needed to cd into them)
+
+Key Learning: Directories start with maximum permissions 777 (including execute),
+then umask subtracts permissions. The formula is: 777 - umask = directory permissions.
+
+================================================================================
+                            LEVEL 2 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Analyze Files with Different umasks
+--------------------------------------------------
+Location: data/examples/
+Commands:
+1. cd ../../data/examples
+2. ls -l umask_022/
+3. ls -l umask_027/
+4. ls -l umask_077/
+5. ls -ld umask_022/
+6. ls -ld umask_027/
+7. ls -ld umask_077/
+
+Expected Output:
+
+umask_022:
+  Files: -rw-r--r-- (644)
+  Directories: drwxr-xr-x (755)
+  Access: Owner (rw), Group (r), Others (r)
+
+umask_027:
+  Files: -rw-r----- (640)
+  Directories: drwxr-x--- (750)
+  Access: Owner (rw), Group (r), Others (none)
+
+umask_077:
+  Files: -rw------- (600)
+  Directories: drwx------ (700)
+  Access: Owner (rw), Others (none), Group (none)
+
+Answers:
+- umask_022: Others can read files (less secure, more permissive)
+- umask_027: Group can read, others cannot (balanced for teams)
+- umask_077: Only owner can access (maximum security)
+- Pattern: As umask increases, permissions become more restrictive
+- Others permissions: Decrease as umask increases (022→027→077)
+
+Key Learning: Different umask values produce different permission patterns.
+Lower umask = more permissive, higher umask = more restrictive.
+
+EXERCISE 2 - Calculate Expected Permissions
+---------------------------------------------
+Location: data/examples/
+Commands:
+1. Calculate permissions for each umask
+2. Verify by checking actual files
+
+Calculations:
+
+umask 022:
+  Files: 666 - 022 = 644 (rw-r--r--)
+  Directories: 777 - 022 = 755 (rwxr-xr-x)
+  Verified: Yes (matches umask_022/ directory)
+
+umask 027:
+  Files: 666 - 027 = 640 (rw-r-----)
+  Directories: 777 - 027 = 750 (rwxr-x---)
+  Verified: Yes (matches umask_027/ directory)
+
+umask 077:
+  Files: 666 - 077 = 600 (rw-------)
+  Directories: 777 - 077 = 700 (rwx------)
+  Verified: Yes (matches umask_077/ directory)
+
+umask 002:
+  Files: 666 - 002 = 664 (rw-rw-r--)
+  Directories: 777 - 002 = 775 (rwxrwxr-x)
+  Verified: N/A (no example provided, but calculation is correct)
+
+Octal to Symbolic Conversion:
+  6 = 4+2 = rw- (read + write)
+  4 = 4 = r-- (read only)
+  0 = --- (no permissions)
+  7 = 4+2+1 = rwx (read + write + execute)
+  5 = 4+1 = r-x (read + execute)
+
+Answers:
+- All calculations should match the actual file permissions
+- Students should verify by checking ls -l output
+- Conversion from octal to symbolic format should be accurate
+
+Key Learning: The formulas are consistent: 666 - umask for files,
+777 - umask for directories. Practice makes this calculation automatic.
+
+EXERCISE 3 - Security Implications
+------------------------------------
+Location: projects/
+Commands:
+1. cd ../../projects
+2. cat secure_files/README.md
+3. cat shared_team/README.md
+4. cat default_app/README.md
+5. ls -l secure_files/
+6. ls -l shared_team/
+7. ls -l default_app/
+
+Expected Analysis:
+
+umask 022 (default_app/):
+  - Who can read: Owner, Group, Others (everyone)
+  - Who can write: Owner only
+  - Security level: Low (others can read)
+  - When to use: Public files, web server files, shared resources
+  - Risk: Information leakage - others can read your files
+
+umask 027 (shared_team/):
+  - Who can read: Owner, Group
+  - Who can write: Owner only
+  - Security level: Medium (group can read, others cannot)
+  - When to use: Team projects, collaborative work, group access needed
+  - Risk: Group members can read (need to trust group)
+
+umask 077 (secure_files/):
+  - Who can read: Owner only
+  - Who can write: Owner only
+  - Security level: High (only owner)
+  - When to use: Private files, sensitive data, personal documents
+  - Risk: No sharing possible (collaboration blocked)
+
+Real-World Scenarios:
+
+Scenario 1: Personal SSH keys and passwords
+  Recommended umask: 077
+  Why: Maximum security, no one else should access
+
+Scenario 2: Team project where all team members need to edit files
+  Recommended umask: 027 or 006
+  Why: Group needs access, but outsiders should not
+
+Scenario 3: Web server files that need to be readable by web server
+  Recommended umask: 022
+  Why: Web server (often running as different user) needs read access
+
+Scenario 4: Configuration files with sensitive API keys
+  Recommended umask: 077
+  Why: Sensitive data should only be accessible to owner
+
+Answers:
+- Students should identify security levels correctly
+- Match scenarios to appropriate umask values
+- Understand trade-offs between security and collaboration
+
+Key Learning: Default permissions are a DECISION. You must choose between
+security (restrictive) and collaboration (permissive). There's no one-size-fits-all.
+
+================================================================================
+                            LEVEL 3 SOLUTIONS
+================================================================================
+
+EXERCISE 1 - Change umask Temporarily
+---------------------------------------
+Location: Any directory
+Commands:
+1. umask (check current)
+2. umask 027 (change)
+3. umask (verify)
+4. touch test_umask_027.txt
+5. ls -l test_umask_027.txt
+6. mkdir test_umask_027_dir
+7. ls -ld test_umask_027_dir
+
+Expected Output:
+- Original umask: Varies (typically 022)
+- After umask 027: 027
+- File permissions: -rw-r----- (640)
+- Directory permissions: drwxr-x--- (750)
+
+Experiments:
+- umask 077 → File: -rw------- (600), Directory: drwx------ (700)
+- umask 022 → File: -rw-r--r-- (644), Directory: drwxr-xr-x (755)
+
+Answers:
+- Original umask: Varies by system
+- After changing to 027: File has 640, directory has 750
+- After changing to 077: File has 600, directory has 700
+- After changing to 022: File has 644, directory has 755
+- Key insight: umask changes are TEMPORARY (session-specific)
+
+Key Learning: umask can be changed with the `umask` command, but changes only
+affect the current shell session. They don't persist after closing the terminal.
+
+EXERCISE 2 - Real-World Scenarios
+-----------------------------------
+Location: Any directory
+Commands:
+1. umask 077
+2. touch private_secret.txt
+3. ls -l private_secret.txt
+4. umask 027
+5. touch team_project.txt
+6. ls -l team_project.txt
+7. umask 022
+8. touch web_content.txt
+9. ls -l web_content.txt
+
+Expected Output:
+
+Scenario 1 (Private):
+  umask: 077
+  File: -rw------- (600)
+  Why secure: Only owner can access, no one else can read or write
+
+Scenario 2 (Team):
+  umask: 027
+  File: -rw-r----- (640)
+  Why good for teams: Group can read, enabling collaboration, but outsiders cannot
+
+Scenario 3 (Public):
+  umask: 022
+  File: -rw-r--r-- (644)
+  Why good for web: Web server (running as different user) can read files
+
+Answers:
+- Scenario 1: umask 077, permissions 600, secure because only owner access
+- Scenario 2: umask 027, permissions 640, good for teams because group can read
+- Scenario 3: umask 022, permissions 644, good for web because others can read
+
+Key Learning: Different scenarios require different umask values. Understanding
+the requirements helps you choose the right umask.
+
+EXERCISE 3 - Synthesis Challenge
+---------------------------------
+Location: Any directory
+Commands:
+1. Determine required permissions: 640 (rw-r-----)
+2. Calculate umask: 666 - 640 = 026
+3. umask 026
+4. touch final_test.txt
+5. ls -l final_test.txt
+
+Expected Output:
+- Required permissions: 640 (rw-r-----)
+- Calculated umask: 026
+- Verification: File created with -rw-r----- (640)
+- Meets requirement: Yes
+
+Additional Challenges:
+
+Challenge A: "Files readable by everyone, writable only by me"
+  Required permissions: 644 (rw-r--r--)
+  umask: 666 - 644 = 022
+  Answer: umask 022
+
+Challenge B: "Files accessible only by me, no one else"
+  Required permissions: 600 (rw-------)
+  umask: 666 - 600 = 066... wait, let's recalculate
+  Actually: 666 - 077 = 600 - 11 = 589... no
+  Correct method: To get 600, we need to block group and others
+  umask should be: 077 (blocks group and others read+write+execute)
+  Verification: 666 - 077 = 600 ✓
+  Answer: umask 077
+
+Challenge C: "Files readable and writable by group, nothing for others"
+  Required permissions: 660 (rw-rw----)
+  umask: 666 - 660 = 006
+  Answer: umask 006
+
+Answers:
+- Main challenge: umask 026 produces 640 (rw-r-----)
+- Challenge A: umask 022 produces 644 (rw-r--r--)
+- Challenge B: umask 077 produces 600 (rw-------)
+- Challenge C: umask 006 produces 660 (rw-rw----)
+
+Key Learning: To determine umask from requirements:
+1. Identify required permissions
+2. Calculate: umask = 666 - required_permissions (for files)
+3. Set umask and verify by creating a test file
+
+================================================================================
+                        COMPREHENSIVE ANSWER KEY
+================================================================================
+
+Level 1 Summary:
+- umask shows current default permission mask
+- Files: 666 - umask = permissions
+- Directories: 777 - umask = permissions
+
+Level 2 Summary:
+- Different umask values produce different security levels
+- 022: Permissive (others can read)
+- 027: Balanced (group can read, others cannot)
+- 077: Restrictive (only owner)
+
+Level 3 Summary:
+- umask can be changed temporarily with `umask` command
+- Changes are session-specific
+- Real-world scenarios require different umask values
+- Calculate umask from requirements: umask = 666 - required_permissions
+
+================================================================================
+                        GRADING RUBRIC
+================================================================================
+
+Level 1 (30 points):
+- Exercise 1: 10 points (check umask correctly)
+- Exercise 2: 10 points (understand file permissions formula)
+- Exercise 3: 10 points (understand directory permissions formula)
+
+Level 2 (40 points):
+- Exercise 1: 15 points (analyze different umask values)
+- Exercise 2: 15 points (calculate permissions correctly)
+- Exercise 3: 10 points (understand security implications)
+
+Level 3 (30 points):
+- Exercise 1: 10 points (change umask and observe impact)
+- Exercise 2: 10 points (apply umask to real scenarios)
+- Exercise 3: 10 points (solve synthesis challenge)
+
+Total: 100 points
+
+================================================================================
+                        COMMON MISTAKES
+================================================================================
+
+1. Confusing file and directory base values (666 vs 777)
+2. Adding instead of subtracting (umask adds restrictions, doesn't grant)
+3. Forgetting that umask changes are temporary
+4. Not verifying calculations with actual file creation
+5. Choosing wrong umask for scenario (e.g., 022 for sensitive data)
+
+================================================================================
+                        ADDITIONAL NOTES
+================================================================================
+
+- Students may have different default umask values on their systems
+- The key is understanding the formula, not memorizing specific values
+- Encourage students to experiment and verify their calculations
+- The pedagogical goal is understanding that defaults are decisions, not accidents
+
+================================================================================
+
+End of Solutions File

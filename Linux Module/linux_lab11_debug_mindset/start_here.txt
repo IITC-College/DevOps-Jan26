@@ -1,0 +1,126 @@
+================================================================================
+    WELCOME TO THE DEBUG MINDSET LAB!
+================================================================================
+
+Hello, Linux Explorer!
+
+This lab is designed to teach you a SYSTEMATIC approach to debugging Linux
+problems. You will learn the 4-Step Debug Methodology that will help you
+solve ANY problem methodically, without trial-and-error.
+
+IMPORTANT: This lab is NOT about trying random commands until something works.
+This lab IS about following a proven process: OBSERVE → INSPECT → DIAGNOSE → RESOLVE.
+
+================================================================================
+    WHAT YOU'LL LEARN
+================================================================================
+
+- How to systematically debug Linux problems
+- The 4-Step Debug Methodology (OBSERVE → INSPECT → DIAGNOSE → RESOLVE)
+- How to read error messages and gather evidence
+- How to identify root causes instead of just symptoms
+- How to apply the correct fix, not just workarounds
+- How to think methodically about ANY problem
+
+================================================================================
+    THE 4-STEP DEBUG METHODOLOGY
+================================================================================
+
+Before you start solving problems, you MUST understand the methodology:
+
+1. OBSERVE - Read error messages, notice what's failing
+2. INSPECT - Check current state (permissions, ownership, paths)
+3. DIAGNOSE - Identify root cause based on evidence
+4. RESOLVE - Apply correct fix (not workaround)
+
+================================================================================
+    YOUR FIRST TASK
+================================================================================
+
+1. Read the methodology explanation:
+   Run: cat data/logs/debug_methodology.txt
+
+2. Understand the 4 steps completely before proceeding
+
+3. Check where you are right now:
+   Run: pwd
+
+4. List all files in the current directory:
+   Run: ls -la
+
+5. Navigate to the first level of clues:
+   Run: cd clues/level1
+
+6. Read the first exercise:
+   Run: cat clue1.txt
+
+7. Apply the 4-step methodology to solve it!
+
+================================================================================
+    WHAT TO EXPECT
+================================================================================
+
+- You WILL encounter broken scenarios - that's the point!
+- You will practice the 4-step process on each problem
+- You will learn to gather evidence before making changes
+- You will learn to diagnose root causes, not just symptoms
+- You will learn to fix problems correctly, not work around them
+- You will develop a systematic debugging mindset
+
+Remember: The goal is NOT to solve problems quickly. The goal IS to solve
+them correctly using the methodology. Take your time, follow the steps!
+
+================================================================================
+    IMPORTANT REMINDERS
+================================================================================
+
+* NO TRIAL-AND-ERROR - Follow the 4 steps systematically
+* OBSERVE first - Read error messages carefully
+* INSPECT second - Gather evidence with ls -l, pwd, whoami, etc.
+* DIAGNOSE third - Identify root cause based on evidence
+* RESOLVE last - Apply correct fix, verify it worked
+* Fix root causes - Not just symptoms or workarounds
+* Verify your fixes - Check with INSPECT again after RESOLVE
+* Take notes as you progress through the exercises
+* Don't worry about making mistakes - that's how you learn!
+
+================================================================================
+    COMMANDS YOU'LL USE
+================================================================================
+
+OBSERVE (Step 1):
+- Read error messages in terminal
+- Note what command failed
+- Identify symptoms
+
+INSPECT (Step 2):
+- pwd              (where am I?)
+- ls -l            (file permissions and ownership)
+- ls -la           (all files including hidden)
+- ls -ld           (directory permissions)
+- whoami           (current username)
+- id               (user ID and groups)
+- file <name>      (file type verification)
+
+DIAGNOSE (Step 3):
+- Analyze evidence from INSPECT
+- Identify root cause
+- Plan fix approach
+
+RESOLVE (Step 4):
+- chmod <perms> <file>        (fix permissions)
+- sudo chown <user>:<group> <file>  (fix ownership when appropriate)
+- cd <path>                   (navigate to correct location)
+- Correct command with proper path
+
+================================================================================
+    READY? LET'S BEGIN!
+================================================================================
+
+Your first destination: data/logs/debug_methodology.txt
+
+Read it carefully, then proceed to clues/level1/clue1.txt
+
+Good luck, and remember: Follow the 4 steps - OBSERVE, INSPECT, DIAGNOSE, RESOLVE!
+
+================================================================================

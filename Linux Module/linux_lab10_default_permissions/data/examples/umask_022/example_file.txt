@@ -1,0 +1,12 @@
+This file was created with umask 022.
+
+With umask 022:
+- Files get permissions: 666 - 022 = 644 (rw-r--r--)
+- Directories get permissions: 777 - 022 = 755 (rwxr-xr-x)
+
+This means:
+- Owner: read + write
+- Group: read only
+- Others: read only
+
+This is a common default, but note that others can read your files!

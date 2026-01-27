@@ -1,0 +1,105 @@
+================================================================================
+                    THE 4-STEP DEBUG METHODOLOGY
+================================================================================
+
+STOP! Before you randomly try commands, follow this process:
+
+================================================================================
+STEP 1: OBSERVE
+================================================================================
+
+What exactly is happening?
+- What is the exact error message?
+- What command were you trying to run?
+- What symptoms do you see?
+- What were you expecting to happen?
+
+DON'T SKIP THIS STEP! Read the error message carefully. It contains clues.
+
+Example observations:
+- "Permission denied"
+- "No such file or directory"
+- "Command not found"
+- Script runs but produces wrong output
+
+================================================================================
+STEP 2: INSPECT
+================================================================================
+
+Check the current state of the system. Gather evidence before making changes.
+
+Essential inspection commands:
+- pwd          → Where am I right now?
+- ls -l        → What are the file permissions and ownership?
+- ls -la       → What files exist (including hidden ones)?
+- ls -ld       → What are the directory permissions?
+- whoami       → What user am I running as?
+- id           → What are my user ID and groups?
+- file <name>  → What type of file is this?
+
+DON'T GUESS! Use these commands to gather real evidence.
+
+Example inspection:
+- Error: "Permission denied" when reading file
+- Inspection: ls -l shows -rw------- owned by root
+- Evidence: File has restrictive permissions, owned by different user
+
+================================================================================
+STEP 3: DIAGNOSE
+================================================================================
+
+Based on the evidence from INSPECT, identify the root cause.
+
+Ask yourself:
+- Is it a permissions problem? (missing r, w, or x)
+- Is it an ownership problem? (file owned by wrong user)
+- Is it a path problem? (wrong directory, file doesn't exist)
+- Is it a hidden file problem? (file exists but starts with .)
+- Is it something else?
+
+DON'T GUESS! Base your diagnosis on the evidence you gathered.
+
+Example diagnosis:
+- Evidence: File is -rw------- owned by root, you are user "student"
+- Diagnosis: Root cause is ownership mismatch - file belongs to root,
+  not to you, and has no group/other permissions
+
+================================================================================
+STEP 4: RESOLVE
+================================================================================
+
+Apply the correct fix based on your diagnosis. Fix the root cause, not
+just the symptom.
+
+Common fixes:
+- chmod <permissions> <file>     → Fix file permissions
+- chmod <permissions> <directory> → Fix directory permissions
+- sudo chown <user>:<group> <file> → Fix ownership (when appropriate)
+- cd <correct_path>              → Navigate to correct location
+- Use correct command with proper path
+
+DON'T USE WORKAROUNDS! Fix the actual problem.
+
+Example resolution:
+- Diagnosis: Ownership mismatch
+- Resolution: sudo chown $USER:$USER file.txt (fix ownership once)
+- NOT: sudo cat file.txt every time (workaround)
+
+After fixing, INSPECT again to verify the fix worked!
+
+================================================================================
+REMEMBER: NO TRIAL-AND-ERROR!
+================================================================================
+
+The goal is NOT to try random commands until something works.
+
+The goal IS to:
+1. OBSERVE what's wrong
+2. INSPECT to gather evidence
+3. DIAGNOSE the root cause
+4. RESOLVE with the correct fix
+
+Follow these steps for EVERY problem in this lab. This methodology will
+help you solve ANY Linux problem systematically, not just permissions!
+
+================================================================================

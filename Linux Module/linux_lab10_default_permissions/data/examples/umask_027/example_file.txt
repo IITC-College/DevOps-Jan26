@@ -1,0 +1,12 @@
+This file was created with umask 027.
+
+With umask 027:
+- Files get permissions: 666 - 027 = 640 (rw-r-----)
+- Directories get permissions: 777 - 027 = 750 (rwxr-x---)
+
+This means:
+- Owner: read + write
+- Group: read only
+- Others: nothing
+
+This is good for team environments where group members need access but outsiders should not.
