@@ -1,0 +1,40 @@
+================================================================================
+                    LEVEL 2 - CLUE 3
+            "Describe Like a DevOps" - Full Problem Description
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_3.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A good DevOps can describe a problem clearly: what failed, when, why, and what
+the impact is. Not just copy an error line. Your job: find all relevant log
+entries for the lab scenario, trace the failure, then write a short professional
+problem description.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Use journalctl --user to view logs for the lab service(s) the setup started.
+   Find every relevant line: errors, warnings, and the sequence of events.
+
+2. Trace the failure: what happened first, what happened next, what was the
+   root cause? (Use -u, -xe, --since, -p as needed.)
+
+3. Write in my_answers.txt a professional problem description (3–4 sentences).
+   Include:
+   - Which service failed?
+   - When did it fail?
+   - What was the root cause?
+   - What was the impact?
+   Bad example: "Error: file not found"
+   Good example: "The lab-app service failed to start at 14:32 because it could
+   not access /var/lab/config.txt (permission denied). This prevents the
+   application from loading its configuration, making the service unavailable."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_3.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  You have completed the lab. Congratulations!
+================================================================================

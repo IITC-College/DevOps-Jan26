@@ -1,0 +1,38 @@
+================================================================================
+                    LEVEL 2 - CLUE 1
+            "Meet kill -9" - SIGKILL (Pulling the Power Plug)
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_1.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Sometimes a process ignores the polite request (SIGTERM). Then you need a
+stronger signal: kill -9 sends SIGKILL. The process cannot ignore it – it's
+like "pulling the power plug." Use it only as a last resort.
+
+In this clue: a dummy process that ignores SIGTERM. Try normal kill first – it
+won't stop. Then use kill -9 – it will.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script. It starts a process that ignores SIGTERM.
+
+2. Find its PID: ps aux | grep dummy_stubborn
+
+3. Try a normal kill: kill <PID>
+   Wait a moment. Check with ps aux | grep dummy_stubborn – the process is
+   still running.
+
+4. Now force-stop: kill -9 <PID>
+   Check again – the process is gone.
+
+5. Write in my_answers.txt: "Normal kill did not stop it. kill -9 stopped it."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_1.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

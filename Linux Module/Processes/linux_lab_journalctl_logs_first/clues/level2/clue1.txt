@@ -1,0 +1,35 @@
+================================================================================
+                    LEVEL 2 - CLUE 1
+            "Recent Errors" - journalctl -xe
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_1.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+When something just failed, you want to see recent errors with context. The
+-xe flags: -x adds short explanations to log lines, -e jumps to the end of the
+journal (most recent). Your job: use journalctl -xe (or --user -xe) to find
+the error from the lab service that the setup script made fail.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. View recent log entries with explanations. Hint: journalctl -xe
+   For user services, use: journalctl --user -xe
+   (You'll land near the end of the log; scroll up a bit if needed to find
+   the lab service failure.)
+
+2. Find the line(s) that explain why the lab service failed. Read the message
+   – systemd often tells you what went wrong (e.g. missing file, permission).
+
+3. Write in my_answers.txt: one sentence – what did -xe show you that plain
+   journalctl didn't? (e.g. "It showed the most recent entries and short
+   explanations for the failure.")
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_1.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

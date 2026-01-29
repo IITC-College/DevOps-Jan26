@@ -1,0 +1,34 @@
+================================================================================
+                    LEVEL 1 - CLUE 3
+            "Finding and Stopping Multiple Processes"
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_3.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Several dummy processes are now running. Your job: find them all by name, get
+each one's PID, and stop them one by one with kill.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script. It starts three dummy processes.
+
+2. List the relevant processes: ps aux | grep dummy_normal
+   (You'll see several lines – each line is one process. PID is in the second
+   column.)
+
+3. Stop each process: kill <PID> for each PID you found (except the grep line).
+
+4. Verify no dummy processes remain: ps aux | grep dummy_normal
+   (Only the grep line should remain.)
+
+5. Write in my_answers.txt: "I stopped X processes with kill" (X = 3)
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_3.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cd ../level2  then  cat clue1.txt
+================================================================================

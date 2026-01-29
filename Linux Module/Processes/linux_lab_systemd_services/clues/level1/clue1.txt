@@ -1,0 +1,33 @@
+================================================================================
+                    LEVEL 1 - CLUE 1
+            "systemctl and status"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+systemctl is the main tool for controlling systemd: services, state, start,
+stop, restart. The first step is always to *read* the current state with
+systemctl status. You'll see: active (running), inactive (dead), failed –
+and what they mean.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Check the status of a known service. Examples: cron, systemd-timesyncd,
+   ssh (or sshd), or one your instructor suggests.
+   Command: systemctl status <service_name>
+   (Example: systemctl status cron)
+
+2. Look at the output. Find the line that says "Active: ..." – it might say
+   "active (running)", "inactive (dead)", or "failed". Read any message
+   below it.
+
+3. Write in my_answers.txt (lab root: cd ../../..): one sentence – what does
+   "active (running)" mean? What does "inactive (dead)" or "failed" mean?
+   (Brief: active = service is running; inactive = not running; failed =
+   something went wrong.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

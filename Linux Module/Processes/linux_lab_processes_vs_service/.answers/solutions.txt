@@ -1,0 +1,134 @@
+================================================================================
+                    SOLUTIONS - Process vs Service Lab
+                    (Instructor use only)
+================================================================================
+
+GENERAL:
+  This lab has no setup or cleanup scripts. Students observe the system as-is.
+  Direct entry: cd clues/level1 && cat clue1.txt
+
+================================================================================
+
+LEVEL 1 - CLUE 1: "Process = What Is Running"
+---------------------------------------------
+
+STEP 1 – List processes
+  Command:  ps aux
+  Explanation: Shows many processes. Each line is one process; PID in second
+  column, COMMAND at the end.
+
+STEP 2 – Observe
+  Students see how many processes are running (rough count).
+
+STEP 3 – Document
+  Write in my_answers.txt: "A process is what is actually running right now."
+  (Or equivalent wording.)
+
+EXAMPLE ANSWER: "A process is what is actually running right now."
+
+================================================================================
+
+LEVEL 1 - CLUE 2: "Processes Can Disappear"
+-------------------------------------------
+
+STEP 1 – Conceptual
+  No command required. Students think about: if you kill a process (or it
+  crashes), it's gone; nothing brings it back.
+
+STEP 2 – Document
+  Write in my_answers.txt: what happens when a process is killed or crashes?
+  (It's gone; nothing brings it back unless we do something special.)
+
+EXAMPLE ANSWER: "When a process is killed or crashes, it's gone. Nothing
+automatically brings it back."
+
+================================================================================
+
+LEVEL 1 - CLUE 3: "Many Processes, No Single 'Manager'"
+-------------------------------------------------------
+
+STEP 1 – Run ps again
+  Command:  ps aux
+  Explanation: Reinforces that ps shows what *is* running, not what *should*
+  be running.
+
+STEP 2 – Document
+  Write in my_answers.txt: "ps shows what is running, not what should be
+  running." (Or equivalent.)
+
+EXAMPLE ANSWER: "ps shows what is running, not what should be running."
+
+================================================================================
+
+LEVEL 2 - CLUE 1: "Service = What Should Be Running (systemd)"
+--------------------------------------------------------------
+
+STEP 1 – List services
+  Command:  systemctl list-units --type=service
+  Explanation: Shows services (units of type service). LOAD, ACTIVE, SUB
+  columns show state. These are managed by systemd.
+
+STEP 2 – Observe
+  Students see many services; systemd manages them.
+
+STEP 3 – Document
+  Write in my_answers.txt: "A service is what should be running; systemd
+  manages it." (Or equivalent.)
+
+EXAMPLE ANSWER: "A service is what should be running; systemd manages it."
+
+================================================================================
+
+LEVEL 2 - CLUE 2: "One Service, One (or More) Process"
+------------------------------------------------------
+
+STEP 1 – Pick a service and check status
+  Command:  systemctl status <service_name>
+  Examples: systemctl status cron, systemctl status systemd-timesyncd,
+  systemctl status ssh (or sshd). Use a service that is active on the
+  student's system.
+
+  Explanation: Output shows Active (e.g. "active (running)") and often
+  "Main PID: ..." – the process ID of the main process for this service.
+
+STEP 2 – Relate
+  When the service is "running," it has a process (Main PID). Service =
+  contract; process = what runs.
+
+STEP 3 – Document
+  Write in my_answers.txt: "When a service is running, it has a process
+  (Main PID). Service = contract; process = what runs." (Or equivalent.)
+
+EXAMPLE ANSWER: "When a service is running, it has a process (Main PID).
+Service = contract; process = what runs."
+
+================================================================================
+
+LEVEL 2 - CLUE 3: "If the Process Dies, the Service Can Restart It"
+-------------------------------------------------------------------
+
+STEP 1 – Conceptual only
+  No command required. Students understand: if the process of a service
+  dies (or is killed), systemd can restart it so the service stays "running."
+  Process = what is running; service = what should be running (systemd
+  ensures it).
+
+STEP 2 – Document
+  Write in my_answers.txt: "If the process dies, systemd can restart it so
+  the service stays running. Process = what runs; service = what should
+  run (managed by systemd)."
+
+EXAMPLE ANSWER: "If the process dies, systemd can restart it so the
+service stays running. Process = what runs; service = what should run
+(managed by systemd)."
+
+================================================================================
+
+DISCUSSION POINTS:
+  - Process vs service: process = running program; service = "contract"
+    managed by systemd; when service is running it has a process.
+  - Restart behavior: systemd can restart the process so the service
+    remains "running" (no need to demonstrate by killing a real service
+    in this lab).
+
+================================================================================

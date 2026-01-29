@@ -1,0 +1,31 @@
+================================================================================
+                    LEVEL 1 - CLUE 3
+            "Find the Error" - First Error Hunt
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_3.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+When something fails, the log usually says why. Your job: find the error line
+for the lab "fail" service, then – importantly – describe the problem in words.
+A good DevOps describes a problem, not just copies an error line.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. View logs for the lab "fail" service. Hint: journalctl --user -u lab-logger-fail.service
+
+2. Find the line that indicates an error or failure. Note: WHAT failed, and
+   WHEN (timestamp). You can scroll or use -n 20 to see the last 20 lines.
+
+3. Write in my_answers.txt a short problem description (2–3 sentences), not just
+   the raw error line. Include: which service failed, what happened, and when.
+   Example style: "The lab-logger-fail service failed at [time] because …"
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_3.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cd ../level2  then  cat clue1.txt
+================================================================================

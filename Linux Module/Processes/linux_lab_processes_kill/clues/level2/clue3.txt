@@ -1,0 +1,38 @@
+================================================================================
+                    LEVEL 2 - CLUE 3
+            "Real-World Scenario" - Try Gentle, Then Force
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_3.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A "stuck" process is running (it ignores SIGTERM). Follow the proper steps:
+1. Try kill (graceful).
+2. Wait a few seconds.
+3. If it's still running, use kill -9.
+
+This is the order you should use in real life.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script. A stuck process is running.
+
+2. Find its PID: ps aux | grep dummy_stubborn
+
+3. First try: kill <PID>
+   Wait 2–3 seconds. Check: ps aux | grep dummy_stubborn – still there.
+
+4. Then: kill -9 <PID>
+   Check again – process is gone.
+
+5. Write in my_answers.txt: "I tried kill first, then kill -9. Order: gentle
+   first, force only if needed."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_3.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  You finished the lab! Review README for learning objectives.
+================================================================================

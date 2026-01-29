@@ -1,0 +1,38 @@
+================================================================================
+                    LEVEL 1 - CLUE 2
+            "Default Signal" - SIGTERM (Graceful Stop)
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_2.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+When you run kill without a number, Linux sends signal 15 – SIGTERM. That is
+a "please stop" request. A well-written process can catch this signal, save
+data, and exit cleanly.
+
+In this exercise you'll start a dummy process that responds to SIGTERM. You'll
+see it stop gracefully.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script. It starts a process that handles SIGTERM.
+
+2. Find its PID: ps aux | grep dummy_normal
+   (The number in the second column is the PID.)
+
+3. Send a gentle kill: kill <PID>
+
+4. Notice: if the dummy process printed a message before exiting – that's
+   controlled shutdown.
+
+5. Write in my_answers.txt (lab root: cd ../../..): What happened when you ran
+   kill? Example: "The process received SIGTERM and stopped cleanly."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_2.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

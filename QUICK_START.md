@@ -42,10 +42,19 @@ chmod +x create_and_deploy_lab.sh
 
 ## 📝 Manual Deployment (If Needed)
 
+### Step 0: Fix Script Line Endings (labs with setup/cleanup scripts)
+If the lab has `scripts/*.sh` and you edited them on Windows, fix line endings **before** packaging. Otherwise students get: `cannot execute: required file not found`.
+```bash
+cd "Module Name/lab_name/scripts"
+sed -i 's/\r$//' *.sh
+# Or from lab_name/: for f in scripts/*.sh; do sed -i 's/\r$//' "$f"; done
+```
+Verify: `file setup_1_1.sh` should **not** show "with CRLF line terminators". See [LAB_WORKFLOW.md](LAB_WORKFLOW.md) Phase 5 for details.
+
 ### Step 1: Create Archive
 ```bash
 cd "Module Name"
-tar -czf lab_name.tar.gz lab_name/
+tar --mode='a+x' -czf lab_name.tar.gz lab_name/
 cd ..
 ```
 
@@ -67,7 +76,7 @@ gh release create v1.0 \
 
 ### Step 4: Get Download Command
 ```bash
-echo "curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt"
+echo "curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt"
 ```
 
 ---
@@ -77,14 +86,14 @@ echo "curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.
 ### One-Line Download
 ```bash
 # Example: Linux Module
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/linux_scavenger_hunt.tar.gz | tar -xz && cd linux_scavenger_hunt && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt
 ```
 
 **What this does**:
 1. Downloads the lab
 2. Extracts all files
-3. Navigates into lab directory
-4. Shows starting instructions
+3. Navigates into lab directory and to first clue
+4. Shows first clue (starting instructions)
 
 ---
 
@@ -101,7 +110,7 @@ DevOps-Jan26/
 └── [Module Name]/
     ├── [lab_name]/               ← Lab content
     │   ├── README.md
-    │   ├── start_here.txt
+    │   ├── clues/level1/         ← Start here: cat clue1.txt
     │   └── ...
     ├── [lab_name].tar.gz         ← Distribution file
     └── STUDENT_COMMAND.txt       ← Download command
@@ -136,8 +145,7 @@ gh release view v1.0 --repo IITC-College/DevOps-Jan26
 # In a test directory
 mkdir test && cd test
 curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/lab_name.tar.gz | tar -xz
-cd lab_name
-cat start_here.txt
+cd lab_name && cd clues/level1 && cat clue1.txt
 ```
 
 ---
@@ -182,9 +190,9 @@ mkdir -p "New Module/my_first_lab"
 cd "New Module/my_first_lab"
 
 # 2. Create essential files
-echo "Welcome to My Lab!" > start_here.txt
 echo "# My First Lab" > README.md
 mkdir -p clues/level1 data hidden .answers
+# README must include: cd clues/level1 && cat clue1.txt
 
 # 3. Add content (use your editor)
 # ... create clue files, data files, etc ...
@@ -211,7 +219,7 @@ gh release list --repo IITC-College/DevOps-Jan26
 gh release delete v1.0 --yes --repo IITC-College/DevOps-Jan26
 
 # Test download
-curl -L [URL] | tar -xz && cd [lab] && cat start_here.txt
+curl -L [URL] | tar -xz && cd [lab] && cd clues/level1 && cat clue1.txt
 ```
 
 ---

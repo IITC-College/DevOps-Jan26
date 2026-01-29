@@ -1,0 +1,28 @@
+================================================================================
+                    LEVEL 2 - CLUE 1
+            "Service = What Should Be Running (systemd)"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A *service* is "something that should run." On modern Linux, services are
+managed by systemd. systemd keeps a list of services and their desired
+state (running, stopped, etc.). The *process* is what actually runs; the
+*service* is the "contract" that systemd enforces.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. List services (units of type "service"). Hint: systemctl list-units --type=service
+   (You'll see many lines – each is a service. LOAD, ACTIVE, SUB show state.)
+
+2. Look at the output. Notice: these are *services*, not raw processes.
+   systemd knows about each one.
+
+3. Write in my_answers.txt: "A service is what should be running; systemd
+   manages it." (Or your own wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

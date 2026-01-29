@@ -1,0 +1,34 @@
+================================================================================
+                    LEVEL 1 - CLUE 1
+            "What Are Logs?" - Your First Look at journalctl
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_1.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A log is a record of what the system and services have done. It is the most
+reliable source when something goes wrong: before guessing, check the logs.
+journalctl shows logs from systemd (the journal). Your job: run journalctl and
+see what the output looks like – timestamps, service names, messages.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. View the system journal. Hint: journalctl
+   (Output may be long; use Space to scroll, q to quit. Or try journalctl -n 50
+   to see only the last 50 lines.)
+
+2. Look at the output. Notice: each line has a timestamp, a hostname, a unit
+   (service) name, and a message. Don't try to read everything – just see that
+   logs are the system's "memory" of what happened.
+
+3. Write in my_answers.txt (lab root: cd ../../..): one sentence – what is a
+   log, and why is it useful when something goes wrong?
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_1.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

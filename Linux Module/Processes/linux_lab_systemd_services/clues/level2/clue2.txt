@@ -1,0 +1,37 @@
+================================================================================
+                    LEVEL 2 - CLUE 2
+            "Stop and Start"
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_2.sh
+* CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_2.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+You'll stop the lab-demo service, check status (inactive), then start it
+again and check status (active). That's the basic cycle: stop and start.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script (see above) if you haven't already. Then check
+   status first (status first!): systemctl --user status lab-demo
+   Note: active (running).
+
+2. Stop the service: systemctl --user stop lab-demo
+
+3. Check status again: systemctl --user status lab-demo
+   You should see "Active: inactive (dead)".
+
+4. Start it again: systemctl --user start lab-demo
+
+5. Check status again: systemctl --user status lab-demo
+   You should see "Active: active (running)".
+
+6. Write in my_answers.txt: "I stopped and started the service; status
+   showed inactive then active." (Or your own wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

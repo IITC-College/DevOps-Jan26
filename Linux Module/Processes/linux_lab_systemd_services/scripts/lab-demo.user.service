@@ -1,0 +1,11 @@
+[Unit]
+Description=Lab demo service for systemd practice
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=REPLACE_WITH_LAB_ROOT/scripts/dummy_daemon.sh
+Restart=no
+
+[Install]
+WantedBy=default.target

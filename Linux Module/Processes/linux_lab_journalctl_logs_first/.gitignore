@@ -1,0 +1,5 @@
+# Lab runtime - service tracking (created by setup scripts)
+.lab_*_service
+
+# Student answers (optional)
+my_answers.txt

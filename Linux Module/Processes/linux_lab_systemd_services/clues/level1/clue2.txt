@@ -1,0 +1,29 @@
+================================================================================
+                    LEVEL 1 - CLUE 2
+            "active / inactive / failed"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Check the status of 2–3 different services. See at least one "active" and, if
+you can find one, one "inactive" or "failed". That way you learn to read the
+output and understand what each state means.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run systemctl status for 2–3 different services. Examples: cron,
+   systemd-timesyncd, ssh, bluetooth, or others from systemctl list-units
+   --type=service.
+
+2. For each, note: Active: active (running), inactive (dead), or failed?
+   If failed, read the short message – it often says why.
+
+3. Write in my_answers.txt: one sentence for each – what do "active",
+   "inactive", and "failed" mean? (active = running; inactive = not running;
+   failed = error or problem.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

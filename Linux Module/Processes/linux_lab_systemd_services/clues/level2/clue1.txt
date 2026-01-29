@@ -1,0 +1,31 @@
+================================================================================
+                    LEVEL 2 - CLUE 1
+            "Lab Demo Service"
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_1.sh
+* CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_1.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+You'll practice start and stop on a **user-level** service (no root needed).
+The setup script installs a demo service called "lab-demo". You'll check its
+status and start it if needed.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script (see above). It installs the lab-demo user service
+   and starts it.
+
+2. Check the status: systemctl --user status lab-demo
+   You should see "Active: active (running)" (or inactive if it didn't
+   start – then run: systemctl --user start lab-demo).
+
+3. Check status again: systemctl --user status lab-demo
+   Note the "Main PID" line – that's the process belonging to this service.
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

@@ -1,0 +1,29 @@
+================================================================================
+                    LEVEL 2 - CLUE 3
+            "If the Process Dies, the Service Can Restart It"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Here's the key idea: if the *process* belonging to a service crashes or is
+killed, systemd can restart it. So the *service* stays "running" even though
+the original process is gone. Process = what is running. Service = what should
+be running, and systemd makes sure it stays that way.
+
+(We don't kill a real service in this lab – just understand the concept.)
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Think about it: if you killed the process of a service (e.g. the Main PID
+   you saw in systemctl status), systemd could start a new process for that
+   same service. So the service is "still running" – with a new PID.
+
+2. Write in my_answers.txt: "If the process dies, systemd can restart it so
+   the service stays running. Process = what runs; service = what should
+   run (managed by systemd)."
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  You finished the lab! Review README for learning objectives.
+================================================================================

@@ -1,0 +1,32 @@
+================================================================================
+                    LEVEL 1 - CLUE 2
+            "Filter the Noise" - Logs for One Service
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_2.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+The full journal has thousands of lines. When you care about one service, you
+filter by it. That way you don't get lost. Your job: view logs only for the
+lab service that the setup script started (a user service).
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. View logs for the lab "ok" service only. Hint: journalctl --user -u <service>
+   The service name is lab-logger-ok.service (or lab-logger-ok). Try:
+   journalctl --user -u lab-logger-ok.service
+
+2. You should see only that service's messages – much less noise. Notice the
+   timestamps and the messages it prints.
+
+3. Write in my_answers.txt: one sentence – what does -u do, and why is it
+   useful when troubleshooting one service?
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_2.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

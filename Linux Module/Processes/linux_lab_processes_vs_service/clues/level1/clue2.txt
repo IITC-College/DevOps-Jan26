@@ -1,0 +1,26 @@
+================================================================================
+                    LEVEL 1 - CLUE 2
+            "Processes Can Disappear"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+If you kill a process (or it crashes), it's gone. Nothing automatically
+brings it back. That raises a question: what if we want something to *keep*
+running – even after it dies or someone stops it? That idea leads to
+"services."
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Think about it: you've seen that kill stops a process. After that, the
+   process is no longer in the list (ps). No one restarts it for you.
+
+2. Write in my_answers.txt: In one sentence, what happens when a process
+   is killed or crashes? (It's gone; nothing brings it back unless we do
+   something special.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

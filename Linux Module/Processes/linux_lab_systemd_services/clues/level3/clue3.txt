@@ -1,0 +1,30 @@
+================================================================================
+                    LEVEL 3 - CLUE 3
+            "Service Not Working"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+If someone says "the service doesn't work," the first step is **systemctl
+status** – read the output. Is it active? failed? What does the message
+say? That tells you why. Distinguish "service running" (unit active) vs
+"process running" (Main PID present). Don't blindly restart – read status
+first.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Conceptual: If you're told "the service doesn't work," what do you do
+   first? (Run systemctl status – or systemctl --user status for a user
+   service – and read the output: active? failed? error message?)
+
+2. Write in my_answers.txt: "When a service 'doesn't work,' I run status
+   first to see why (active, failed, error message). Service running =
+   unit active; process running = Main PID present."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_3_3.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  You finished the lab! Review README for learning objectives.
+================================================================================

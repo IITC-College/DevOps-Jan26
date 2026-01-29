@@ -1,0 +1,27 @@
+================================================================================
+                    LEVEL 1 - CLUE 3
+            "Status First"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Rule: **Always run systemctl status first** before changing anything
+(start, stop, restart). Why? So you know the current state and can explain
+"what's wrong" instead of blindly restarting. If someone says "the service
+doesn't work," the first step is to read the status – it tells you why.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Think about it: if you run restart without checking status, you might
+   hide the real error (e.g. config wrong, dependency failed). Status first
+   gives you the picture.
+
+2. Write in my_answers.txt: "Always run systemctl status first before
+   start/stop/restart so I know the current state and can explain what's
+   wrong." (Or your own wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cd ../level2  then  cat clue1.txt
+================================================================================

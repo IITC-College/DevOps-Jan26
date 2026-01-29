@@ -1,0 +1,25 @@
+================================================================================
+                    LEVEL 1 - CLUE 3
+            "Many Processes, No Single 'Manager'"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+When you run ps, you see lots of processes – some yours, some the system's.
+But ps is just a snapshot: it doesn't tell you *what should be running*.
+There's no single list of "things the system is supposed to keep running."
+That's exactly what a *service* is for – and systemd manages it.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run ps aux again. Notice: you see what *is* running, not what *should*
+   be running. If a process dies, it simply disappears from the list.
+
+2. Write in my_answers.txt: "ps shows what is running, not what should be
+   running." (Or your own wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cd ../level2  then  cat clue1.txt
+================================================================================

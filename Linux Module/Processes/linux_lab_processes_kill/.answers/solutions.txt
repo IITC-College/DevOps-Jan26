@@ -1,0 +1,210 @@
+================================================================================
+                    SOLUTIONS - Process Management (kill) Lab
+                    (Instructor use only)
+================================================================================
+
+GENERAL:
+  Before each clue: run ../../scripts/setup_X_Y.sh (from clues/levelX/)
+  After each clue: run ../../scripts/cleanup_X_Y.sh (from clues/levelX/)
+  Level 2 clues 2_1 and 2_3 use stubborn process – cleanup uses kill -9.
+
+================================================================================
+
+LEVEL 1 - CLUE 1: "What is kill?" - It's a Request, Not Violence
+----------------------------------------------------------------
+
+SETUP (from clues/level1/):
+  ../../scripts/setup_1_1.sh
+  Starts one sleep process in the background.
+
+STEP 1 – Run setup
+  ../../scripts/setup_1_1.sh
+
+STEP 2 – Find PID
+  Command:  ps aux | grep sleep
+  Explanation: Shows lines containing "sleep". One line is the actual sleep
+  process; PID is in the second column. (The grep line also appears.)
+
+STEP 3 – Stop with kill
+  Command:  kill <PID>
+  Explanation: Sends SIGTERM (15). Sleep will exit.
+
+STEP 4 – Verify
+  Command:  ps aux | grep sleep
+  Explanation: Only grep line should remain (or none if no other sleep).
+
+CLEANUP (from clues/level1/):
+  ../../scripts/cleanup_1_1.sh
+
+EXAMPLE: "Found PID 12345, ran kill 12345, verified with ps – process gone."
+
+================================================================================
+
+LEVEL 1 - CLUE 2: "Default Signal" - SIGTERM (Graceful Stop)
+------------------------------------------------------------
+
+SETUP (from clues/level1/):
+  ../../scripts/setup_1_2.sh
+  Starts dummy_normal_process.sh (traps SIGTERM and exits cleanly).
+
+STEP 1 – Run setup
+  ../../scripts/setup_1_2.sh
+
+STEP 2 – Find PID
+  Command:  ps aux | grep dummy_normal
+  Explanation: PID in second column.
+
+STEP 3 – Send kill
+  Command:  kill <PID>
+  Explanation: Process may print "Received SIGTERM, shutting down..." then exit.
+
+STEP 4 – Document
+  Write in my_answers.txt: what happened when you ran kill.
+
+CLEANUP (from clues/level1/):
+  ../../scripts/cleanup_1_2.sh
+
+EXAMPLE ANSWER: "The process received SIGTERM and stopped cleanly."
+
+================================================================================
+
+LEVEL 1 - CLUE 3: "Finding and Stopping Multiple Processes"
+----------------------------------------------------------
+
+SETUP (from clues/level1/):
+  ../../scripts/setup_1_3.sh
+  Starts three dummy_normal_process.sh instances.
+
+STEP 1 – Run setup
+  ../../scripts/setup_1_3.sh
+
+STEP 2 – List processes
+  Command:  ps aux | grep dummy_normal
+  Explanation: Three lines (plus grep). Note each PID (second column).
+
+STEP 3 – Kill each
+  Command:  kill <PID> for each of the three PIDs (not the grep PID).
+
+STEP 4 – Verify
+  Command:  ps aux | grep dummy_normal
+  Only grep line should remain.
+
+STEP 5 – Document
+  Write in my_answers.txt: "I stopped 3 processes with kill"
+
+CLEANUP (from clues/level1/):
+  ../../scripts/cleanup_1_3.sh
+
+EXAMPLE ANSWER: "I stopped 3 processes with kill"
+
+================================================================================
+
+LEVEL 2 - CLUE 1: "Meet kill -9" - SIGKILL (Pulling the Power Plug)
+-------------------------------------------------------------------
+
+SETUP (from clues/level2/):
+  ../../scripts/setup_2_1.sh
+  Starts dummy_stubborn_process.sh (ignores SIGTERM via trap '' TERM).
+
+STEP 1 – Run setup
+  ../../scripts/setup_2_1.sh
+
+STEP 2 – Find PID
+  Command:  ps aux | grep dummy_stubborn
+
+STEP 3 – Try normal kill
+  Command:  kill <PID>
+  Explanation: Process does NOT exit (it ignores SIGTERM).
+
+STEP 4 – Verify still running
+  Command:  ps aux | grep dummy_stubborn
+  Process still there.
+
+STEP 5 – Force stop
+  Command:  kill -9 <PID>
+  Explanation: SIGKILL cannot be ignored. Process exits immediately.
+
+STEP 6 – Document
+  Write in my_answers.txt: "Normal kill did not stop it. kill -9 stopped it."
+
+CLEANUP (from clues/level2/):
+  ../../scripts/cleanup_2_1.sh
+  (Uses kill -9 because process ignores SIGTERM.)
+
+EXAMPLE ANSWER: "Normal kill did not stop it. kill -9 stopped it."
+
+================================================================================
+
+LEVEL 2 - CLUE 2: "The Danger of -9" - When Is kill -9 Dangerous?
+-----------------------------------------------------------------
+
+SETUP (from clues/level2/):
+  ../../scripts/setup_2_2.sh
+  Starts one dummy_normal_process.sh.
+
+DISCUSSION POINTS (when is -9 dangerous?):
+  - Database process writing data: kill -9 can prevent flush/close → corruption.
+  - Any process with open files or in-memory buffers: no chance to clean up.
+  - Use kill -9 only for: frozen/hung processes that do not respond to kill.
+  - Always try kill first; wait a few seconds; then kill -9 if still running.
+
+STEP 1 – Run setup
+  ../../scripts/setup_2_2.sh
+
+STEP 2 – Find PID
+  Command:  ps aux | grep dummy_normal
+
+STEP 3 – Stop gracefully
+  Command:  kill <PID>
+  Process exits cleanly (no -9 needed).
+
+STEP 4 – Document
+  Write in my_answers.txt: when is it dangerous to use kill -9?
+
+CLEANUP (from clues/level2/):
+  ../../scripts/cleanup_2_2.sh
+
+EXAMPLE ANSWER: "When the process is writing data and cannot close safely."
+Or: "When the process might corrupt files or databases if forced to stop."
+
+================================================================================
+
+LEVEL 2 - CLUE 3: "Real-World Scenario" - Try Gentle, Then Force
+---------------------------------------------------------------
+
+SETUP (from clues/level2/):
+  ../../scripts/setup_2_3.sh
+  Starts dummy_stubborn_process.sh (stuck process).
+
+STEP 1 – Run setup
+  ../../scripts/setup_2_3.sh
+
+STEP 2 – Find PID
+  Command:  ps aux | grep dummy_stubborn
+
+STEP 3 – Try kill first
+  Command:  kill <PID>
+  Wait 2–3 seconds. Check: ps aux | grep dummy_stubborn – still running.
+
+STEP 4 – Then kill -9
+  Command:  kill -9 <PID>
+  Process is gone.
+
+STEP 5 – Document
+  Write in my_answers.txt: "I tried kill first, then kill -9. Order: gentle
+  first, force only if needed."
+
+CLEANUP (from clues/level2/):
+  ../../scripts/cleanup_2_3.sh
+
+EXAMPLE ANSWER: "I tried kill first, then kill -9. Order: gentle first, force
+only if needed."
+
+================================================================================
+
+COMMON MISTAKES:
+  - Using kill -9 first without trying kill (teach the escalation order).
+  - Confusing PID with other columns in ps output (PID is column 2 in ps aux).
+  - Forgetting to run cleanup after a clue (stubborn processes keep running).
+
+================================================================================

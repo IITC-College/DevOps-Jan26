@@ -1,0 +1,30 @@
+================================================================================
+                    LEVEL 2 - CLUE 2
+            "One Service, One (or More) Process"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+When a service is "running," it has at least one process. systemctl status
+shows the service state and often the Main PID (the process ID). So: the
+service is the "contract"; the process is the actual running program.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Pick one service from the list (e.g. cron, systemd-timesyncd, ssh, or
+   another service your instructor suggests). Check its status:
+   systemctl status <service_name>
+   (Example: systemctl status cron)
+
+2. Look at the output. If the service is "active (running)," you'll usually
+   see "Main PID: ..." – that's the process that belongs to this service.
+
+3. Write in my_answers.txt: "When a service is running, it has a process
+   (Main PID). Service = contract; process = what runs." (Or your own
+   wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+                    LEVEL 1 - CLUE 1
+            "Process = What Is Running"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A process is a program running in memory. Linux gives each process a unique
+number (PID). Right now, many processes are running on your system. Your job:
+look at them and remind yourself that a process is "what is actually running
+right now."
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. List processes. Hint: ps aux
+   (You'll see many lines – each line is one process. PID is in the second
+   column, COMMAND at the end.)
+
+2. Look at the output. How many processes (roughly) do you see? Each line
+   is one process.
+
+3. Write in my_answers.txt (lab root: cd ../../..): one sentence – "A process
+   is what is actually running right now." (Or your own wording of the same
+   idea.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

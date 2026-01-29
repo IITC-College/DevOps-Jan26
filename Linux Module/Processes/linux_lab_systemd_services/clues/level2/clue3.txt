@@ -1,0 +1,36 @@
+================================================================================
+                    LEVEL 2 - CLUE 3
+            "Process vs Service"
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_3.sh
+* CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_3.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+While lab-demo is running, systemctl --user status lab-demo shows "Main PID".
+That PID is the **process**. The **service** is the unit systemd manages; the
+**process** is what's actually running. When you stop the service, the process
+goes away; when you start it again, a new process (new PID) appears.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script (see above) if you haven't already. Make sure
+   lab-demo is running: systemctl --user start lab-demo (if needed).
+
+2. Run: systemctl --user status lab-demo
+   Note the Main PID (e.g. 12345).
+
+3. Run: ps aux | grep dummy_daemon
+   (Or ps -p <Main_PID>.) You'll see the **process** – that's the running
+   program. The **service** is the unit (lab-demo); the **process** is that
+   PID.
+
+4. Write in my_answers.txt: "Service = unit systemd manages; process =
+   what runs (Main PID). When I stop the service, the process goes away."
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cd ../level3  then  cat clue1.txt
+================================================================================

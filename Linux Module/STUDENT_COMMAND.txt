@@ -79,6 +79,30 @@ curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/lab12-pro
 (No start_here.txt – this lab starts at the first clue. Run the setup/cleanup scripts as indicated in each clue.)
 
 ========================================================
+LAB 13: Process Management (kill) (v1.0)
+========================================================
+
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/lab13-processes-kill/linux_lab_processes_kill.tar.gz | tar -xz && cd linux_lab_processes_kill && cd clues/level1 && cat clue1.txt
+
+(No start_here.txt – start directly at the first clue. Run setup/cleanup scripts as indicated in each clue.)
+
+========================================================
+LAB 14: Process vs Service (v1.0)
+========================================================
+
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/lab14-processes-vs-service/linux_lab_processes_vs_service.tar.gz | tar -xz && cd linux_lab_processes_vs_service && cd clues/level1 && cat clue1.txt
+
+(No start_here.txt – start directly at the first clue. No setup/cleanup scripts – observation only.)
+
+========================================================
+LAB 15: systemd and Services (v1.0)
+========================================================
+
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/lab15-systemd-services/linux_lab_systemd_services.tar.gz | tar -xz && cd linux_lab_systemd_services && cd clues/level1 && cat clue1.txt
+
+(No start_here.txt – start directly at the first clue. Level 2–3: run setup/cleanup scripts as indicated in clues.)
+
+========================================================
 
 📚 Resources:
 

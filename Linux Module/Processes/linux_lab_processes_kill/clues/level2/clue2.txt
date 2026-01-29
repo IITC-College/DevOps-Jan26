@@ -1,0 +1,39 @@
+================================================================================
+                    LEVEL 2 - CLUE 2
+            "The Danger of -9" - When Is kill -9 Dangerous?
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_2.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Discussion: When should you use kill -9?
+
+- If a process is writing to a database or a file, and you kill -9 it, it
+  cannot flush buffers or close cleanly. Result: risk of data corruption or
+  loss.
+- kill -9 is for: frozen/hung processes that do not respond to normal kill.
+- Rule: try kill (graceful) first. Wait a few seconds. Only then use kill -9
+  if the process is still there.
+
+In this clue you have one dummy process. Practice: stop it gracefully with kill
+(no -9).
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script. One dummy process is running.
+
+2. Find its PID: ps aux | grep dummy_normal
+
+3. Stop it with kill <PID> (no -9). It should exit cleanly.
+
+4. Write in my_answers.txt: In one sentence, when is it dangerous to use
+   kill -9? Example: "When the process is writing data and cannot close safely."
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_2.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

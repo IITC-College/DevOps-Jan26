@@ -1,0 +1,31 @@
+================================================================================
+                    LEVEL 2 - CLUE 2
+            "When Did It Break?" - Time and Priority
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_2_2.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+In real troubleshooting you often ask: "When did this start?" You can filter
+logs by time (--since, --until) and by priority (-p err, -p warning). Your job:
+find when the lab service failed and see only error-level messages.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. View logs for the lab fail service since "10 minutes ago". Hint:
+   journalctl --user -u lab-logger-fail.service --since "10 minutes ago"
+
+2. Filter the same logs to show only error priority. Hint: add -p err
+   Example: journalctl --user -u lab-logger-fail.service -p err -n 20
+
+3. Write in my_answers.txt: what time (approximately) did the failure happen,
+   and what does -p err do? (One or two sentences.)
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_2_2.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================

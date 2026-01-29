@@ -33,8 +33,7 @@ This document defines the structure and design principles for creating interacti
 
 ```
 lab_name/
-├── README.md                  # Entry instructions (must include direct entry command)
-├── start_here.txt             # Optional - first steps (see "Entry Point" section)
+├── README.md                  # Entry instructions (must include direct entry: cd clues/level1 && cat clue1.txt)
 │
 ├── clues/                     # Guided challenges
 │   ├── level1/               # Basic commands (nav, read)
@@ -67,15 +66,14 @@ lab_name/
 
 ## Entry Point and Navigation
 
-### Entry Point: start_here.txt is Optional
+### Entry Point: Direct Entry at First Clue
 
-- **start_here.txt** is **not required** for all labs.
-- For labs with **direct entry**, the README must contain the first command so students can begin immediately:
+- Labs **do not use start_here.txt**. Students start directly at the first clue.
+- The README **must** contain the direct entry command so students can begin immediately:
   ```bash
   cd clues/level1 && cat clue1.txt
   ```
-- Keep **start_here.txt** for labs that need setup context, overview, or methodology (e.g., "4-step debug method") before the first clue.
-- When omitted, students go straight to the first clue in level1.
+- After extracting the lab, students run that command (or navigate to `clues/level1` and run `cat clue1.txt`).
 
 ### Navigation Standardization
 
@@ -397,9 +395,9 @@ CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
 ## Student Experience Flow
 
 ```
-1. Entry: Read README (or start_here.txt if present)
+1. Entry: Extract lab, then cd clues/level1 && cat clue1.txt (see README)
    ↓
-2. Go to clues/level1/ and read clue1.txt
+2. Read clue1.txt and follow instructions
    ↓
 3. Complete clue1 → Read "NEXT STEP" → Go to clue2.txt
    ↓
@@ -424,10 +422,14 @@ CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
 
 ### Script Requirements (Labs with Setup/Cleanup)
 
-**Line Endings**:
-- **Must use LF (Unix)**, not CRLF (Windows)
-- Fix before packaging: `sed -i 's/\r$//' script.sh`
-- Or use `dos2unix` if available
+**Line Endings** (critical – avoid "required file not found"):
+- **Must use LF (Unix)**, not CRLF (Windows). Editing on Windows or in some editors saves CRLF; the shebang becomes `#!/bin/bash\r`, so Linux looks for `/bin/bash\r` and fails with: `cannot execute: required file not found`.
+- **Fix before packaging** – run from lab root:
+  ```bash
+  cd scripts && for f in *.sh; do sed -i 's/\r$//' "$f"; done && cd ..
+  ```
+  Or fix one file: `sed -i 's/\r$//' scripts/setup_1_1.sh`. Or use `dos2unix scripts/*.sh` if available.
+- **Verify**: `file scripts/setup_1_1.sh` should show "ASCII text executable" or "UTF-8 text executable" and must **not** show "with CRLF line terminators".
 
 **Permissions**:
 - All scripts must be executable: `chmod +x scripts/*.sh`
@@ -470,9 +472,6 @@ tar -czf lab_name.tar.gz lab_name/
 ```bash
 curl -L URL | tar -xz
 cd lab_name
-# Then either (if lab has start_here.txt):
-cat start_here.txt
-# Or (direct entry - see README):
 cd clues/level1 && cat clue1.txt
 ```
 
@@ -521,7 +520,7 @@ Before distributing a lab:
 ### Navigation & Flow
 - [ ] **Each clue ends with a clear "NEXT STEP"** (exact command to next clue or level)
 - [ ] **Navigation tested**: Each clue → next clue transition works when followed literally
-- [ ] **If there is no start_here.txt**: README contains the direct entry command (e.g., `cd clues/level1 && cat clue1.txt`)
+- [ ] README contains the direct entry command (e.g., `cd clues/level1 && cat clue1.txt`)
 - [ ] Tested end-to-end by creator (start to finish)
 - [ ] Estimated completion time verified
 
@@ -595,7 +594,7 @@ A well-designed lab should achieve:
 - Progressive structure (3 levels)
 - Scattered information (treasure hunt)
 - Realistic content (professional files)
-- Clear starting point (README and/or start_here.txt; direct entry to first clue is allowed)
+- Clear starting point (README with direct entry to first clue: `cd clues/level1 && cat clue1.txt`)
 - Explicit "NEXT STEP" at end of every clue
 - Script paths relative to clue location when lab uses setup scripts
 - Complete solutions (for instructor)

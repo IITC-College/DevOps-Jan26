@@ -1,0 +1,35 @@
+================================================================================
+                    LEVEL 1 - CLUE 1
+            "What is kill?" - It's a Request, Not Violence
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_1_1.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+A process is running in memory. Sometimes you need to stop it. The command kill
+is not "violence" – it sends a request to the process to stop. The process can
+respond and exit in an orderly way.
+
+Your job: start a simple process (sleep), find its PID, stop it with kill, and
+verify it stopped.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Run the SETUP script (see above). It starts a sleep process in the background.
+
+2. Find the process PID. Hint: ps aux | grep sleep
+   (You'll see a line with sleep – the number in the second column is the PID.)
+
+3. Stop the process: kill <PID>  (replace <PID> with the number you found.)
+
+4. Verify it stopped: ps aux | grep sleep
+   (After kill, only the grep line should remain, not sleep.)
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_1_1.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================

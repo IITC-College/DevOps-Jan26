@@ -1,0 +1,193 @@
+================================================================================
+                    SOLUTIONS - systemd and Services Lab
+                    (Instructor use only)
+================================================================================
+
+GENERAL:
+  Level 1: No scripts. Students use systemctl status on system services.
+  Level 2: SETUP before clue 1 (../../scripts/setup_lab_demo.sh); CLEANUP
+  after clue 3 (../../scripts/cleanup_lab_demo.sh).
+  Level 3: SETUP again if they ran CLEANUP; CLEANUP at end of clue 3.
+  Direct entry: cd clues/level1 && cat clue1.txt
+
+================================================================================
+
+LEVEL 1 - CLUE 1: "systemctl and status"
+----------------------------------------
+
+STEP 1 – Check status of a known service
+  Command:  systemctl status <service_name>
+  Examples: systemctl status cron, systemctl status systemd-timesyncd,
+  systemctl status ssh (or sshd).
+
+STEP 2 – Read output
+  Active: active (running) = service is running.
+  Active: inactive (dead) = not running.
+  Active: failed = error; read message below.
+
+STEP 3 – Document
+  Write in my_answers.txt: what active (running), inactive (dead), and
+  failed mean (one sentence each or combined).
+
+EXAMPLE: "active (running) = service is running; inactive (dead) = not
+running; failed = something went wrong."
+
+================================================================================
+
+LEVEL 1 - CLUE 2: "active / inactive / failed"
+----------------------------------------------
+
+STEP 1 – Check 2-3 different services
+  Command:  systemctl status <name> for each.
+  Students see at least one active and, if possible, one inactive or failed.
+
+STEP 2 – Document
+  Write in my_answers.txt: one sentence for active, inactive, failed.
+
+EXAMPLE: "active = running; inactive = not running; failed = error or
+problem."
+
+================================================================================
+
+LEVEL 1 - CLUE 3: "Status First"
+---------------------------------
+
+STEP 1 – Conceptual
+  Rule: Always run systemctl status first before start/stop/restart.
+  Why: So you know current state and can explain what's wrong instead of
+  blindly restarting.
+
+STEP 2 – Document
+  Write in my_answers.txt: "Always run systemctl status first before
+  start/stop/restart so I know the current state and can explain what's
+  wrong."
+
+================================================================================
+
+LEVEL 2 - CLUE 1: "Lab Demo Service"
+-------------------------------------
+
+SETUP (from clues/level2/):
+  ../../scripts/setup_lab_demo.sh
+  Installs user service lab-demo under ~/.config/systemd/user/, starts it.
+
+STEP 1 – Run setup
+  ../../scripts/setup_lab_demo.sh
+
+STEP 2 – Check status
+  Command:  systemctl --user status lab-demo
+  Should see Active: active (running). If inactive, run:
+  systemctl --user start lab-demo
+
+STEP 3 – Note Main PID
+  Main PID line in status = process belonging to this service.
+
+================================================================================
+
+LEVEL 2 - CLUE 2: "Stop and Start"
+-----------------------------------
+
+STEP 1 – Status first
+  systemctl --user status lab-demo  (active)
+
+STEP 2 – Stop
+  systemctl --user stop lab-demo
+
+STEP 3 – Status again
+  systemctl --user status lab-demo  (inactive)
+
+STEP 4 – Start
+  systemctl --user start lab-demo
+
+STEP 5 – Status again
+  systemctl --user status lab-demo  (active)
+
+STEP 6 – Document
+  Write in my_answers.txt: "I stopped and started the service; status
+  showed inactive then active."
+
+================================================================================
+
+LEVEL 2 - CLUE 3: "Process vs Service"
+---------------------------------------
+
+STEP 1 – Ensure lab-demo running
+  systemctl --user start lab-demo if needed.
+
+STEP 2 – Status and Main PID
+  systemctl --user status lab-demo  → note Main PID.
+
+STEP 3 – Find process
+  ps aux | grep dummy_daemon  or  ps -p <Main_PID>
+  Process = that PID. Service = unit (lab-demo) systemd manages.
+
+STEP 4 – Document
+  Write in my_answers.txt: "Service = unit systemd manages; process =
+  what runs (Main PID). When I stop the service, the process goes away."
+
+CLEANUP (from clues/level2/):
+  ../../scripts/cleanup_lab_demo.sh
+  Stops lab-demo, removes unit, daemon-reload.
+
+================================================================================
+
+LEVEL 3 - CLUE 1: "systemctl restart"
+-------------------------------------
+
+SETUP: If CLEANUP was run, ../../scripts/setup_lab_demo.sh again.
+
+STEP 1 – Status first
+  systemctl --user status lab-demo  → note Main PID.
+
+STEP 2 – Restart
+  systemctl --user restart lab-demo
+
+STEP 3 – Status again
+  systemctl --user status lab-demo  → still active; Main PID may have
+  changed (new process).
+
+STEP 4 – Document
+  Write in my_answers.txt: "I ran status first, then restart. After
+  restart, the service was still active; Main PID may have changed."
+
+================================================================================
+
+LEVEL 3 - CLUE 2: "When Restart Helps"
+---------------------------------------
+
+STEP 1 – Conceptual
+  Restart helps: service stuck or crashed; unit (config) is correct.
+  Restart doesn't help: wrong config; dependency failed; didn't read
+  status and don't know the cause.
+
+STEP 2 – Document
+  Write in my_answers.txt: "Restart helps when the service is stuck or
+  crashed but the unit is correct; it doesn't help when the config is
+  wrong or we haven't read status to know the cause."
+
+================================================================================
+
+LEVEL 3 - CLUE 3: "Service Not Working"
+----------------------------------------
+
+STEP 1 – Conceptual
+  First step when "service doesn't work": systemctl status (or
+  systemctl --user status) – read output (active? failed? error message?).
+  Service running = unit active. Process running = Main PID present.
+
+STEP 2 – Document
+  Write in my_answers.txt: "When a service 'doesn't work,' I run status
+  first to see why (active, failed, error message). Service running =
+  unit active; process running = Main PID present."
+
+CLEANUP (from clues/level3/):
+  ../../scripts/cleanup_lab_demo.sh if not done yet.
+
+================================================================================
+
+DISCUSSION POINTS:
+  - Status first: always before start/stop/restart.
+  - Service vs process: service = unit; process = Main PID.
+  - When restart helps vs when it doesn't; reading status tells you why.
+
+================================================================================

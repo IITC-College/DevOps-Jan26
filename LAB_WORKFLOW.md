@@ -61,30 +61,21 @@ mkdir -p lab_name/{clues/{level1,level2,level3},data/{logs,archives,secrets},pro
 ```
 
 **Required Files**:
-- `README.md` - Lab overview and instructions (must include direct entry command: `cd clues/level1 && cat clue1.txt` if no start_here.txt)
-- `start_here.txt` - Optional first entry point (use when lab needs setup context or methodology before first clue)
+- `README.md` - Lab overview and instructions (must include direct entry command: `cd clues/level1 && cat clue1.txt`)
 - `clues/levelN/clueN.txt` - Progressive challenges (each must end with clear "NEXT STEP")
 - Data files (logs, configs, secrets)
 - `.answers/solutions.txt` - Complete solutions
 
-**Labs with setup scripts**: Place scripts in `scripts/` at lab root. In clue files, reference scripts with paths **relative to the clue location** (e.g., from `clues/level1/` use `sudo ../../scripts/setup_1_1.sh`). See `LAB_DESIGN_SPEC.md` → "Labs with Setup Scripts".
+**Labs with setup scripts**: Place scripts in `scripts/` at lab root. In clue files, reference scripts with paths **relative to the clue location** (e.g., from `clues/level1/` use `../../scripts/setup_1_1.sh`). See `LAB_DESIGN_SPEC.md` → "Labs with Setup Scripts". **Scripts must have Unix line endings (LF)** – if edited on Windows, run `sed -i 's/\r$//' scripts/*.sh` (or the fix in Phase 5) before packaging, or students will get `cannot execute: required file not found`.
 
 ---
 
 ### Phase 3: Create Content (Manual)
 
 #### 3.1 Write Entry Point
-**Option A**: `start_here.txt` (when lab needs setup context or methodology)
-```
-Welcome message
-Quick overview
-First command to run (e.g., cd clues/level1 && cat clue1.txt)
-Where to go next
-```
-
-**Option B**: Direct entry (no start_here.txt)
+- Labs use **direct entry**: no start_here.txt. Students start at the first clue.
 - README must contain the first command: `cd clues/level1 && cat clue1.txt`
-- Students go straight to the first clue.
+- Students extract the lab, then run that command (or `cd clues/level1` and `cat clue1.txt`).
 
 #### 3.1b Write Clue Navigation
 - **Every clue** must end with a "NEXT STEP" section: exact command(s) to reach the next clue (e.g., `cat clue2.txt` or `cd ../level2` then `cat clue1.txt`).
@@ -217,7 +208,7 @@ CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
 # Navigate to lab directory
 cd lab_name
 
-# Follow student path exactly (use README direct entry or start_here.txt)
+# Follow student path exactly (README direct entry)
 cd clues/level1 && cat clue1.txt
 # Execute each clue step-by-step
 # At end of each clue, follow the "NEXT STEP" literally
@@ -242,7 +233,7 @@ cd clues/level1 && cat clue1.txt
 - [ ] End-to-end flow is smooth
 - [ ] **Each clue ends with clear "NEXT STEP"** (exact command to next clue or level)
 - [ ] **Navigation tested**: Each clue → next clue transition works when followed literally
-- [ ] First clue is accessible (via README or start_here.txt)
+- [ ] First clue is accessible via README direct entry command
 
 #### Scripts & Technical (for labs with setup/cleanup)
 - [ ] **Scripts have Unix line endings (LF)** - verified with `file script.sh` (should show "LF" not "CRLF")
@@ -282,7 +273,7 @@ chmod +x *.sh
 ls -la
 ```
 
-**Why this matters**: Windows creates scripts with CRLF line endings, which cause "required file not found" errors on Linux. Always fix before packaging.
+**Why this matters**: Scripts edited on Windows (or in some editors) get CRLF line endings. The shebang is then read as `#!/bin/bash\r`, so Linux looks for an interpreter named `/bin/bash\r` and fails with **`cannot execute: required file not found`**. Always fix line endings before packaging.
 
 #### 5.2 Create Archive with Correct Permissions
 
@@ -344,9 +335,6 @@ gh release create v[X.Y] \
 ## Download Instructions
 
 \`\`\`bash
-# If lab has start_here.txt:
-curl -L .../lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt
-# If lab uses direct entry (see README):
 curl -L .../lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt
 \`\`\`
 
@@ -369,10 +357,6 @@ Create `STUDENT_COMMAND.txt`:
 
 Copy and paste this command:
 
-# If lab has start_here.txt:
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v[X.Y]/lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt
-
-# If lab uses direct entry (no start_here.txt):
 curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v[X.Y]/lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt
 
 ========================================================
@@ -486,15 +470,16 @@ tar -tzf lab_name.tar.gz
 ```
 
 ### Script Execution Errors on Linux
-**Problem**: "required file not found" or "bad interpreter" when running scripts
+**Problem**: `bash: ../../scripts/setup_1_1.sh: cannot execute: required file not found` (or "bad interpreter") when students run setup/cleanup scripts.
 
-**Root Cause**: Windows line endings (CRLF) instead of Unix (LF)
+**Root Cause**: Scripts have Windows line endings (CRLF). The shebang `#!/bin/bash` becomes `#!/bin/bash\r`, so the kernel looks for `/bin/bash\r` and fails.
 
 **Solution**:
 ```bash
-# Fix line endings
+# Fix line endings (run from lab_name/scripts/ or lab root)
 cd lab_name/scripts/
 sed -i 's/\r$//' *.sh
+# Or from lab root: for f in scripts/*.sh; do sed -i 's/\r$//' "$f"; done
 
 # Set execute permissions
 chmod +x *.sh
@@ -539,8 +524,7 @@ Before deployment, verify:
 - [ ] Completion time verified
 
 ### Documentation Quality
-- [ ] README.md clear and contains direct entry command if no start_here.txt
-- [ ] start_here.txt effective (if present)
+- [ ] README.md clear and contains direct entry command (`cd clues/level1 && cat clue1.txt`)
 - [ ] Solutions complete and match clues exactly
 - [ ] Download command tested
 - [ ] **Navigation**: Every clue has "NEXT STEP"; transitions tested
@@ -560,7 +544,7 @@ Before deployment, verify:
 
 A successfully deployed lab should have:
 
-1. **Clear Entry Point**: Students know where to start (README or start_here.txt) and each clue ends with clear "NEXT STEP"
+1. **Clear Entry Point**: Students know where to start (README direct entry: `cd clues/level1 && cat clue1.txt`) and each clue ends with clear "NEXT STEP"
 2. **Progressive Flow**: Each step builds on previous
 3. **Complete Documentation**: README, solutions, commands
 4. **Working Distribution**: One-command download works

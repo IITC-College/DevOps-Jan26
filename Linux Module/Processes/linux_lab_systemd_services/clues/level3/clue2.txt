@@ -1,0 +1,29 @@
+================================================================================
+                    LEVEL 3 - CLUE 2
+            "When Restart Helps"
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+Restart is a solution when: the service is in a bad state but the unit
+(config) is correct – e.g. stuck, crashed and not auto-restarted. Restart
+is **not** a solution when: the config is wrong, a dependency failed, or
+you haven't read status – you might hide the real error. Always run status
+first so you know *why* something is wrong.
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. Think about it: when would you use restart? (Service stuck or crashed;
+   unit is correct.) When wouldn't restart fix it? (Wrong config; dependency
+   failed; you didn't read status and don't know the cause.)
+
+2. Write in my_answers.txt: "Restart helps when the service is stuck or
+   crashed but the unit is correct; it doesn't help when the config is
+   wrong or we haven't read status to know the cause." (Or your own
+   wording.)
+
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue3.txt
+================================================================================
