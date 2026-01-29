@@ -61,32 +61,104 @@ mkdir -p lab_name/{clues/{level1,level2,level3},data/{logs,archives,secrets},pro
 ```
 
 **Required Files**:
-- `README.md` - Lab overview and instructions
-- `start_here.txt` - Critical first entry point
-- `clues/levelN/clueN.txt` - Progressive challenges
+- `README.md` - Lab overview and instructions (must include direct entry command: `cd clues/level1 && cat clue1.txt` if no start_here.txt)
+- `start_here.txt` - Optional first entry point (use when lab needs setup context or methodology before first clue)
+- `clues/levelN/clueN.txt` - Progressive challenges (each must end with clear "NEXT STEP")
 - Data files (logs, configs, secrets)
 - `.answers/solutions.txt` - Complete solutions
+
+**Labs with setup scripts**: Place scripts in `scripts/` at lab root. In clue files, reference scripts with paths **relative to the clue location** (e.g., from `clues/level1/` use `sudo ../../scripts/setup_1_1.sh`). See `LAB_DESIGN_SPEC.md` → "Labs with Setup Scripts".
 
 ---
 
 ### Phase 3: Create Content (Manual)
 
 #### 3.1 Write Entry Point
-**File**: `start_here.txt`
+**Option A**: `start_here.txt` (when lab needs setup context or methodology)
 ```
 Welcome message
 Quick overview
-First command to run
+First command to run (e.g., cd clues/level1 && cat clue1.txt)
 Where to go next
 ```
 
+**Option B**: Direct entry (no start_here.txt)
+- README must contain the first command: `cd clues/level1 && cat clue1.txt`
+- Students go straight to the first clue.
+
+#### 3.1b Write Clue Navigation
+- **Every clue** must end with a "NEXT STEP" section: exact command(s) to reach the next clue (e.g., `cat clue2.txt` or `cd ../level2` then `cat clue1.txt`).
+- **Script paths**: If the lab has setup scripts, use paths relative to the clue directory (e.g., `sudo ../../scripts/setup_X_Y.sh` from `clues/levelX/`).
+
+#### 3.1c Design for Progression (Not Repetition)
+
+**Critical**: Each clue must teach a **distinct** skill. Don't repeat the same command/concept.
+
+**Before writing clues**:
+1. List the concepts/skills to teach (one per clue)
+2. Ensure each is DIFFERENT
+3. Plan how each builds on the previous
+
+**Example** (Processes lab):
+- Level 1, Clue 1: Basic listing → See many processes exist
+- Level 1, Clue 2: Filtering → Find specific process by name
+- Level 1, Clue 3: Ownership → Compare user vs system processes
+
+**Anti-pattern** (avoid):
+- Clue 1: Use ps aux
+- Clue 2: Use ps aux again
+- Clue 3: Use ps aux one more time
+
 #### 3.2 Write Clues (Progressive Difficulty)
+
+**Use this template for consistent, effective clues**:
+
+```
+================================================================================
+                    LEVEL X - CLUE Y
+                    [Clear Title - The Concept Being Taught]
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_X_Y.sh
+  (Optional - only for labs with per-clue scripts)
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+[2-3 sentences: Brief context - what concept this teaches, why it matters.
+Not a lecture - just enough context to understand the goal.]
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. [Task-oriented instruction - WHAT to do]. Hint: [command to try].
+
+2. [Next task]. Hint: [another command or approach].
+
+3. [Final step - usually document findings or observations].
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
+(Optional - only for labs with per-clue cleanup)
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt  (or cd ../level2 && cat clue1.txt)
+================================================================================
+```
+
+**Content Balance**:
+- **Not too verbose**: Avoid walls of text - students won't read them
+- **Not too terse**: Don't just give commands - provide task context
+- **Task-oriented**: Focus on WHAT to do, provide command hints
+- **Progressive**: Each clue teaches something NEW
+
+**Difficulty Levels**:
 
 **Level 1** - Basic navigation and reading
 ```
 - Clear paths provided
 - Single commands
 - Direct outcomes
+- Heavy use of hints
 ```
 
 **Level 2** - Searching and managing
@@ -94,6 +166,7 @@ Where to go next
 - Partial hints
 - 2-3 command sequences
 - Some exploration needed
+- Less hand-holding
 ```
 
 **Level 3** - Synthesis and problem-solving
@@ -101,6 +174,7 @@ Where to go next
 - Minimal guidance
 - Multiple steps
 - Combine all learned skills
+- Students must plan approach
 ```
 
 #### 3.3 Create Data Files
@@ -143,33 +217,87 @@ Where to go next
 # Navigate to lab directory
 cd lab_name
 
-# Follow student path exactly
-cat start_here.txt
+# Follow student path exactly (use README direct entry or start_here.txt)
+cd clues/level1 && cat clue1.txt
 # Execute each clue step-by-step
+# At end of each clue, follow the "NEXT STEP" literally
 # Verify all files exist
 # Confirm all commands work
 # Check all answers are findable
 ```
 
 **Checklist**:
+
+#### Content & Learning
+- [ ] **Each clue teaches a DISTINCT concept** (not repetitive)
 - [ ] All paths in clues are correct
 - [ ] All grep patterns have matches
 - [ ] All find targets exist
 - [ ] Hidden files are properly hidden
 - [ ] Solutions are complete and accurate
+- [ ] Clue content balanced (not too verbose, not too terse)
+- [ ] Progressive difficulty (Level 1 < Level 2 < Level 3)
+
+#### Navigation & Flow
 - [ ] End-to-end flow is smooth
+- [ ] **Each clue ends with clear "NEXT STEP"** (exact command to next clue or level)
+- [ ] **Navigation tested**: Each clue → next clue transition works when followed literally
+- [ ] First clue is accessible (via README or start_here.txt)
+
+#### Scripts & Technical (for labs with setup/cleanup)
+- [ ] **Scripts have Unix line endings (LF)** - verified with `file script.sh` (should show "LF" not "CRLF")
+- [ ] **Scripts have execute permissions** - verified with `ls -la scripts/` (should show `-rwxr-xr-x`)
+- [ ] **Script paths in clues work from clue location** (e.g., `../../scripts/setup_1_1.sh` from `clues/level1/`)
+- [ ] Setup scripts are idempotent (safe to run twice)
+- [ ] Cleanup scripts handle missing PIDs gracefully
+- [ ] **If using dummy processes**:
+  - [ ] CPU eaters throttled with sleep (~0.1s) - not pegging at 100%
+  - [ ] RAM eaters use small, fixed amounts (~10MB)
+  - [ ] Processes easily identifiable by name
+  - [ ] Each clue uses unique PID files
+- [ ] Archive created with `--mode='a+x'` to preserve execute permissions
+- [ ] Tested extraction and script execution on clean Linux VM
 
 ---
 
 ### Phase 5: Package Lab (Automated)
 
+#### 5.1 Fix Script Line Endings (CRITICAL for labs with scripts)
+
 ```bash
-# Create compressed archive
-tar -czf lab_name.tar.gz lab_name/
+# Navigate to lab directory
+cd lab_name/scripts/
+
+# Fix line endings (MUST be LF, not CRLF)
+# Option 1: Using sed
+sed -i 's/\r$//' *.sh
+
+# Option 2: Using dos2unix (if available)
+dos2unix *.sh
+
+# Set execute permissions
+chmod +x *.sh
+
+# Verify
+ls -la
+```
+
+**Why this matters**: Windows creates scripts with CRLF line endings, which cause "required file not found" errors on Linux. Always fix before packaging.
+
+#### 5.2 Create Archive with Correct Permissions
+
+```bash
+# Navigate to parent directory
+cd ..
+
+# Create archive with preserved execute permissions
+tar --mode='a+x' -czf lab_name.tar.gz lab_name/
 
 # Verify archive
 tar -tzf lab_name.tar.gz | head
 ```
+
+**Important**: Use `--mode='a+x'` to ensure scripts remain executable after extraction.
 
 **Result**: `lab_name.tar.gz` ready for distribution
 
@@ -216,7 +344,10 @@ gh release create v[X.Y] \
 ## Download Instructions
 
 \`\`\`bash
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v[X.Y]/lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt
+# If lab has start_here.txt:
+curl -L .../lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt
+# If lab uses direct entry (see README):
+curl -L .../lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt
 \`\`\`
 
 ## What's Included
@@ -238,7 +369,11 @@ Create `STUDENT_COMMAND.txt`:
 
 Copy and paste this command:
 
+# If lab has start_here.txt:
 curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v[X.Y]/lab_name.tar.gz | tar -xz && cd lab_name && cat start_here.txt
+
+# If lab uses direct entry (no start_here.txt):
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v[X.Y]/lab_name.tar.gz | tar -xz && cd lab_name && cd clues/level1 && cat clue1.txt
 
 ========================================================
 
@@ -343,12 +478,41 @@ gh release create v1.0 [files...] --repo IITC-College/DevOps-Jan26
 
 **Solution**:
 ```bash
-# Recreate with correct options
-tar -czf lab_name.tar.gz lab_name/
+# Recreate with correct options (preserve permissions)
+tar --mode='a+x' -czf lab_name.tar.gz lab_name/
 
 # Test extraction
 tar -tzf lab_name.tar.gz
 ```
+
+### Script Execution Errors on Linux
+**Problem**: "required file not found" or "bad interpreter" when running scripts
+
+**Root Cause**: Windows line endings (CRLF) instead of Unix (LF)
+
+**Solution**:
+```bash
+# Fix line endings
+cd lab_name/scripts/
+sed -i 's/\r$//' *.sh
+
+# Set execute permissions
+chmod +x *.sh
+
+# Verify fix
+file setup_1_1.sh
+# Should show: "Bourne-Again shell script, ASCII text executable"
+# NOT: "... with CRLF line terminators"
+
+# Recreate archive
+cd ../..
+tar --mode='a+x' -czf lab_name.tar.gz lab_name/
+
+# Update release
+gh release upload tag-name lab_name.tar.gz --clobber
+```
+
+**Prevention**: Always run line-ending fix and permission check before packaging
 
 ---
 
@@ -375,10 +539,20 @@ Before deployment, verify:
 - [ ] Completion time verified
 
 ### Documentation Quality
-- [ ] README.md clear
-- [ ] start_here.txt effective
-- [ ] Solutions complete
+- [ ] README.md clear and contains direct entry command if no start_here.txt
+- [ ] start_here.txt effective (if present)
+- [ ] Solutions complete and match clues exactly
 - [ ] Download command tested
+- [ ] **Navigation**: Every clue has "NEXT STEP"; transitions tested
+- [ ] **Script paths** (if applicable): All setup script paths in clues are relative to clue location (e.g., `../../scripts/setup_X_Y.sh`)
+- [ ] **Each clue is distinct**: No repetitive content or commands
+
+### Scripts & Packaging (if applicable)
+- [ ] All scripts use Unix line endings (LF)
+- [ ] All scripts have execute permissions
+- [ ] Archive created with `--mode='a+x'`
+- [ ] Tested on clean Linux VM (not just dev machine)
+- [ ] If using dummy processes: Safe (throttled CPU, limited RAM)
 
 ---
 
@@ -386,7 +560,7 @@ Before deployment, verify:
 
 A successfully deployed lab should have:
 
-1. **Clear Entry Point**: Students know where to start
+1. **Clear Entry Point**: Students know where to start (README or start_here.txt) and each clue ends with clear "NEXT STEP"
 2. **Progressive Flow**: Each step builds on previous
 3. **Complete Documentation**: README, solutions, commands
 4. **Working Distribution**: One-command download works
@@ -433,6 +607,7 @@ gh release create vX.Y "Module Name/lab_name.tar.gz" --title "..." --notes "..."
 
 ---
 
-**Version**: 1.0  
+**Version**: 1.1  
 **Created**: 2026-01-26  
+**Last Updated**: 2026-01-29  
 **Repository**: https://github.com/IITC-College/DevOps-Jan26

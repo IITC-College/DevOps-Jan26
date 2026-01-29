@@ -33,8 +33,8 @@ This document defines the structure and design principles for creating interacti
 
 ```
 lab_name/
-├── README.md                  # Entry instructions
-├── start_here.txt             # First steps (CRITICAL - clear starting point)
+├── README.md                  # Entry instructions (must include direct entry command)
+├── start_here.txt             # Optional - first steps (see "Entry Point" section)
 │
 ├── clues/                     # Guided challenges
 │   ├── level1/               # Basic commands (nav, read)
@@ -62,6 +62,145 @@ lab_name/
 └── .answers/                  # Instructor solutions
     └── solutions.txt
 ```
+
+---
+
+## Entry Point and Navigation
+
+### Entry Point: start_here.txt is Optional
+
+- **start_here.txt** is **not required** for all labs.
+- For labs with **direct entry**, the README must contain the first command so students can begin immediately:
+  ```bash
+  cd clues/level1 && cat clue1.txt
+  ```
+- Keep **start_here.txt** for labs that need setup context, overview, or methodology (e.g., "4-step debug method") before the first clue.
+- When omitted, students go straight to the first clue in level1.
+
+### Navigation Standardization
+
+**Critical**: Every clue must end with an explicit "Next Step" so students always know where to go.
+
+- **End of each clue**: Include a clear "NEXT STEP" section.
+- **Template format**:
+
+```
+================================================================================
+    NEXT STEP
+================================================================================
+
+Once completed, proceed to:
+    cat clue2.txt
+
+(If you are in clues/level1/, the next clue is in the same folder.)
+================================================================================
+```
+
+- **For the last clue in a level** (e.g., clue3.txt in level1):
+
+```
+================================================================================
+    NEXT STEP
+================================================================================
+
+Congratulations! You've completed Level 1!
+Proceed to Level 2:
+    cd ../level2
+    cat clue1.txt
+
+================================================================================
+```
+
+- **For the final clue in the lab** (level3/clue3.txt): Congratulate and state that the lab is complete; no further navigation.
+
+### Labs with Setup Scripts
+
+Some labs (e.g., networking, services, processes) use scripts to create controlled lab environments. These can be:
+- **Per-clue setup/cleanup** (recommended for process/service labs)
+- **Per-level setup** (for simpler labs)
+- **One-time setup** (for static environments)
+
+#### Per-Clue Setup/Cleanup Pattern (Recommended for Dynamic Labs)
+
+For labs with dummy processes or changing system states:
+
+**Structure**:
+- `scripts/setup_X_Y.sh` - Starts processes/services for clue X-Y
+- `scripts/cleanup_X_Y.sh` - Stops processes/services for clue X-Y
+- Each clue is isolated with its own PID files (e.g., `.lab_pids_1_1`)
+
+**Benefits**:
+- Clues are isolated (no interference between exercises)
+- Students can skip clues or repeat them
+- Clean state for each exercise
+- No processes running when not needed
+
+**Clue Template**:
+```
+================================================================================
+                    LEVEL X - CLUE Y
+                    [Clue Title]
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_X_Y.sh
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+[Brief context - what concept/skill this clue teaches, 2-3 sentences max]
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. [Task-oriented instruction]. Hint: [command or approach].
+
+2. [Next step]. Hint: [specific command to try].
+
+3. [Final step - usually document findings].
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt  (or cd ../level2 then cat clue1.txt)
+================================================================================
+```
+
+**Critical Rules**:
+- All script paths must be **relative to clue location** (`../../scripts/` from `clues/levelX/`)
+- Setup scripts must be **idempotent** (safe to run multiple times)
+- Cleanup scripts must **gracefully handle missing PIDs** (already stopped)
+- Each clue uses **unique PID files** (`.lab_pids_X_Y`) for isolation
+
+#### Creating Safe Dummy Processes
+
+For labs that need background processes (CPU/RAM eaters, services):
+
+**CPU-Intensive Process** (throttled to prevent system overload):
+```bash
+#!/bin/bash
+# Dummy CPU eater - throttled with sleep so system stays responsive
+while true; do
+  :    # busy work
+  sleep 0.1   # yield briefly (prevents 100% CPU peg)
+done
+```
+
+**RAM-Intensive Process** (controlled allocation):
+```bash
+#!/bin/bash
+# Dummy RAM eater - allocates fixed amount, then sleeps
+LAB_RAM_CHARS=10000000   # ~10MB (safe for low-RAM VMs)
+s=$(printf '%*s' "$LAB_RAM_CHARS" '')
+while true; do
+  sleep 9999
+done
+```
+
+**Safety Guidelines**:
+- CPU eaters: Always include `sleep 0.1` or similar to prevent 100% pegging
+- RAM eaters: Use fixed, small allocations (~10MB) for VM compatibility
+- All processes: Must be easy to identify (use descriptive names like `dummy_cpu_eater.sh`)
+- Cleanup: Provide reliable stop mechanism (PID files + kill)
 
 ---
 
@@ -103,6 +242,22 @@ Part1 + Part2 + Part3 + Part4 = Complete Answer
 Hint → Exploration → Discovery → Understanding
 ```
 **Example**: "Files starting with . are hidden" → ls -a → finds files → learns concept
+
+### Pattern 4: Progressive Skills (Per-Clue Progression)
+
+**Critical**: Each clue must teach a **distinct skill** - avoid repetition. Example progression:
+
+**Bad** (repetitive):
+- Clue 1: Use `ps aux` to list processes
+- Clue 2: Use `ps aux` to find process info
+- Clue 3: Use `ps aux` to count your processes
+
+**Good** (progressive):
+- Clue 1: Basic listing (`ps`, `ps aux`) - see there are many processes
+- Clue 2: Filtering by name (`ps aux | grep bash`) - find specific process
+- Clue 3: Comparing ownership (`grep $USER` vs `grep root`) - understand user vs system
+
+**Key Principle**: Each clue introduces a **new concept, tool, or technique** - build on previous skills but don't just repeat them.
 
 ---
 
@@ -176,24 +331,47 @@ Layer 3: Combine (find + read + search + assemble)
 
 ## Challenge Design Formula
 
-### Clue Structure
+### Clue Structure (Recommended Format)
+
+Use this structure for clear, practical clues:
+
 ```
-1. Context (What are we looking for?)
-2. Location Hint (Where to look)
-3. Method Suggestion (Which command to use)
-4. Success Criteria (How to verify)
+================================================================================
+                    LEVEL X - CLUE Y
+                    [Clear Title - What Concept]
+================================================================================
+
+* SETUP: Run first (from this folder):  ../../scripts/setup_X_Y.sh
+  (Optional - only for labs with per-clue scripts)
+
+--------------------------------------------------------------------------------
+WHAT YOU'RE DOING
+--------------------------------------------------------------------------------
+[2-3 sentences: the concept/skill being learned, why it matters]
+
+--------------------------------------------------------------------------------
+INSTRUCTIONS
+--------------------------------------------------------------------------------
+1. [Task-oriented instruction]. Hint: [command or approach].
+
+2. [Next task]. Hint: [specific command].
+
+3. [Final task - document or observe].
+
+--------------------------------------------------------------------------------
+CLEANUP (run when done with this clue):  ../../scripts/cleanup_X_Y.sh
+(Optional - only for labs with per-clue cleanup)
+--------------------------------------------------------------------------------
+    NEXT STEP:  cat clue2.txt
+================================================================================
 ```
 
-### Example Clue
-```
-TASK: Find the system password hint
-
-LOCATION: It's in a log file in data/logs/
-
-COMMAND: Use grep to search for "password"
-
-VERIFY: You should find a hint with a year in it
-```
+**Content Guidelines**:
+- **"WHAT YOU'RE DOING"**: Brief context (not a lecture) - why this task matters
+- **"INSTRUCTIONS"**: Task-oriented (not command-only) - what to do, not just what to type
+- **Hints**: Suggest commands but let students figure out exact usage
+- **Balance**: Not too verbose (walls of text) or too terse (just commands)
+- **Progressive**: Each clue teaches something NEW, not a repeat
 
 ---
 
@@ -219,21 +397,19 @@ VERIFY: You should find a hint with a year in it
 ## Student Experience Flow
 
 ```
-1. Read start_here.txt
+1. Entry: Read README (or start_here.txt if present)
    ↓
-2. Navigate to level1/
+2. Go to clues/level1/ and read clue1.txt
    ↓
-3. Read clue1.txt → Execute command → Find answer
+3. Complete clue1 → Read "NEXT STEP" → Go to clue2.txt
    ↓
-4. Read clue2.txt → Execute command → Find answer
+4. Complete clue2 → Read "NEXT STEP" → Go to clue3.txt
    ↓
-5. Read clue3.txt → Execute command → Find answer
+5. Complete clue3 → Read "NEXT STEP" → Go to level2/clue1.txt
    ↓
-6. Progress to level2/ (repeat)
+6. Repeat for level2, then level3
    ↓
-7. Progress to level3/ (final challenge)
-   ↓
-8. Create my_answers.txt
+7. Final clue: Lab complete (or create my_answers.txt per lab)
 ```
 
 ---
@@ -243,8 +419,33 @@ VERIFY: You should find a hint with a year in it
 ### File Format
 - Plain text only (`.txt`, `.log`, `.md`)
 - UTF-8 encoding
-- Unix line endings (LF)
+- **Unix line endings (LF)** - CRITICAL for scripts
 - No binary files
+
+### Script Requirements (Labs with Setup/Cleanup)
+
+**Line Endings**:
+- **Must use LF (Unix)**, not CRLF (Windows)
+- Fix before packaging: `sed -i 's/\r$//' script.sh`
+- Or use `dos2unix` if available
+
+**Permissions**:
+- All scripts must be executable: `chmod +x scripts/*.sh`
+- Archive with preserved permissions: `tar --mode='a+x' -czf lab.tar.gz lab/`
+
+**Shebang**:
+- Always include: `#!/bin/bash`
+- First line of every script
+
+**Idempotency**:
+- Setup scripts must be safe to run multiple times
+- Check for existing state before creating (e.g., check PID file exists)
+- Don't fail if already set up
+
+**Error Handling**:
+- Use `set -e` for critical scripts (exit on error)
+- Provide clear error messages
+- Cleanup scripts must handle missing resources gracefully
 
 ### Size Constraints
 - Total lab: < 500KB
@@ -253,7 +454,7 @@ VERIFY: You should find a hint with a year in it
 
 ### Compatibility
 - Works on any Linux distribution
-- No dependencies required
+- No dependencies required (beyond standard utils)
 - Pure CLI experience
 
 ---
@@ -269,7 +470,10 @@ tar -czf lab_name.tar.gz lab_name/
 ```bash
 curl -L URL | tar -xz
 cd lab_name
+# Then either (if lab has start_here.txt):
 cat start_here.txt
+# Or (direct entry - see README):
+cd clues/level1 && cat clue1.txt
 ```
 
 ### Installation Script Template
@@ -302,14 +506,37 @@ cat start_here.txt
 
 Before distributing a lab:
 
+### Content Quality
 - [ ] All clues are accurate and achievable
+- [ ] **Each clue teaches a DISTINCT skill** (no repetition of same command/concept)
+- [ ] Progressive difficulty (Level 1 simpler than Level 3)
 - [ ] File paths in clues match actual structure
 - [ ] All "find" targets exist
 - [ ] All "grep" patterns have matches
 - [ ] Hidden files are truly hidden (start with .)
-- [ ] Solutions file is complete
-- [ ] Tested end-to-end by creator
+- [ ] Solutions file is complete and matches clues exactly
+- [ ] Clue content balanced (not too verbose, not too terse)
+- [ ] "WHAT YOU'RE DOING" provides context, "INSTRUCTIONS" are task-oriented with hints
+
+### Navigation & Flow
+- [ ] **Each clue ends with a clear "NEXT STEP"** (exact command to next clue or level)
+- [ ] **Navigation tested**: Each clue → next clue transition works when followed literally
+- [ ] **If there is no start_here.txt**: README contains the direct entry command (e.g., `cd clues/level1 && cat clue1.txt`)
+- [ ] Tested end-to-end by creator (start to finish)
 - [ ] Estimated completion time verified
+
+### Scripts & Technical (for labs with setup/cleanup)
+- [ ] **All scripts have Unix line endings (LF)** - not Windows CRLF
+- [ ] **All scripts have execute permissions** (`chmod +x`)
+- [ ] **All script paths in clues are relative to clue location** (e.g., `../../scripts/setup_X_Y.sh` from clues/levelX/)
+- [ ] Setup scripts are idempotent (safe to run multiple times)
+- [ ] Cleanup scripts handle missing PIDs gracefully
+- [ ] Dummy processes are SAFE:
+  - [ ] CPU eaters throttled with sleep (not 100% CPU peg)
+  - [ ] RAM eaters use controlled amounts (~10MB max for VM compatibility)
+  - [ ] Processes use unique PID files per clue (`.lab_pids_X_Y`)
+- [ ] Archive created with preserved permissions: `tar --mode='a+x'`
+- [ ] Scripts tested on clean Linux VM (not just dev machine)
 
 ---
 
@@ -368,7 +595,9 @@ A well-designed lab should achieve:
 - Progressive structure (3 levels)
 - Scattered information (treasure hunt)
 - Realistic content (professional files)
-- Clear starting point (start_here.txt)
+- Clear starting point (README and/or start_here.txt; direct entry to first clue is allowed)
+- Explicit "NEXT STEP" at end of every clue
+- Script paths relative to clue location when lab uses setup scripts
 - Complete solutions (for instructor)
 
 **Core Philosophy**:
@@ -376,6 +605,6 @@ A well-designed lab should achieve:
 
 ---
 
-**Version**: 1.0  
+**Version**: 1.1  
 **Based on**: Linux Day 1 - File System Scavenger Hunt  
-**Last Updated**: 2026-01-26
+**Last Updated**: 2026-01-29
