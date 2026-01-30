@@ -1,0 +1,49 @@
+{
+  "app_name": "DevOps Helper",
+  "version": 4.0,
+  "status": "active",
+  "ready": true,
+  "max_retries": 3,
+  "backup_dir": "./backups",
+  "log_level": "INFO",
+  "log_file": "devops_helper.log",
+  "environments": {
+    "dev": {
+      "url": "https://dev.example.com",
+      "timeout": 30
+    },
+    "staging": {
+      "url": "https://staging.example.com",
+      "timeout": 60
+    },
+    "production": {
+      "url": "https://example.com",
+      "timeout": 120
+    }
+  },
+  "backup": {
+    "enabled": true,
+    "schedule": "0 2 * * *",
+    "retention_days": 30,
+    "compress": true
+  },
+  "logging": {
+    "format": "[%(asctime)s] [%(levelname)-8s] %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "max_file_size_mb": 10,
+    "backup_count": 5
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "recipients": ["admin@example.com"],
+      "on_error": true,
+      "on_success": false
+    },
+    "slack": {
+      "enabled": false,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+      "channel": "#devops"
+    }
+  }
+}

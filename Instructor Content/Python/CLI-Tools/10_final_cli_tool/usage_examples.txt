@@ -1,0 +1,162 @@
+DEVOPS HELPER CLI TOOL - USAGE EXAMPLES
+========================================
+
+BASIC COMMANDS:
+---------------
+
+Show status:
+  python step_10.py status
+  python step_10.py status --detailed
+  python step_10.py status --json
+
+Perform backup:
+  python step_10.py backup
+  python step_10.py backup --full
+  python step_10.py backup --full --compress
+  python step_10.py backup --path /custom/backup/dir
+
+Deploy application:
+  python step_10.py deploy dev
+  python step_10.py deploy staging
+  python step_10.py deploy production --force
+
+Show configuration:
+  python step_10.py config
+  python step_10.py config --validate
+  python step_10.py config --export my_config.json
+
+
+WITH OPTIONS:
+-------------
+
+Using custom config file:
+  python step_10.py --config custom.json status
+  python step_10.py -c myconfig.json backup
+
+Verbose output:
+  python step_10.py --verbose status
+  python step_10.py -v backup --full
+
+Set log level:
+  python step_10.py --log-level DEBUG backup
+  python step_10.py --log-level ERROR deploy staging
+
+Dry run mode (no changes):
+  python step_10.py --dry-run backup --full
+  python step_10.py --dry-run deploy production
+
+
+COMBINED OPTIONS:
+-----------------
+
+  python step_10.py --verbose --dry-run backup --full --compress
+  python step_10.py -v -c prod.json deploy production --force
+  python step_10.py --log-level DEBUG --config test.json status --detailed
+
+
+COMMON WORKFLOWS:
+-----------------
+
+Development workflow:
+  python step_10.py --config dev.json deploy dev
+
+Testing backup:
+  python step_10.py --dry-run backup --full
+  python step_10.py backup --full
+
+Production deployment:
+  python step_10.py --config prod.json deploy production
+
+Check status before operation:
+  python step_10.py status
+  python step_10.py backup --full
+
+
+GETTING HELP:
+-------------
+
+General help:
+  python step_10.py --help
+  python step_10.py -h
+
+Command-specific help:
+  python step_10.py status --help
+  python step_10.py backup --help
+  python step_10.py deploy --help
+  python step_10.py config --help
+
+Show version:
+  python step_10.py --version
+
+
+CHECKING EXIT CODES (in bash):
+-------------------------------
+
+  python step_10.py status
+  echo $?    # Shows exit code (0 = success)
+
+  if python step_10.py backup; then
+      echo "Backup succeeded"
+  else
+      echo "Backup failed"
+  fi
+
+
+SCRIPTING EXAMPLES:
+-------------------
+
+Backup script:
+  #!/bin/bash
+  LOG_LEVEL="INFO"
+  CONFIG="production.json"
+  
+  python step_10.py --config $CONFIG --log-level $LOG_LEVEL backup --full
+  
+  if [ $? -eq 0 ]; then
+      echo "Backup completed successfully"
+  else
+      echo "Backup failed!"
+      exit 1
+  fi
+
+Deployment pipeline:
+  #!/bin/bash
+  set -e  # Exit on error
+  
+  echo "Deploying to staging..."
+  python step_10.py deploy staging
+  
+  echo "Running tests..."
+  ./run_tests.sh
+  
+  echo "Deploying to production..."
+  python step_10.py deploy production --force
+  
+  echo "Pipeline complete!"
+
+
+AUTOMATION:
+-----------
+
+Cron job for daily backup:
+  0 2 * * * cd /path/to/devops-helper && python step_10.py backup --full >> /var/log/backup.log 2>&1
+
+Systemd timer for backups:
+  Create /etc/systemd/system/devops-backup.service
+  Create /etc/systemd/system/devops-backup.timer
+
+
+TROUBLESHOOTING:
+----------------
+
+Enable verbose logging:
+  python step_10.py --verbose --log-level DEBUG status
+
+Check log file:
+  tail -f devops_helper.log
+
+Test with dry-run:
+  python step_10.py --dry-run deploy production
+
+Validate configuration:
+  python step_10.py config --validate
