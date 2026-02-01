@@ -32,10 +32,9 @@ INSTRUCTIONS:
    
    groups
 
-3. Navigate to the database project (from the shared_team directory where
-   you were in the previous exercise):
+3. Navigate to the database project (from clues/level3 or lab root):
    
-   cd ../database
+   cd ../../projects/database
 
 4. List files and examine ownership:
    
@@ -64,6 +63,7 @@ INSTRUCTIONS:
    cd ../shared_team
    ls -l
    # Analyze and fix as needed
+   (From projects/database, ../web_app and ../shared_team are sibling directories.)
 
 9. Document your findings and fixes
 
@@ -71,7 +71,7 @@ COMMANDS TO USE:
 ----------------
 - whoami
 - groups
-- cd ../database (and other directories)
+- cd ../../projects/database (and other directories)
 - ls -l
 - sudo chown user:group filename (as needed)
 - cat README.md (if available)

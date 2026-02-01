@@ -62,7 +62,7 @@ After running the commands, write in my_answers.txt (in the main lab directory):
 - What is your username?
 - What is your user ID (uid)?
 - What is your primary group ID (gid)?
-- List at least 3 groups you belong to
+- List the groups you belong to (or at least 2)
 - Why do you think Linux tracks identity in multiple ways (username, uid, groups)?
 
 You can write your answer in a file called my_answers.txt in the main lab

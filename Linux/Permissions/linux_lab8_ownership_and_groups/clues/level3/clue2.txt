@@ -23,9 +23,9 @@ Examine a shared team project and understand the ownership pattern.
 
 INSTRUCTIONS:
 -------------
-1. Navigate to the shared team project:
+1. Navigate to the shared team project (from clues/level3 use ../../ to reach lab root):
    
-   cd ../shared_team
+   cd ../../projects/shared_team
 
 2. List files with detailed information:
    
@@ -50,7 +50,7 @@ INSTRUCTIONS:
 
 COMMANDS TO USE:
 ----------------
-- cd ../shared_team
+- cd ../../projects/shared_team
 - ls -l
 - groups
 - cat team_notes.txt

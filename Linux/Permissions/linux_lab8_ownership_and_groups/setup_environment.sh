@@ -233,11 +233,13 @@ find clues -type f -name "*.txt" -exec chmod 644 {} \; 2>/dev/null || true
 chmod 644 README.md 2>/dev/null || true
 chmod 644 start_here.txt 2>/dev/null || true
 
-# Scripts
+# Scripts (owned by root so Level 2 clue 3 chown exercise has clear before/after)
 if [ -f "scripts/check_owner.sh" ]; then
+    chown root:root scripts/check_owner.sh
     chmod 755 scripts/check_owner.sh
 fi
 if [ -f "scripts/test_access.sh" ]; then
+    chown root:root scripts/test_access.sh
     chmod 755 scripts/test_access.sh
 fi
 
