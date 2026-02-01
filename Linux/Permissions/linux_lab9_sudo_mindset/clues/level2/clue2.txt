@@ -44,6 +44,7 @@ INSTRUCTIONS:
    sudo cat /var/log/auth.log | tail -20
 
 5. Look for entries that contain "sudo" - you should see your recent command!
+   (Use sudo grep ... since /var/log/auth.log is protected.)
 
 6. Also check the simulated log in the lab:
    cat ../../data/logs/sudo_example.log
@@ -60,7 +61,7 @@ COMMANDS TO USE:
 - cat /var/log/auth.log (will fail - protected)
 - ls -l /var/log/auth.log
 - sudo cat /var/log/auth.log | tail -20 (view recent entries)
-- grep sudo /var/log/auth.log | tail -5 (search for sudo entries)
+- sudo grep sudo /var/log/auth.log | tail -5 (search for sudo entries; log is protected)
 - cat ../../data/logs/sudo_example.log (view example log)
 
 WHAT TO OBSERVE:

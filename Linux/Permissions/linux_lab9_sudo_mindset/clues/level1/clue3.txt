@@ -50,8 +50,8 @@ INSTRUCTIONS:
 7. Also try to list the /root directory:
    ls /root
 
-8. You'll get "Permission denied" - check why:
-   ls -l /root
+8. You'll get "Permission denied" - check why (list parent directory and grep for root):
+   ls -l / | grep root
 
 9. Use sudo to list it:
    sudo ls /root
@@ -62,7 +62,7 @@ COMMANDS TO USE:
 - ls -l /etc/shadow
 - sudo cat /etc/shadow (should work)
 - ls /root (will fail)
-- ls -l /root
+- ls -l / | grep root (see /root permissions without accessing it)
 - sudo ls /root (should work)
 
 WHAT TO OBSERVE:

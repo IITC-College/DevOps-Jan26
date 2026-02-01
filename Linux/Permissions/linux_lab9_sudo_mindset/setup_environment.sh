@@ -53,19 +53,19 @@ else
     chmod 600 data/system_files/protected.txt 2>/dev/null || true
     
     chown root:root data/system_files/system_config.txt 2>/dev/null || true
-    chmod 644 data/system_files/system_config.txt 2>/dev/null || true
+    chmod 600 data/system_files/system_config.txt 2>/dev/null || true
     
     # Set readable file (user-owned, normal permissions)
     echo "Setting up readable file..."
     chmod 644 data/system_files/readable.txt 2>/dev/null || true
     
-    # Set user_app files to root ownership (simulating the problem)
+    # Set user_app files to root ownership and restrictive perms (simulating the problem)
     echo "Setting up user_app files (simulating ownership problem)..."
     chown root:root projects/user_app/config.txt 2>/dev/null || true
-    chmod 644 projects/user_app/config.txt 2>/dev/null || true
-    
+    chmod 600 projects/user_app/config.txt 2>/dev/null || true
+
     chown root:root projects/user_app/install.sh 2>/dev/null || true
-    chmod 644 projects/user_app/install.sh 2>/dev/null || true
+    chmod 600 projects/user_app/install.sh 2>/dev/null || true
     
     # System service files should be readable
     echo "Setting up system_service files..."

@@ -69,9 +69,9 @@ readable.txt:
 - Why: Owned by regular user, standard permissions
 
 system_config.txt:
-- Permissions: -rw-r--r-- 1 root root (owned by root)
+- Permissions: -rw------- 1 root root (600 – only root can read)
 - Can read without sudo: NO
-- Why: Owned by root, system configuration file
+- Why: Owned by root, restrictive permissions (600)
 
 Answers:
 - Difference: readable.txt is user-owned, system_config.txt is root-owned
@@ -99,7 +99,7 @@ Commands:
 2. ls -l /etc/shadow
 3. sudo cat /etc/shadow (should work)
 4. ls /root (will fail)
-5. ls -l /root
+5. ls -l / | grep root (see /root permissions without accessing it)
 6. sudo ls /root (should work)
 
 Expected Error Output (first attempt):
@@ -143,11 +143,11 @@ Commands:
 6. cat config.txt (should work now without sudo!)
 7. Repeat for install.sh
 
-Expected Permissions Before:
--rw-r--r-- 1 root root 234 Jan 27 10:00 config.txt
+Expected Permissions Before (600 – only root can read):
+-rw------- 1 root root 234 Jan 27 10:00 config.txt
 
 Expected Permissions After:
--rw-r--r-- 1 user user 234 Jan 27 10:00 config.txt
+-rw------- 1 user user 234 Jan 27 10:00 config.txt
 (where user is the actual username)
 
 Answers:
@@ -171,7 +171,7 @@ Commands:
 2. cat /var/log/auth.log (will fail - protected)
 3. ls -l /var/log/auth.log
 4. sudo cat /var/log/auth.log | tail -20
-5. grep sudo /var/log/auth.log | tail -5
+5. sudo grep sudo /var/log/auth.log | tail -5 (grep needs sudo – log is protected)
 6. cat ../../data/logs/sudo_example.log
 
 Expected Error Output (first attempt):
@@ -214,7 +214,7 @@ Jan 27 10:00:15 server sudo: alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; C
 Answers:
 - Information in log entry: Timestamp, hostname, username, terminal, working
   directory, target user (root), command executed
-- How to search: grep "sudo" /var/log/auth.log, grep "$USER" /var/log/auth.log
+- How to search: sudo grep "sudo" /var/log/auth.log, sudo grep "$USER" /var/log/auth.log (log is protected)
 - Real-time monitoring: sudo tail -f /var/log/auth.log
 - Why important: System administrators use logs to monitor security, compliance
   requirements, identify unauthorized access, provide accountability

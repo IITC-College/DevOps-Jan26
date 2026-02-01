@@ -12,7 +12,7 @@ sudo chown root:root data/system_files/protected.txt
 sudo chmod 600 data/system_files/protected.txt
 
 sudo chown root:root data/system_files/system_config.txt
-sudo chmod 644 data/system_files/system_config.txt
+sudo chmod 600 data/system_files/system_config.txt
 
 # Set readable file (user-owned, normal permissions)
 echo "Setting up readable file..."
@@ -20,13 +20,13 @@ echo "Setting up readable file..."
 # or set it to current user if needed
 chmod 644 data/system_files/readable.txt
 
-# Set user_app files to root ownership (simulating the problem)
+# Set user_app files to root ownership and restrictive perms (simulating the problem)
 echo "Setting up user_app files (simulating ownership problem)..."
 sudo chown root:root projects/user_app/config.txt
-sudo chmod 644 projects/user_app/config.txt
+sudo chmod 600 projects/user_app/config.txt
 
 sudo chown root:root projects/user_app/install.sh
-sudo chmod 644 projects/user_app/install.sh
+sudo chmod 600 projects/user_app/install.sh
 
 # System service files should be readable (they demonstrate legitimate sudo use)
 echo "Setting up system_service files..."
