@@ -3,79 +3,36 @@
                     Permission Denied on File Read
 ================================================================================
 
-TASK: Debug why you can't read a file
+EXERCISE:
+---------
+You need to read a file but get "Permission denied". Use the 4 steps to fix it.
 
-You need to read an important file, but you're getting a "Permission denied"
-error. Use the 4-step debug methodology to solve this problem.
+INSTRUCTIONS:
+-------------
+1. Go to the scenario:
+   cd ../../broken_scenarios/scenario1_read_failure
 
-================================================================================
-    THE SCENARIO
-================================================================================
+2. Try to read the file:
+   cat secret.txt
+   (You'll get an error.)
 
-Navigate to the broken scenario:
-  cd ../../broken_scenarios/scenario1_read_failure
+3. Use the 4 steps:
+   OBSERVE: What is the exact error?
+   INSPECT: pwd, ls -l secret.txt, whoami
+   DIAGNOSE: What is preventing you from reading? (permissions? ownership?)
+   RESOLVE: Fix it (e.g. chmod), then verify: cat secret.txt
 
-Try to read the file:
-  cat secret.txt
+COMMANDS TO USE:
+----------------
+cd ../../broken_scenarios/scenario1_read_failure
+cat secret.txt
+ls -l secret.txt
+whoami
+chmod 400 secret.txt   (or chmod u+r secret.txt)
+cat secret.txt         (verify)
 
-You'll get an error. DON'T just try random commands! Follow the 4 steps.
-
-================================================================================
-    YOUR MISSION
-================================================================================
-
-Apply the 4-Step Debug Methodology:
-
-STEP 1: OBSERVE
-- What is the exact error message?
-- What command failed?
-- What were you trying to do?
-
-STEP 2: INSPECT
-- Check where you are: pwd
-- Check file permissions: ls -l secret.txt
-- Check file ownership: ls -l secret.txt (shows owner)
-- Check your user: whoami
-
-STEP 3: DIAGNOSE
-- Based on your inspection, what's the root cause?
-- Is it a permissions problem?
-- Is it an ownership problem?
-- What exactly is preventing you from reading the file?
-
-STEP 4: RESOLVE
-- Apply the correct fix based on your diagnosis
-- Fix the root cause, not just work around it
-- Verify your fix worked: try reading the file again
-
-================================================================================
-    QUESTIONS TO ANSWER
-================================================================================
-
-After solving the problem, answer these in your notes:
-
-1. What error message did you OBSERVE?
-2. What did you see when you INSPECTED (ls -l output)?
-3. What did you DIAGNOSE as the root cause?
-4. How did you RESOLVE it (what command did you use)?
-5. Did your fix work? How did you verify?
-
-================================================================================
-    HINTS
-================================================================================
-
-- Remember: Follow the 4 steps in order
-- Don't skip INSPECT - gather evidence first
-- The file exists, so it's not a path problem
-- Think about what permissions are needed to read a file
-
-================================================================================
-    NEXT STEP
-================================================================================
-
-Once you've solved this exercise and documented your 4-step process,
-proceed to clue2.txt
-
-Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+NEXT STEP:
+----------
+Proceed to clue2.txt (same folder: clues/level1).
 
 ================================================================================

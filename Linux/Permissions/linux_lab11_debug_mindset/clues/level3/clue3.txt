@@ -3,118 +3,45 @@
                     Complete Debug Challenge
 ================================================================================
 
-TASK: Fix a completely broken environment
+EXERCISE:
+---------
+Fix everything broken in scenario6_mixed_issues. Use the 4 steps for each problem.
 
-This is your final challenge! The entire environment is broken with
-multiple issues. You must systematically apply the 4-step methodology
-to find and fix EVERY problem.
+INSTRUCTIONS:
+-------------
+1. Go to: cd ../../broken_scenarios/scenario6_mixed_issues
 
-================================================================================
-    THE SCENARIO
-================================================================================
+2. Try each of these (they will fail until you fix things):
+   - cat README.md
+   - ./run_backup.sh
+   - cat data.txt
+   - cd deep/nested/path && cat important.txt
+   - touch fixed.txt
+   Fix each problem with OBSERVE → INSPECT → DIAGNOSE → RESOLVE.
 
-Navigate to the broken scenario:
-  cd ../../broken_scenarios/scenario6_mixed_issues
+3. When everything works, create your answers file in the lab root:
+   cd ../..   (or cd ../../.. if you're inside scenario6)
+   touch my_answers.txt
+   (Write in my_answers.txt: what you fixed and how, and a short reflection on the 4-step process.)
 
-Your mission: Fix everything that's broken in this directory.
-
-Start by exploring:
-  ls -la
-
-Then try to:
-1. Read the README.md file
-2. Execute the run_backup.sh script
-3. Access the data.txt file
-4. Navigate to all subdirectories
-5. Create a new file called "fixed.txt" in the root of this scenario
-
-Each of these will likely fail. Use the 4-step methodology for EACH problem.
-
-================================================================================
-    YOUR MISSION
-================================================================================
-
-Apply the 4-Step Debug Methodology to EVERY problem you find:
-
-For EACH broken thing:
-
-STEP 1: OBSERVE
-- What is the exact error message?
-- What were you trying to do?
-
-STEP 2: INSPECT
-- Check permissions: ls -l
-- Check ownership: ls -l
-- Check paths: pwd, ls -la
-- Check your user: whoami, id
-
-STEP 3: DIAGNOSE
-- What's the root cause?
-- Permissions? Ownership? Path? Hidden file?
-
-STEP 4: RESOLVE
-- Apply the correct fix
-- Verify it worked
-
-Keep going until EVERYTHING works!
-
-================================================================================
-    DELIVERABLE
-================================================================================
-
-Create a file called `my_answers.txt` in the main lab directory
-(cd ../.. to get back to lab root).
-
-In this file, document:
-
-1. List ALL problems you found
-2. For EACH problem, document:
-   a. What you OBSERVED (error message)
-   b. What you INSPECTED (commands and output)
-   c. What you DIAGNOSED (root cause)
-   d. How you RESOLVED it (fix command)
-3. Reflection: How did the 4-step methodology help you?
-4. Reflection: How will you apply this methodology to future problems?
-
-================================================================================
-    QUESTIONS TO ANSWER
-================================================================================
-
-In your my_answers.txt file, also answer:
-
-1. How many different types of problems did you encounter?
-   (permissions, ownership, paths, hidden files, etc.)
-2. Which problem was hardest to diagnose? Why?
-3. How did following the 4-step process prevent you from
-   making mistakes?
-4. What would you have done differently without the methodology?
-5. How will you use this methodology in real-world situations?
-
-================================================================================
-    HINTS
-================================================================================
-
-- Be systematic - don't skip steps
-- Document everything as you go
-- Fix one problem at a time
-- Verify each fix before moving on
-- Check ALL files, including hidden ones
-- Remember: directory permissions matter for traversal
-- Remember: ownership matters even if permissions look OK
+COMMANDS TO USE:
+----------------
+chmod 644 README.md
+chmod +x run_backup.sh
+chmod 644 data.txt   (or sudo chown if needed)
+chmod 755 .          (directory write)
+chmod 755 deep deep/nested deep/nested/path
+touch fixed.txt
+cd ../..
+touch my_answers.txt
 
 ================================================================================
     CONGRATULATIONS!
 ================================================================================
 
-Once you've completed this exercise and created your my_answers.txt file,
-you've mastered the 4-Step Debug Methodology!
+You've completed the Debug Mindset lab. You now have a systematic way to
+debug Linux problems: OBSERVE → INSPECT → DIAGNOSE → RESOLVE.
 
-You now have a systematic approach to solving ANY Linux problem:
-- OBSERVE what's wrong
-- INSPECT to gather evidence
-- DIAGNOSE the root cause
-- RESOLVE with the correct fix
-
-This methodology will serve you well throughout your Linux journey!
+Lab complete. No further clues.
 
 ================================================================================

@@ -413,7 +413,7 @@ STEP 1: OBSERVE
 
 STEP 2: INSPECT
   ls -ld .
-  Expected: dr--r--r-- (missing write permission on directory)
+  Expected: dr-xr-xr-x (555: missing write permission on directory)
 
 STEP 3: DIAGNOSE
   Directory missing write permission
@@ -528,7 +528,7 @@ PROBLEMS TO FIX:
 
 4. Directory - missing write permission
    - OBSERVE: "Permission denied" when creating file
-   - INSPECT: ls -ld . shows 444 (no write)
+   - INSPECT: ls -ld . shows 555 (r-xr-xr-x: no write on directory)
    - DIAGNOSE: Directory missing write permission
    - RESOLVE: chmod 755 .
 

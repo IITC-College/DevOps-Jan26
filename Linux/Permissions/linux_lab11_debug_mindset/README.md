@@ -7,91 +7,51 @@ Welcome to your Linux debugging methodology lab!
 ### Method 1: Download with curl (Recommended)
 
 ```bash
-curl -L -o lab.tar.gz https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.8/linux_lab11_debug_mindset.tar.gz
+curl -L -o lab.tar.gz https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.9/linux_lab11_debug_mindset.tar.gz
 tar -xzf lab.tar.gz
 cd linux_lab11_debug_mindset
 ```
 
+> **Note:** If you get "not in gzip format" or a tiny download, the release may not exist or the repo may be private. Use `gh release download v2.9 --pattern 'linux_lab11_debug_mindset.tar.gz' --repo IITC-College/DevOps-Jan26` (after `gh auth login`) or ask the instructor.
+
 ## Instructor Setup (Required Before Lab)
 
-**IMPORTANT**: Before students start the lab, instructors must run the environment setup script:
+**IMPORTANT**: Before students start, run:
 
 ```bash
-sudo ./setup_environment.sh
+sudo ./setup_lab.sh
 ```
 
-This script will:
-- Create the lab directory structure and files (if missing), so the lab works from the full bundle or a minimal copy
-- Set up deliberately broken scenarios for students to debug:
-  - Scenario 1: Read permission removed
-  - Scenario 2: Execute permission missing
-  - Scenario 3: Write permission removed from directory
-  - Scenario 4: File owned by root (ownership mismatch) - **requires root ownership**
-  - Scenario 5: Hidden file with no access
-  - Scenario 6: Multiple combined issues
-- Set root ownership for `scenario4_ownership_mess/important.txt` (critical for ownership exercise)
-- Ensure the lab environment is properly configured
-
-**Note**: The broken scenarios are intentional - students will use the 4-step debug methodology to fix them.
+This script creates the lab structure (if missing) and sets up deliberately broken scenarios: read failure, script without execute, directory without write, ownership mismatch (root), hidden file, and mixed issues. Students use the 4-step process to fix them.
 
 ## Lab Objective
 
-In this lab you will learn a **systematic debugging methodology** that applies to ANY Linux problem:
+Learn a systematic way to debug Linux problems:
 
-- **4-Step Debug Process**: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
-- **Evidence-Based Debugging**: Make decisions based on inspection, not guessing
-- **Root Cause Analysis**: Fix the real problem, not just symptoms
-- **Methodology Transfer**: Apply this process to any future Linux problem
+- **4 steps**: OBSERVE (the error) → INSPECT (pwd, ls -l, whoami) → DIAGNOSE (root cause) → RESOLVE (fix, verify)
+- **Evidence-based**: Decide from inspection, not guessing
+- **Fix root causes**: Not workarounds
 
 ## Important: What This Lab IS
 
-- ✅ **IS** about learning a systematic debugging methodology
-- ✅ **IS** about breaking the trial-and-error habit
-- ✅ **IS** about evidence-based problem solving
-- ✅ **IS** about fixing root causes, not workarounds
-- ✅ **IS** about developing critical thinking skills
-- ✅ **IS** about methodology that transfers to all future problems
+- ✅ Systematic debugging (4 steps on every problem)
+- ✅ Reading error messages and gathering evidence
+- ✅ Fixing root causes with chmod, chown, correct paths
 
 ## Important: What This Lab Is NOT
 
-- ❌ **NOT** about trying random commands until something works
-- ❌ **NOT** about memorizing specific commands
-- ❌ **NOT** about quick fixes or workarounds
-- ❌ **NOT** about guessing what might work
-- ✅ **IS** about systematic, methodical problem solving
+- ❌ Trying random commands until something works
+- ❌ Guessing; use the 4 steps
 
 ## How to Start?
 
-1. Open the `start_here.txt` file - this is where to begin!
-2. Read the 4-step methodology in `data/logs/debug_methodology.txt`
-3. Follow the exercises step by step
-4. Apply the 4-step process to EVERY problem
+1. Open `start_here.txt`
+2. Follow the instructions
+3. Go to clues/level1 and work through each clue in order
 
 ```bash
 cat start_here.txt
 ```
-
-## The 4-Step Debug Methodology
-
-### STEP 1: OBSERVE
-- What exactly is the error message?
-- What were you trying to do?
-- What symptoms do you see?
-
-### STEP 2: INSPECT
-- Check current state: `pwd`, `ls -l`, `ls -la`
-- Look at permissions: who owns it? what permissions exist?
-- Check paths: are you in the right place?
-
-### STEP 3: DIAGNOSE
-- Based on evidence from INSPECT, what's the root cause?
-- Is it permissions? ownership? wrong path? hidden file?
-- Don't guess - use evidence!
-
-### STEP 4: RESOLVE
-- Apply the correct fix (not a workaround)
-- Use the right command for the root cause
-- Verify it worked with INSPECT again
 
 ## Exercise List
 
@@ -103,92 +63,45 @@ cat start_here.txt
 ### Level 2: Ownership and Path Issues
 - Exercise 1: Ownership mismatch
 - Exercise 2: Lost in wrong directory
-- Exercise 3: Hidden file access issues
+- Exercise 3: Hidden file access
 
-### Level 3: Complex Mixed Scenarios
-- Exercise 1: Chain of issues (multiple problems in sequence)
-- Exercise 2: Nested directory permission problem
-- Exercise 3: Complete debug challenge (fix everything)
+### Level 3: Complex Scenarios
+- Exercise 1: Chain of issues (fix multiple problems in sequence)
+- Exercise 2: Nested directory permissions
+- Exercise 3: Complete debug challenge (fix everything in scenario6)
 
-## Commands Organized by Debug Step
+## Commands You'll Use
 
-### OBSERVE (Step 1)
-- Read error messages in terminal
-- Note what command failed
-- Identify symptom
-
-### INSPECT (Step 2)
-- `pwd` - where am I?
-- `ls -l` - file permissions and ownership
-- `ls -la` - including hidden files
-- `ls -ld` - directory itself permissions
-- `file <name>` - file type verification
-- `whoami` - current username
-- `id` - user ID and groups
-
-### DIAGNOSE (Step 3)
-- Analyze evidence from INSPECT
-- Identify root cause
-- Plan fix approach
-
-### RESOLVE (Step 4)
-- `chmod <permissions> <file>` - fix permissions
-- `sudo chown <user>:<group> <file>` - fix ownership (when appropriate)
-- `cd <directory>` - navigate to correct location
-- Correct command with proper path
+- **INSPECT**: pwd, ls -l, ls -la, ls -ld, whoami, id, file &lt;name&gt;
+- **RESOLVE**: chmod, sudo chown, cd (correct path)
 
 ## Important Tips
 
-1. **Follow the 4 steps** - Don't skip any step
-2. **OBSERVE first** - Read error messages carefully
-3. **INSPECT second** - Gather evidence before making changes
-4. **DIAGNOSE third** - Identify root cause based on evidence
-5. **RESOLVE last** - Apply correct fix, verify it worked
-6. **No trial-and-error** - Use the methodology systematically
-7. **Fix root causes** - Not just symptoms or workarounds
-8. **Verify your fixes** - Check with INSPECT again after RESOLVE
+1. Follow the 4 steps on every problem
+2. OBSERVE first – read the error
+3. INSPECT second – gather evidence before changing anything
+4. RESOLVE last – fix, then verify
 
 ## Safety Rules
 
-- **Follow the methodology** - Use the 4-step process for every problem
-- **Gather evidence first** - Use INSPECT commands before making changes
-- **Work in the lab directory** - All exercises are safe here
-- **Understand what you're doing** - Don't blindly run commands
-- **Fix root causes** - Not just workarounds
-- **Verify your fixes** - Check that your fix actually worked
+- Work in the lab directory only
+- Use the 4 steps; don't guess
+- Verify each fix (try the command again)
 
 ## Lab Submission
 
-After completing all exercises:
-
-1. Create a file called `my_answers.txt` in the lab directory
-2. For each exercise, document:
-   - What you OBSERVED (error message)
-   - What you INSPECTED (commands and output)
-   - What you DIAGNOSED (root cause)
-   - How you RESOLVED (fix command)
-3. Include your reflections on the debugging methodology
-4. Answer: How will you apply this methodology to future problems?
-5. Save the file
+Create `my_answers.txt` in the lab directory. For each exercise (or in the final challenge), note what you OBSERVED, INSPECTED, DIAGNOSED, and how you RESOLVED. Add a short reflection on the 4-step process.
 
 ## Help
 
-If you get stuck:
-
-1. Re-read the methodology in `data/logs/debug_methodology.txt`
-2. Make sure you followed all 4 steps
-3. Check `data/secrets/tips.txt` for hints
-4. Verify you're in the right directory with `pwd`
-5. Use `ls -la` to see all files including hidden ones
-6. Read error messages carefully - they contain clues
-7. Remember: No trial-and-error - follow the steps!
+If you get stuck: re-read the current clue; use pwd and ls -l to see where you are and what permissions things have; follow the 4 steps. Optional reference: `data/logs/debug_methodology.txt` and `data/secrets/tips.txt`.
 
 ## Good Luck!
 
-Remember: This lab is about learning a methodology, not just solving problems. The 4-step process (OBSERVE → INSPECT → DIAGNOSE → RESOLVE) will help you solve ANY Linux problem systematically. Take your time, follow the steps, and develop good debugging habits!
+Use the 4 steps on every problem: OBSERVE → INSPECT → DIAGNOSE → RESOLVE.
 
 ---
 
-**Linux Course - Day 2, Part 6**  
+**Linux Course - Day 2**  
 **Debug Mindset: 4-Step Debug Flow Lab**  
-**Version**: v2.8
+**Version**: v2.9

@@ -3,83 +3,31 @@
                     Lost in Wrong Directory
 ================================================================================
 
-TASK: Debug why you can't find expected files
+EXERCISE:
+---------
+You try to read a file but get "No such file or directory". Use the 4 steps.
 
-You're trying to access files that should exist, but commands say they
-don't exist. Use the 4-step debug methodology to solve this problem.
+INSTRUCTIONS:
+-------------
+1. From clues/level2, try:
+   cat instructions.txt
+   (You'll get "No such file or directory" – you're in the wrong place.)
 
-================================================================================
-    THE SCENARIO
-================================================================================
+2. Use the 4 steps:
+   OBSERVE: What error?
+   INSPECT: pwd – where are you? Where does instructions.txt actually live?
+   DIAGNOSE: You need to be in the right directory. instructions.txt is in broken_scenarios/scenario5_lost_path.
+   RESOLVE: cd ../../broken_scenarios/scenario5_lost_path, then cat instructions.txt
 
-Navigate to the broken scenario:
-  cd ../../broken_scenarios/scenario5_lost_path
+COMMANDS TO USE:
+----------------
+pwd
+cat instructions.txt
+cd ../../broken_scenarios/scenario5_lost_path
+cat instructions.txt  (verify)
 
-Try to read a file:
-  cat instructions.txt
-
-You'll get an error. DON'T just try random commands! Follow the 4 steps.
-
-================================================================================
-    YOUR MISSION
-================================================================================
-
-Apply the 4-Step Debug Methodology:
-
-STEP 1: OBSERVE
-- What is the exact error message?
-- What command failed?
-- What were you trying to do?
-
-STEP 2: INSPECT
-- Check where you are: pwd
-- Check what files exist here: ls -la
-- Check if the file exists: ls -la instructions.txt
-- Check if there are hidden files: ls -la
-- Check directory structure: ls -la
-
-STEP 3: DIAGNOSE
-- Based on your inspection, what's the root cause?
-- Are you in the right directory?
-- Does the file exist? Is it hidden?
-- Is it a path problem?
-- What exactly is preventing you from finding the file?
-
-STEP 4: RESOLVE
-- Apply the correct fix based on your diagnosis
-- Fix the root cause, not just work around it
-- Verify your fix worked: try accessing the file again
-
-================================================================================
-    QUESTIONS TO ANSWER
-================================================================================
-
-After solving the problem, answer these in your notes:
-
-1. What error message did you OBSERVE?
-2. What did you see when you INSPECTED (pwd, ls -la output)?
-3. What did you DIAGNOSE as the root cause?
-4. How did you RESOLVE it (what command did you use)?
-5. Did your fix work? How did you verify?
-
-================================================================================
-    HINTS
-================================================================================
-
-- Remember: Follow the 4 steps in order
-- Don't skip INSPECT - gather evidence first
-- Always check where you are with pwd
-- Use ls -la to see ALL files, including hidden ones
-- Files starting with . are hidden and won't show with regular ls
-- Think about path awareness - are you where you think you are?
-
-================================================================================
-    NEXT STEP
-================================================================================
-
-Once you've solved this exercise and documented your 4-step process,
-proceed to clue3.txt
-
-Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+NEXT STEP:
+----------
+Proceed to clue3.txt (same folder: clues/level2).
 
 ================================================================================

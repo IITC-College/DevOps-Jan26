@@ -3,88 +3,38 @@
                     Can't Create File in Directory
 ================================================================================
 
-TASK: Debug why you can't create a file in a directory
+EXERCISE:
+---------
+You can't create a new file in a directory. Use the 4 steps to fix it.
 
-You're trying to create a new file in a directory, but the command fails.
-Use the 4-step debug methodology to solve this problem.
+INSTRUCTIONS:
+-------------
+1. Go to the scenario:
+   cd ../../broken_scenarios/scenario3_cant_write
 
-================================================================================
-    THE SCENARIO
-================================================================================
+2. Try to create a file:
+   touch newfile.txt
+   (You'll get an error.)
 
-Navigate to the broken scenario:
-  cd ../../broken_scenarios/scenario3_cant_write
+3. Use the 4 steps:
+   OBSERVE: What error do you get?
+   INSPECT: pwd, ls -ld .  (directory permissions!), whoami
+   DIAGNOSE: Creating a file requires write permission on the DIRECTORY, not the file.
+   RESOLVE: Fix the directory permissions (e.g. chmod 755 . or chmod u+w .), then verify: touch newfile.txt
 
-Try to create a file:
-  touch newfile.txt
+COMMANDS TO USE:
+----------------
+cd ../../broken_scenarios/scenario3_cant_write
+touch newfile.txt
+ls -ld .
+whoami
+chmod 755 .
+touch newfile.txt    (verify)
 
-You'll get an error. DON'T just try random commands! Follow the 4 steps.
-
-================================================================================
-    YOUR MISSION
-================================================================================
-
-Apply the 4-Step Debug Methodology:
-
-STEP 1: OBSERVE
-- What is the exact error message?
-- What command failed?
-- What were you trying to do?
-
-STEP 2: INSPECT
-- Check where you are: pwd
-- Check directory permissions: ls -ld .
-- Check directory contents: ls -la
-- Check your user: whoami
-- Check if directory exists: ls -ld .
-
-STEP 3: DIAGNOSE
-- Based on your inspection, what's the root cause?
-- What permission is needed to CREATE a file in a directory?
-- Is it a directory permission problem?
-- Is it an ownership problem?
-- What exactly is preventing you from creating the file?
-
-STEP 4: RESOLVE
-- Apply the correct fix based on your diagnosis
-- Fix the root cause, not just work around it
-- Verify your fix worked: try creating the file again
-
-================================================================================
-    QUESTIONS TO ANSWER
-================================================================================
-
-After solving the problem, answer these in your notes:
-
-1. What error message did you OBSERVE?
-2. What did you see when you INSPECTED (ls -ld output)?
-3. What did you DIAGNOSE as the root cause?
-4. How did you RESOLVE it (what command did you use)?
-5. Did your fix work? How did you verify?
-
-================================================================================
-    HINTS
-================================================================================
-
-- Remember: Follow the 4 steps in order
-- Don't skip INSPECT - gather evidence first
-- The directory exists, so it's not a path problem
-- Think about what permissions are needed to WRITE to a directory
-- Note: Creating a file requires write permission on the DIRECTORY,
-  not on the file (which doesn't exist yet)
-
-================================================================================
-    NEXT STEP
-================================================================================
-
-Once you've solved this exercise and documented your 4-step process,
-you've completed Level 1! 
-
-Navigate to Level 2:
-  cd ../../clues/level2
-
-Read clue1.txt to begin Level 2 exercises.
-
-Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+NEXT STEP:
+----------
+You've completed Level 1! Proceed to Level 2:
+  cd ../level2
+  cat clue1.txt
 
 ================================================================================

@@ -1,90 +1,38 @@
 ================================================================================
                     LEVEL 2 - EXERCISE 3
-                    Hidden File Access Issues
+                    Hidden File Access
 ================================================================================
 
-TASK: Debug why you can't access a file that should exist
+EXERCISE:
+---------
+Instructions mention a file "config" but you can't find it. Use the 4 steps.
 
-Instructions reference a file, but when you try to access it, it doesn't
-appear to exist. Use the 4-step debug methodology to solve this problem.
+INSTRUCTIONS:
+-------------
+1. You should be in scenario5_lost_path (or go there: cd ../../broken_scenarios/scenario5_lost_path).
 
-================================================================================
-    THE SCENARIO
-================================================================================
+2. Try: cat config
+   (Error: No such file or directory – or maybe you tried .config and got Permission denied.)
 
-You're still in scenario5_lost_path. The instructions mention a file
-called "config" but you can't find it when you list files.
+3. Use the 4 steps:
+   OBSERVE: What error?
+   INSPECT: ls (do you see config?) then ls -la (files starting with . are hidden!)
+   DIAGNOSE: The file might be named .config (hidden). It might also have wrong permissions.
+   RESOLVE: cat .config (if permissions OK), or chmod 644 .config then cat .config
 
-Try to read the file:
-  cat config
+COMMANDS TO USE:
+----------------
+cd ../../broken_scenarios/scenario5_lost_path
+ls
+ls -la
+cat .config
+chmod 644 .config   (if needed)
+cat .config         (verify)
 
-You'll get an error. DON'T just try random commands! Follow the 4 steps.
-
-================================================================================
-    YOUR MISSION
-================================================================================
-
-Apply the 4-Step Debug Methodology:
-
-STEP 1: OBSERVE
-- What is the exact error message?
-- What command failed?
-- What were you trying to do?
-
-STEP 2: INSPECT
-- Check where you are: pwd
-- Check what files exist: ls
-- Check ALL files including hidden: ls -la
-- Look for files starting with . (dot)
-- Check file permissions: ls -la
-
-STEP 3: DIAGNOSE
-- Based on your inspection, what's the root cause?
-- Does the file exist but is hidden?
-- What makes a file "hidden" in Linux?
-- What command shows hidden files?
-- What exactly is preventing you from seeing/accessing the file?
-
-STEP 4: RESOLVE
-- Apply the correct fix based on your diagnosis
-- Fix the root cause, not just work around it
-- Verify your fix worked: try accessing the file again
-
-================================================================================
-    QUESTIONS TO ANSWER
-================================================================================
-
-After solving the problem, answer these in your notes:
-
-1. What error message did you OBSERVE?
-2. What did you see when you INSPECTED (ls vs ls -la output)?
-3. What did you DIAGNOSE as the root cause?
-4. How did you RESOLVE it (what command did you use)?
-5. Did your fix work? How did you verify?
-
-================================================================================
-    HINTS
-================================================================================
-
-- Remember: Follow the 4 steps in order
-- Don't skip INSPECT - gather evidence first
-- Compare the output of `ls` vs `ls -la`
-- Files starting with . (dot) are hidden in Linux
-- Hidden files require the -a flag to see them
-- Once you see the hidden file, you can access it by name
-
-================================================================================
-    NEXT STEP
-================================================================================
-
-Once you've solved this exercise and documented your 4-step process,
-you've completed Level 2! 
-
-Navigate to Level 3:
-  cd ../../clues/level3
-
-Read clue1.txt to begin Level 3 exercises (the most challenging ones!).
-
-Good luck! Remember: OBSERVE → INSPECT → DIAGNOSE → RESOLVE
+NEXT STEP:
+----------
+You've completed Level 2! Proceed to Level 3:
+  cd ../level3
+  cat clue1.txt
 
 ================================================================================
