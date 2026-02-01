@@ -25,13 +25,13 @@ This script will:
 - Create the `developers` group (if it doesn't exist)
 - Add the student user to the `developers` group
 - Create/verify service users (`www-data`, `mysql`) if needed
-- Set up file ownership for all exercises:
+- Set up file ownership for exercises:
   - `data/files/root_file.txt` → owned by root
   - `data/files/user_file.txt` → owned by student user
   - `data/files/group_file.txt` → owned by student:developers
   - `projects/web_app/*` → owned by www-data:www-data
-  - `projects/database/*` → owned by mysql:mysql
   - `projects/shared_team/*` → owned by student:developers
+  - `projects/database/*` → **not** set by setup (candidate fixes in Level 3 Exercise 3)
 
 **Important Notes**:
 - The script identifies the student user from `$SUDO_USER` (who ran sudo)

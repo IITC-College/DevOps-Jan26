@@ -193,20 +193,8 @@ if [ -f "projects/web_app/README.md" ]; then
     echo -e "    ${GREEN}✓${NC} README.md → www-data:www-data (644)"
 fi
 
-# projects/database/ directory
-echo "  Setting ownership for projects/database/..."
-
-if [ -f "projects/database/backup.sql" ]; then
-    chown mysql:mysql projects/database/backup.sql
-    chmod 640 projects/database/backup.sql
-    echo -e "    ${GREEN}✓${NC} backup.sql → mysql:mysql (640)"
-fi
-
-if [ -f "projects/database/config.conf" ]; then
-    chown mysql:mysql projects/database/config.conf
-    chmod 600 projects/database/config.conf
-    echo -e "    ${GREEN}✓${NC} config.conf → mysql:mysql (600)"
-fi
+# projects/database/ directory - ownership NOT set here (candidate fixes in Level 3 clue 3)
+echo "  Skipping ownership for projects/database/ (candidate task in Level 3 Exercise 3)..."
 
 # projects/shared_team/ directory
 echo "  Setting ownership for projects/shared_team/..."
@@ -261,7 +249,8 @@ echo -e "${BLUE}Summary:${NC}"
 echo "  • Group 'developers' created/verified"
 echo "  • User '$STUDENT_USER' added to 'developers' group"
 echo "  • Service users (www-data, mysql) verified/created"
-echo "  • File ownership configured for all exercises"
+echo "  • File ownership configured (data/files, web_app, shared_team, scripts)"
+echo "  • projects/database/ ownership left for candidate (Level 3 Exercise 3)"
 echo ""
 echo -e "${YELLOW}Important Notes:${NC}"
 echo "  1. Student user '$STUDENT_USER' may need to log out and back in"
