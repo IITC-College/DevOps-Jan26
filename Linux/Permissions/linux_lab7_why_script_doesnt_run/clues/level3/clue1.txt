@@ -54,7 +54,7 @@ Not all .sh files are meant to be executed:
 
 WRITE YOUR ANSWER:
 ------------------
-After fixing the project, write in my_answers.txt:
+After fixing the project, write in my_answers.txt (in the main lab directory):
 - Which scripts did you fix?
 - What permissions did you add to each script and why?
 - Why doesn't config.sh need execute permission?

@@ -21,6 +21,7 @@ sudo ./setup_environment.sh
 ```
 
 This script will:
+- Create the lab directory structure and files (if missing), so the lab works from the full bundle or a minimal copy
 - Set up deliberately broken scenarios for students to debug:
   - Scenario 1: Read permission removed
   - Scenario 2: Execute permission missing

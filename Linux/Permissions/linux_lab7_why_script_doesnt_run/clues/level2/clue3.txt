@@ -62,7 +62,7 @@ WHEN TO USE:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What is the difference between 'chmod u+x,g+x' and 'chmod +x'?
 - When would you use 'chmod u+x,g+x' instead of 'chmod +x'?
 - What permissions would you use for a script that only the owner should run?

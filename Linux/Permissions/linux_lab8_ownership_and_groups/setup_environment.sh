@@ -52,6 +52,30 @@ echo -e "${GREEN}[INFO]${NC} Student user: ${STUDENT_USER}"
 echo ""
 
 ################################################################################
+# Step 0: Create directory structure and ensure lab files exist (if missing)
+################################################################################
+
+echo -e "${GREEN}[STEP 0]${NC} Creating directory structure and ensuring lab files exist..."
+
+mkdir -p data/files data/secrets
+mkdir -p projects/web_app projects/database projects/shared_team
+mkdir -p clues/level1 clues/level2 clues/level3
+mkdir -p scripts
+
+touch data/files/root_file.txt data/files/user_file.txt data/files/group_file.txt
+touch data/secrets/tips.txt
+touch projects/web_app/config.json projects/web_app/deploy.sh projects/web_app/README.md
+touch projects/database/backup.sql projects/database/config.conf
+touch projects/shared_team/team_notes.txt projects/shared_team/project_plan.md
+touch scripts/check_owner.sh scripts/test_access.sh
+touch clues/level1/clue1.txt clues/level1/clue2.txt clues/level1/clue3.txt
+touch clues/level2/clue1.txt clues/level2/clue2.txt clues/level2/clue3.txt
+touch clues/level3/clue1.txt clues/level3/clue2.txt clues/level3/clue3.txt
+touch README.md start_here.txt
+
+echo -e "  ${GREEN}✓${NC} Directories and files ready"
+
+################################################################################
 # Step 1: Create developers group
 ################################################################################
 

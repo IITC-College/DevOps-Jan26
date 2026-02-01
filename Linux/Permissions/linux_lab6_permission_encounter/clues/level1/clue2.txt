@@ -39,7 +39,7 @@ COMMANDS TO USE:
 
 WHAT TO LEARN:
 --------------
-The `ls -l` output format:
+The `ls -l` output format (owner/group may show as root in this lab):
 -rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
 │ │  │  │  │ │    │         │     │           │
 │ │  │  │  │ │    │         │     │           └─ File name
@@ -55,7 +55,7 @@ The `ls -l` output format:
 
 WRITE YOUR ANSWER:
 ------------------
-After running ls -l, write in my_answers.txt:
+After running ls -l, write in my_answers.txt (in the main lab directory):
 - What is the owner of public_data.txt?
 - What is the owner of private_notes.txt?
 - What is the group of report.sh?

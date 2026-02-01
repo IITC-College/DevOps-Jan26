@@ -32,11 +32,14 @@ INSTRUCTIONS:
 
 7. Try running the script:
    ./team_script.sh
+   (As a normal user you may still see "Permission denied" because only the
+   group got execute—you are "others". The point is that the group now has x.
+   To see the script run, you can use: bash team_script.sh)
 
 8. Also check shared_tool.sh and fix it:
    ls -l shared_tool.sh
    chmod g+x shared_tool.sh
-   ./shared_tool.sh
+   ./shared_tool.sh (or bash shared_tool.sh if you see Permission denied)
 
 COMMANDS TO USE:
 ----------------
@@ -62,7 +65,7 @@ Group members can now run this script!
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What were the permissions of team_script.sh before chmod g+x?
 - What were the permissions after chmod g+x?
 - What is the difference between 'chmod g+x' and 'chmod u+x'?

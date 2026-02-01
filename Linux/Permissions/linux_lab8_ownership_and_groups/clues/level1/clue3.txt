@@ -78,7 +78,7 @@ Example:
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the files, write in my_answers.txt:
+After examining the files, write in my_answers.txt (in the main lab directory):
 - For a file you own: which permission set applies to you? Why?
 - For a file in a group you belong to: which permission set applies? Why?
 - For a file you don't own and aren't in the group: which permission set applies? Why?

@@ -25,7 +25,7 @@ INSTRUCTIONS:
 -------------
 1. Think about everything you've learned in this lab
 
-2. Answer these reflection questions in detail (write in my_answers.txt):
+2. Answer these reflection questions in detail (write in my_answers.txt (in the main lab directory)):
 
    QUESTION 1: When should you use sudo?
    - Think about legitimate use cases
@@ -64,7 +64,7 @@ INSTRUCTIONS:
 COMMANDS TO USE:
 ----------------
 - Think and reflect!
-- Write your answers in my_answers.txt
+- Write your answers in my_answers.txt (in the main lab directory)
 - Review the lab materials if needed
 
 WHAT TO REFLECT ON:
@@ -107,7 +107,7 @@ Key takeaways from this lab:
 
 WRITE YOUR REFLECTION:
 ----------------------
-Create or edit my_answers.txt in the lab root directory and write:
+Create or edit my_answers.txt in the main lab directory (lab root) and write:
 
 1. Answers to all 6 reflection questions (detailed)
 2. A summary paragraph about what you learned

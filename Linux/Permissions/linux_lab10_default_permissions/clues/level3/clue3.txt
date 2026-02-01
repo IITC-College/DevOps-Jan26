@@ -131,9 +131,10 @@ By understanding umask, you can:
     FINAL STEP
 ================================================================================
 
-Create your answers file:
+Create your answers file in the main lab directory:
   cd ../..
   touch my_answers.txt
+  (You should now be in the main lab directory.)
 
 Write down all your answers from all three levels, then save the file.
 

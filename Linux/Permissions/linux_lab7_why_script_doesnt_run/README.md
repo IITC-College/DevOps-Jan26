@@ -20,10 +20,11 @@ cd linux_lab7_why_script_doesnt_run
 sudo ./setup_environment.sh
 ```
 
-This script will:
-- Remove execute permissions from broken scripts (as intended for the lab)
-- Set up file permissions for all exercises
-- Ensure the lab environment is properly configured
+This single script will:
+- Create the full lab directory structure (if missing)
+- Ensure all lab files exist (scripts/broken, scripts/fixed, projects, data, clues)
+- Set correct permissions for every lab part: broken scripts and projects/* without execute (students add with chmod); scripts/fixed with execute as examples; data/configs and data/logs without execute
+- Set directory permissions (755) so navigation works
 
 **Note**: This lab does not require special users or groups - it works with any user.
 

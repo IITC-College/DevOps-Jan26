@@ -33,8 +33,10 @@ echo "Setting up system_service files..."
 chmod 644 projects/system_service/install.sh
 chmod 644 projects/system_service/service.conf
 
-# Log files should be readable
+# Log files should be readable (create dir and files if missing so script works standalone)
 echo "Setting up log files..."
+mkdir -p data/logs
+touch data/logs/app.log data/logs/sudo_example.log
 chmod 644 data/logs/app.log
 chmod 644 data/logs/sudo_example.log
 

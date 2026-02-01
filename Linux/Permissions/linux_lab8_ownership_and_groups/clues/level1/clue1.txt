@@ -58,7 +58,7 @@ UNDERSTANDING:
 
 WRITE YOUR ANSWER:
 ------------------
-After running the commands, write in my_answers.txt:
+After running the commands, write in my_answers.txt (in the main lab directory):
 - What is your username?
 - What is your user ID (uid)?
 - What is your primary group ID (gid)?
@@ -66,7 +66,7 @@ After running the commands, write in my_answers.txt:
 - Why do you think Linux tracks identity in multiple ways (username, uid, groups)?
 
 You can write your answer in a file called my_answers.txt in the main lab
-directory (go back with: cd ../../..)
+directory (go back with: cd ../..)
 
 Then proceed to the next exercise: clue2.txt in this same directory.
 

@@ -110,7 +110,7 @@ The principle:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - Scenario 1 (user_app): Is sudo needed? Why? What's the solution?
 - Scenario 2 (system_service): Is sudo needed? Why? What's the solution?
 - Scenario 3 (script writing to /var/log): Is sudo needed? Why? What's the solution?

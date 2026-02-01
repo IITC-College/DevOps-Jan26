@@ -17,7 +17,7 @@ was denied by looking at the permissions first.
 INSTRUCTIONS:
 -------------
 1. Navigate to the restricted directory:
-   cd ../restricted
+   cd ../../restricted
 
 2. FIRST, check the permissions (READ BEFORE ACTING):
    ls -l
@@ -37,7 +37,7 @@ INSTRUCTIONS:
 
 COMMANDS TO USE:
 ----------------
-- cd ../restricted
+- cd ../../restricted
 - ls -l
 - id (to see your user ID)
 - cat secret_file.txt

@@ -29,7 +29,7 @@ INSTRUCTIONS:
    c. Explain WHY those permissions make sense for that file
    d. Test if you can read it (and explain why/why not)
 
-4. Write your findings in my_answers.txt
+4. Write your findings in my_answers.txt (in the main lab directory)
 
 COMMANDS TO USE:
 ----------------
@@ -47,7 +47,7 @@ Think about:
 
 WRITE YOUR ANSWER:
 ------------------
-In my_answers.txt, write:
+In my_answers.txt (in the main lab directory), write:
 
 1. File 1: [filename]
    - Permissions: [show ls -l output]

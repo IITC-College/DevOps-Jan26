@@ -54,7 +54,7 @@ The pattern you should always follow:
 
 WRITE YOUR ANSWER:
 ------------------
-After fixing all scripts, write in my_answers.txt:
+After fixing all scripts, write in my_answers.txt (in the main lab directory):
 - List all the scripts you found that were missing 'x'
 - What were the permissions of backup.sh before fixing?
 - What were the permissions of backup.sh after fixing?

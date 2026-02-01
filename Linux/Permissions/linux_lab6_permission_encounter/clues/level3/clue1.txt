@@ -16,7 +16,7 @@ actually read, using only `ls -l` for prediction.
 INSTRUCTIONS:
 -------------
 1. Start from the lab root directory:
-   cd ../../..
+   cd ../..
 
 2. Scan each directory with `ls -l`:
    - data/files/
@@ -55,7 +55,7 @@ If 'r' is in the relevant permission set → You can read!
 
 WRITE YOUR ANSWER:
 ------------------
-After scanning all directories, write in my_answers.txt:
+After scanning all directories, write in my_answers.txt (in the main lab directory):
 - List at least 3 files you CAN read and explain why for each
 - List at least 2 files you CANNOT read and explain why for each
 - What pattern do you notice about accessible vs. inaccessible files?

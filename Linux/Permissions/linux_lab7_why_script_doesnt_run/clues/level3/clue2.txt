@@ -66,7 +66,7 @@ Files that DON'T need execute permission:
 
 WRITE YOUR ANSWER:
 ------------------
-After exploring different file types, write in my_answers.txt:
+After exploring different file types, write in my_answers.txt (in the main lab directory):
 - What types of files need execute permission?
 - What types of files don't need execute permission?
 - Why don't config files need 'x'?

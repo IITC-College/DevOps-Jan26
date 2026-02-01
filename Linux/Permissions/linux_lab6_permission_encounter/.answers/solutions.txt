@@ -31,15 +31,15 @@ EXERCISE 2 - Understanding ls -l
 Location: data/files/
 Command: ls -l
 
-Expected Output (example):
--rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
--rw------- 1 bob   developers  512 Jan 27 10:00 private_notes.txt
--rwxr-xr-x 1 alice developers 2048 Jan 27 10:00 report.sh
+Expected Output (example; setup runs as root, so owner/group are root):
+-rw-r--r-- 1 root root ... public_data.txt
+-rw------- 1 root root ... private_notes.txt
+-rwxr-xr-x 1 root root ... report.sh
 
-Answers:
-- Owner of public_data.txt: alice
-- Owner of private_notes.txt: bob
-- Group of report.sh: developers
+Answers (with default setup):
+- Owner of public_data.txt: root
+- Owner of private_notes.txt: root
+- Group of report.sh: root
 
 Key Learning: The ls -l output shows:
 - Permissions (first column)
@@ -53,26 +53,26 @@ EXERCISE 3 - Who Owns What?
 Location: data/files/
 Command: ls -l
 
-Expected Output:
--rw-r--r-- 1 alice developers 1024 Jan 27 10:00 public_data.txt
--rw-rw-r-- 1 bob   developers  512 Jan 27 10:00 team_notes.txt
--rw------- 1 bob   developers  256 Jan 27 10:00 private_log.txt
--rw-rw-rw- 1 alice developers  768 Jan 27 10:00 shared_report.txt
--r--r--r-- 1 alice developers  512 Jan 27 10:00 readonly_archive.txt
--rw------- 1 bob   developers  256 Jan 27 10:00 private_notes.txt
--rwxr-xr-x 1 alice developers 2048 Jan 27 10:00 report.sh
+Expected Output (setup runs as root; all files owned by root:root):
+-rw-r--r-- 1 root root ... public_data.txt
+-rw-rw-r-- 1 root root ... team_notes.txt
+-rw------- 1 root root ... private_log.txt
+-rw-rw-rw- 1 root root ... shared_report.txt
+-r--r--r-- 1 root root ... readonly_archive.txt
+-rw------- 1 root root ... private_notes.txt
+-rwxr-xr-x 1 root root ... report.sh
 
-Answers:
-- Different owners: alice, bob
-- Different groups: developers (all files in same group)
-- Files with same owner (alice): public_data.txt, shared_report.txt,
-  readonly_archive.txt, report.sh
-- Files with same owner (bob): team_notes.txt, private_log.txt,
-  private_notes.txt
-- All files belong to group: developers
+Answers (with default setup—no special users/groups):
+- Owner(s): root (one owner for all files)
+- Group(s): root (one group for all files)
+- Files with same owner: all files (e.g. public_data.txt, team_notes.txt,
+  report.sh all owned by root)
+- Files with same group: all files (e.g. all belong to group root)
 
-Key Learning: Multiple files can have the same owner or group. Ownership
-and group membership determine which permission set applies to a user.
+Key Learning: The third column is the owner, the fourth is the group. In
+this lab setup there is one owner and one group for data/files because
+the setup script runs as root. Multiple files can share the same owner
+and group; ownership and group determine which permission set applies.
 
 ================================================================================
                             LEVEL 2 SOLUTIONS

@@ -21,6 +21,7 @@ sudo ./setup_environment.sh
 ```
 
 This script will:
+- Create the lab directory structure and files (if missing), so the lab works from the full bundle or a fresh copy
 - Create the `developers` group (if it doesn't exist)
 - Add the student user to the `developers` group
 - Create/verify service users (`www-data`, `mysql`) if needed

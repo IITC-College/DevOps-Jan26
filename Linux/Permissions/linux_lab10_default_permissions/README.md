@@ -21,6 +21,7 @@ sudo ./setup_environment.sh
 ```
 
 This script will:
+- Create the lab directory structure and files (if missing), so the lab works from the full bundle or a minimal copy
 - Set up example files with permissions matching different umask values:
   - `umask_022/example_file.txt` → 644 (rw-r--r--)
   - `umask_027/example_file.txt` → 640 (rw-r-----)

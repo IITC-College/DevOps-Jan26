@@ -7,9 +7,18 @@ Welcome to your first Linux permissions practice lab!
 ### Method 1: Download with curl (Recommended)
 
 ```bash
-curl -L -o lab.tar.gz https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5/linux_lab6_permission_encounter.tar.gz
+curl -L -o lab.tar.gz https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5.5/linux_lab6_permission_encounter.tar.gz
 tar -xzf lab.tar.gz
 cd linux_lab6_permission_encounter
+```
+
+> **Note:** If you get "not in gzip format" or a tiny download, the release v2.5.5 may not be published yet. Use Method 2 or ask the instructor for the tarball.
+
+### Method 2: From the repository (if release not yet published)
+
+```bash
+git clone https://github.com/IITC-College/DevOps-Jan26.git
+cd DevOps-Jan26/Linux/Permissions/linux_lab6_permission_encounter
 ```
 
 ## Instructor Setup (Required Before Lab)
@@ -20,9 +29,11 @@ cd linux_lab6_permission_encounter
 sudo ./setup_environment.sh
 ```
 
-This script will:
-- Set up file permissions for all exercises
-- Ensure the lab environment is properly configured
+This single script will:
+- Create the full lab directory structure (if missing)
+- Ensure all lab files exist (data/files, projects, restricted, clues, etc.)
+- Set correct file and directory permissions for every lab part (Level 1–3)
+- Set ownership of `restricted/` to root so students get "Permission denied" as intended
 
 **Note**: This lab does not require special users or groups - it works with any user.
 
@@ -128,4 +139,4 @@ Remember: Linux permissions are there to protect the system. Learning to read th
 
 **Linux Course - Day 2**  
 **Permission Encounter Lab**  
-**Version**: v2.5
+**Version**: v2.5.5

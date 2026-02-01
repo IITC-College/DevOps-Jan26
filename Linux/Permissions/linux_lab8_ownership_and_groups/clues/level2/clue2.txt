@@ -77,7 +77,7 @@ This is how teams share files: owner=individual, group=team, group permissions=s
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the files, write in my_answers.txt:
+After examining the files, write in my_answers.txt (in the main lab directory):
 - List the groups that files belong to in data/files/
 - Which of those groups are you a member of? (check with `groups`)
 - For a file in a group you belong to: what permissions do you get?

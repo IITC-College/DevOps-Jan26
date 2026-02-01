@@ -95,7 +95,7 @@ Real-world implications:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - Why can't regular users read /var/log/auth.log?
 - What information is logged when you use sudo?
 - Where are sudo logs stored? (Give both Debian and RHEL locations)

@@ -39,6 +39,34 @@ cd "$SCRIPT_DIR"
 echo -e "${GREEN}[INFO]${NC} Setting up broken scenarios for Debug Mindset Lab..."
 echo ""
 
+# Step 0: Create directory structure and ensure lab files exist (if missing)
+echo -e "${GREEN}[STEP 0]${NC} Creating directory structure and ensuring lab files exist..."
+
+mkdir -p broken_scenarios/scenario1_read_failure broken_scenarios/scenario2_script_broken
+mkdir -p broken_scenarios/scenario3_cant_write broken_scenarios/scenario4_ownership_mess
+mkdir -p broken_scenarios/scenario5_lost_path
+mkdir -p broken_scenarios/scenario6_mixed_issues/deep/nested/path
+mkdir -p data/logs data/secrets
+mkdir -p clues/level1 clues/level2 clues/level3
+mkdir -p .answers
+
+touch broken_scenarios/scenario1_read_failure/secret.txt
+touch broken_scenarios/scenario2_script_broken/deploy.sh
+touch broken_scenarios/scenario3_cant_write/README.txt
+touch broken_scenarios/scenario4_ownership_mess/important.txt
+touch broken_scenarios/scenario5_lost_path/.config broken_scenarios/scenario5_lost_path/instructions.txt
+touch broken_scenarios/scenario6_mixed_issues/data.txt broken_scenarios/scenario6_mixed_issues/README.md
+touch broken_scenarios/scenario6_mixed_issues/run_backup.sh
+touch broken_scenarios/scenario6_mixed_issues/deep/nested/path/important.txt
+touch data/logs/debug_methodology.txt data/secrets/tips.txt
+touch clues/level1/clue1.txt clues/level1/clue2.txt clues/level1/clue3.txt
+touch clues/level2/clue1.txt clues/level2/clue2.txt clues/level2/clue3.txt
+touch clues/level3/clue1.txt clues/level3/clue2.txt clues/level3/clue3.txt
+touch README.md start_here.txt
+touch .answers/solutions.txt 2>/dev/null || true
+
+echo -e "  ${GREEN}✓${NC} Directories and files ready"
+
 # Run the existing set_permissions.sh script
 if [ -f "set_permissions.sh" ]; then
     echo -e "${GREEN}[STEP]${NC} Running set_permissions.sh..."

@@ -36,6 +36,10 @@ cd "$SCRIPT_DIR"
 echo -e "${GREEN}[INFO]${NC} Setting up permissions for Sudo Mindset Lab..."
 echo ""
 
+# Ensure data/logs and log files exist (referenced by clues and set_permissions.sh)
+mkdir -p data/logs
+touch data/logs/sudo_example.log data/logs/app.log
+
 # Run the existing set_permissions.sh script
 if [ -f "set_permissions.sh" ]; then
     echo -e "${GREEN}[STEP]${NC} Running set_permissions.sh..."

@@ -75,7 +75,7 @@ This is why ownership is so important - it's the first check Linux makes!
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the file, write in my_answers.txt:
+After examining the file, write in my_answers.txt (in the main lab directory):
 - Who owns root_file.txt?
 - Are you the owner? (yes/no)
 - What are the "other" permissions for this file?

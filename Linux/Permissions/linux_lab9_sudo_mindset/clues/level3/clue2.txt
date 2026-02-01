@@ -93,7 +93,7 @@ Skills needed:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - Who used sudo to modify /etc/hosts? (if found in log)
 - When did this happen? (timestamp)
 - What command was executed?

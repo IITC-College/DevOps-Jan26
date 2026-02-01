@@ -60,7 +60,7 @@ Only the owner can run this script now!
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What were the permissions before chmod u+x?
 - What were the permissions after chmod u+x?
 - What is the difference between 'chmod u+x' and 'chmod +x'?

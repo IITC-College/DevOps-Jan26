@@ -160,7 +160,7 @@ Commands:
 4. Compare with chmod +x
 
 Expected Permissions:
-chmod u+x,g+x: -rw-rwxr-- (owner and group have x, others don't)
+chmod u+x,g+x: -rwxrwxr-- (owner and group have x, others don't)
 chmod +x:      -rwxr-xr-x (owner, group, and others all have x)
 
 Answers:

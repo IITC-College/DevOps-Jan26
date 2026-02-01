@@ -15,7 +15,7 @@ Scan the entire lab and fix all scripts that need execute permission.
 INSTRUCTIONS:
 -------------
 1. Start from the lab root directory:
-   cd ../../..
+   cd ../..
 
 2. Scan each directory for scripts:
    - scripts/broken/
@@ -55,7 +55,7 @@ FINAL CHECKLIST:
 
 WRITE YOUR ANSWER:
 ------------------
-After fixing everything, write in my_answers.txt:
+After fixing everything, write in my_answers.txt (in the main lab directory):
 
 1. List all the scripts you fixed:
    - Script name

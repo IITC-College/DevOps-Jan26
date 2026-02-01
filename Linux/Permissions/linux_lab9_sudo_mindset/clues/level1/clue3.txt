@@ -95,7 +95,7 @@ However, in production:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - Why is /etc/shadow protected?
 - What type of information does /etc/shadow contain?
 - Why can't regular users read /root directory?

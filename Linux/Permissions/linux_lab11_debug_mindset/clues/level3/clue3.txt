@@ -62,8 +62,8 @@ Keep going until EVERYTHING works!
     DELIVERABLE
 ================================================================================
 
-Create a file called `my_answers.txt` in the lab root directory
-(cd ../../.. to get back to lab root).
+Create a file called `my_answers.txt` in the main lab directory
+(cd ../.. to get back to lab root).
 
 In this file, document:
 

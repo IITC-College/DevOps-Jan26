@@ -97,7 +97,7 @@ When NOT to use this approach:
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - Why did you get "Permission denied" for config.txt?
 - What command fixed the ownership?
 - What's the difference between using sudo repeatedly vs fixing ownership once?

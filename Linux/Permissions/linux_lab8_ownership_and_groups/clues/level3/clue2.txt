@@ -85,7 +85,7 @@ Example:
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the shared team project, write in my_answers.txt:
+After examining the shared team project, write in my_answers.txt (in the main lab directory):
 - What is the ownership pattern for team files? (owner:group format)
 - How do groups enable team collaboration?
 - Why is this better than making files world-readable?

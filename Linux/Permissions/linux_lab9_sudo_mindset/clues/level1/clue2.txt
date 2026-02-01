@@ -89,7 +89,7 @@ The key: Ask yourself "Is this a system-level operation or a user-level operatio
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What's the difference between readable.txt and system_config.txt?
 - When is sudo actually needed? (Give 3 examples)
 - When is sudo NOT needed? (Give 3 examples)

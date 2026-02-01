@@ -29,7 +29,8 @@ Directories to check:
 
 COMMANDS TO USE:
 ----------------
-- cd projects/personal_project
+(From clues/level2: use ../../ to reach the lab root.)
+- cd ../../projects/personal_project
 - ls -l
 - cat <filename> (try reading a file)
 - cd ../team_project
@@ -50,7 +51,7 @@ PREDICTION PROCESS:
 
 WRITE YOUR ANSWER:
 ------------------
-After checking all three directories, write in my_answers.txt:
+After checking all three directories, write in my_answers.txt (in the main lab directory):
 - In personal_project/: Which files can you read? Why?
 - In team_project/: Which files can you read? Why?
 - In restricted/: Can you read any files? Why or why not?

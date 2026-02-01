@@ -37,6 +37,31 @@ echo -e "${GREEN}[INFO]${NC} Setting up permissions for Default Permissions Lab.
 echo ""
 
 ################################################################################
+# Step 0: Create directory structure and ensure lab files exist (if missing)
+################################################################################
+
+echo -e "${GREEN}[STEP 0]${NC} Creating directory structure and ensuring lab files exist..."
+
+mkdir -p data/examples/umask_022 data/examples/umask_027 data/examples/umask_077
+mkdir -p data/logs data/secrets
+mkdir -p clues/level1 clues/level2 clues/level3
+mkdir -p projects/default_app projects/secure_files projects/shared_team
+mkdir -p .answers
+
+touch data/examples/umask_022/example_file.txt data/examples/umask_027/example_file.txt data/examples/umask_077/example_file.txt
+touch data/logs/permissions_history.log data/secrets/tips.txt
+touch clues/level1/clue1.txt clues/level1/clue2.txt clues/level1/clue3.txt
+touch clues/level2/clue1.txt clues/level2/clue2.txt clues/level2/clue3.txt
+touch clues/level3/clue1.txt clues/level3/clue2.txt clues/level3/clue3.txt
+touch projects/default_app/index.html projects/default_app/README.md
+touch projects/secure_files/config.txt projects/secure_files/README.md
+touch projects/shared_team/project_plan.md projects/shared_team/README.md
+touch README.md start_here.txt
+touch .answers/solutions.txt 2>/dev/null || true
+
+echo -e "  ${GREEN}✓${NC} Directories and files ready"
+
+################################################################################
 # Set up example files with permissions matching different umask values
 ################################################################################
 

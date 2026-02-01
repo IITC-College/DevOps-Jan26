@@ -49,7 +49,7 @@ After running the command, write in one sentence:
 - Why do you think this file is protected?
 
 You can write your answer in a file called my_answers.txt in the main lab
-directory (go back with: cd ../../..)
+directory (go back with: cd ../..)
 
 Then proceed to the next exercise: clue2.txt in this same directory.
 

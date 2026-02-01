@@ -54,7 +54,7 @@ The permissions reflect the security needs:
 
 WRITE YOUR ANSWER:
 ------------------
-After exploring the system files, write in my_answers.txt:
+After exploring the system files, write in my_answers.txt (in the main lab directory):
 - What are the permissions on /etc/passwd? Can you read it? Why?
 - What are the permissions on /etc/shadow? Can you read it? Why not?
 - Why do you think /etc/passwd is readable by everyone but /etc/shadow is not?

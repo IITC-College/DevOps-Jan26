@@ -74,7 +74,7 @@ the solution is to fix ownership or permissions instead!
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What error message did you see when trying to read protected.txt?
 - Who owns the protected.txt file?
 - What are the file permissions?

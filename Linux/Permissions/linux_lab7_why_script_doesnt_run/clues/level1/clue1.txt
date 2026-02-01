@@ -64,7 +64,7 @@ and others). This allows the file to be run as a program.
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the exercise, write in my_answers.txt:
+After completing the exercise, write in my_answers.txt (in the main lab directory):
 - What error message did you see when trying to run hello.sh?
 - What were the permissions before chmod +x?
 - What were the permissions after chmod +x?

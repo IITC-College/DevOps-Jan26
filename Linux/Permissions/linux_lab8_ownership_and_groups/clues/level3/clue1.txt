@@ -75,7 +75,7 @@ Common ownership patterns:
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the web app, write in my_answers.txt:
+After examining the web app, write in my_answers.txt (in the main lab directory):
 - Who should own web server files? Why?
 - What is the "principle of least privilege"?
 - Why don't web servers run as root?

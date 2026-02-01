@@ -64,7 +64,7 @@ The `ls -l` output shows ownership in this format:
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the files, write in my_answers.txt:
+After examining the files, write in my_answers.txt (in the main lab directory):
 - What is the format for showing ownership in ls -l? (e.g., "username:groupname")
 - Who owns the files in data/files/?
 - What groups do these files belong to?

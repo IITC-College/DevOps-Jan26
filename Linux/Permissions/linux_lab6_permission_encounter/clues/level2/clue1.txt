@@ -26,7 +26,8 @@ INSTRUCTIONS:
    - Positions 5-7: Group permissions
    - Positions 8-10: Others permissions
 
-4. For each file, identify:
+4. Go into each project subdirectory (e.g. cd team_project) and run ls -l
+   to see file permissions. For each file, identify:
    - Owner permissions (positions 2-4)
    - Group permissions (positions 5-7)
    - Others permissions (positions 8-10)
@@ -35,6 +36,7 @@ COMMANDS TO USE:
 ----------------
 - cd ../../projects
 - ls -l
+- cd team_project (then ls -l to see team_script.sh, config.json, logs.txt)
 
 UNDERSTANDING PERMISSION CHARACTERS:
 -------------------------------------
@@ -62,7 +64,7 @@ EXAMPLES:
 
 WRITE YOUR ANSWER:
 ------------------
-After examining the files, write in my_answers.txt:
+After examining the files, write in my_answers.txt (in the main lab directory):
 - What are the owner permissions for team_script.sh?
 - What are the group permissions for config.json?
 - What are the others permissions for logs.txt?

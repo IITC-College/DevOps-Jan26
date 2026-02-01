@@ -32,7 +32,8 @@ INSTRUCTIONS:
    
    groups
 
-3. Navigate to the database project:
+3. Navigate to the database project (from the shared_team directory where
+   you were in the previous exercise):
    
    cd ../database
 
@@ -96,7 +97,7 @@ Always verify with `ls -l` after chown!
 
 WRITE YOUR ANSWER:
 ------------------
-After completing the challenge, write in my_answers.txt:
+After completing the challenge, write in my_answers.txt (in the main lab directory):
 - List 3 ownership issues you found and fixed
 - For each fix, explain WHY the ownership needed to change
 - What pattern did you notice for service files (web, database)?

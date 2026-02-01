@@ -12,7 +12,7 @@
 | 3  | Reading Files                          | v2.2                   | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.2/linux_lab3_reading_files.tar.gz
 | 4  | Search Basics                          | v2.3                   | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.3/linux_lab4_search_basics.tar.gz
 | 5  | File System Scavenger Hunt             | v2.4                   | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.4/linux_lab5_scavenger_hunt.tar.gz
-| 6  | Permission Encounter                   | v2.5.4                 | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5.4/linux_lab6_permission_encounter.tar.gz
+| 6  | Permission Encounter                   | v2.5.5                 | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5.5/linux_lab6_permission_encounter.tar.gz
 | 7  | Why Script Doesn't Run                 | v2.6.4                 | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.6.4/linux_lab7_why_script_doesnt_run.tar.gz
 | 8  | Ownership and Groups                   | v2.7.4                 | https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.7.4/linux_lab8_ownership_and_groups.tar.gz
 | 9  | Sudo Mindset                           | v3.0.4                 | https://github.com/IITC-College/DevOps-Jan26/releases/download/v3.0.4/linux_lab9_sudo_mindset.tar.gz
@@ -29,7 +29,49 @@
 All releases: https://github.com/IITC-College/DevOps-Jan26/releases
 
 ========================================================
-📚 COPY-PASTE COMMANDS (by lab)
+📚 ENTER LAB → SETUP → FIRST LEVEL, FIRST CLUE (from repo root)
+========================================================
+Run from repo root (e.g. c:\Dev\DevOps-Jan26 or /path/to/DevOps-Jan26).
+Each block: cd to lab → run setup (if any) → start_here → level1/clue1.
+
+--- Lab 6: Permission Encounter ---
+cd Linux/Permissions/linux_lab6_permission_encounter
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+--- Lab 7: Why Script Doesn't Run ---
+cd Linux/Permissions/linux_lab7_why_script_doesnt_run
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+--- Lab 8: Ownership and Groups ---
+cd Linux/Permissions/linux_lab8_ownership_and_groups
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+--- Lab 9: Sudo Mindset ---
+cd Linux/Permissions/linux_lab9_sudo_mindset
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+--- Lab 10: Default Permissions (umask) ---
+cd Linux/Permissions/linux_lab10_default_permissions
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+--- Lab 11: Debug Mindset ---
+cd Linux/Permissions/linux_lab11_debug_mindset
+sudo ./setup_environment.sh
+cat start_here.txt
+cd clues/level1 && cat clue1.txt
+
+========================================================
+📚 COPY-PASTE COMMANDS (by lab) – download + extract + start
 ========================================================
 
 
@@ -64,40 +106,40 @@ LAB 5: File System Scavenger Hunt (v2.4)
 curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.4/linux_lab5_scavenger_hunt.tar.gz | tar -xz && cd linux_lab5_scavenger_hunt && cat start_here.txt
 
 ========================================================
-LAB 6: Permission Encounter (v2.5.4)
+LAB 6: Permission Encounter (v2.5.5)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5.4/linux_lab6_permission_encounter.tar.gz | tar -xz && cd linux_lab6_permission_encounter && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5.5/linux_lab6_permission_encounter.tar.gz | tar -xz && cd linux_lab6_permission_encounter && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 7: Why Script Doesn't Run (v2.6.4)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.6.4/linux_lab7_why_script_doesnt_run.tar.gz | tar -xz && cd linux_lab7_why_script_doesnt_run && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.6.4/linux_lab7_why_script_doesnt_run.tar.gz | tar -xz && cd linux_lab7_why_script_doesnt_run && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 8: Ownership and Groups (v2.7.4)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.7.4/linux_lab8_ownership_and_groups.tar.gz | tar -xz && cd linux_lab8_ownership_and_groups && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.7.4/linux_lab8_ownership_and_groups.tar.gz | tar -xz && cd linux_lab8_ownership_and_groups && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 9: Sudo Mindset (v3.0.4)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v3.0.4/linux_lab9_sudo_mindset.tar.gz | tar -xz && cd linux_lab9_sudo_mindset && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v3.0.4/linux_lab9_sudo_mindset.tar.gz | tar -xz && cd linux_lab9_sudo_mindset && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 10: Default Permissions (umask) (v2.9.4)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.9.4/linux_lab10_default_permissions.tar.gz | tar -xz && cd linux_lab10_default_permissions && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.9.4/linux_lab10_default_permissions.tar.gz | tar -xz && cd linux_lab10_default_permissions && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 11: Debug Mindset - 4-Step Debug Flow (v2.8.4)
 ========================================================
 
-curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.8.4/linux_lab11_debug_mindset.tar.gz | tar -xz && cd linux_lab11_debug_mindset && cat start_here.txt
+curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.8.4/linux_lab11_debug_mindset.tar.gz | tar -xz && cd linux_lab11_debug_mindset && sudo ./setup_environment.sh && cat start_here.txt && cd clues/level1 && cat clue1.txt
 
 ========================================================
 LAB 12: Processes Basics - What is a Process (lab12-processes-basics)
