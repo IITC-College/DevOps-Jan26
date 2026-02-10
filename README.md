@@ -27,102 +27,155 @@ DevOps-Jan26/
 
 ### Linux Module
 
-Labs are numbered in the order they should be completed, following the course structure:
+Labs are numbered in the order they should be completed, following the course structure.
+
+#### Files and Folders Navigation
 
 - **Lab 1**: Navigation Basics
   - **Version**: v2.0
   - **Lab ID**: `linux_lab1_navigation_basics`
   - **Focus**: Basic navigation (cd, ls, error messages, hidden files)
   - **Duration**: 60-90 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.0/linux_lab1_navigation_basics.tar.gz | tar -xz && cd linux_lab1_navigation_basics && cat start_here.txt
+    ```
 
 - **Lab 2**: File and Directory Management
   - **Version**: v2.1
   - **Lab ID**: `linux_lab2_file_management`
   - **Focus**: File and directory management (mkdir, touch, cp, mv, rm, rmdir)
   - **Duration**: 75-90 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.1/linux_lab2_file_management.tar.gz | tar -xz && cd linux_lab2_file_management && cat start_here.txt
+    ```
 
 - **Lab 3**: Reading Files
   - **Version**: v2.2
   - **Lab ID**: `linux_lab3_reading_files`
   - **Focus**: Reading files (cat, less, head, tail)
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.2/linux_lab3_reading_files.tar.gz | tar -xz && cd linux_lab3_reading_files && cat start_here.txt
+    ```
 
 - **Lab 4**: Search Basics
   - **Version**: v2.3
   - **Lab ID**: `linux_lab4_search_basics`
   - **Focus**: Searching with grep and find
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.3/linux_lab4_search_basics.tar.gz | tar -xz && cd linux_lab4_search_basics && cat start_here.txt
+    ```
 
 - **Lab 5**: File System Scavenger Hunt
   - **Version**: v2.4
   - **Lab ID**: `linux_lab5_scavenger_hunt`
   - **Focus**: Comprehensive CLI practice - Final lab combining all skills
   - **Duration**: 1-2 hours
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.4/linux_lab5_scavenger_hunt.tar.gz | tar -xz && cd linux_lab5_scavenger_hunt && cat start_here.txt
+    ```
+
+#### Permissions
 
 - **Lab 6**: Permission Encounter
   - **Version**: v2.5
   - **Lab ID**: `linux_lab6_permission_encounter`
   - **Focus**: Introduction to Linux permissions - Reading and understanding permissions
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.5/linux_lab6_permission_encounter.tar.gz | tar -xz && cd linux_lab6_permission_encounter && cd clues/level1 && cat clue1.txt
+    ```
 
 - **Lab 7**: Why Script Doesn't Run
   - **Version**: v2.6
   - **Lab ID**: `linux_lab7_why_script_doesnt_run`
   - **Focus**: Understanding chmod and execute permissions - Fixing scripts that won't run
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.6/linux_lab7_why_script_doesnt_run.tar.gz | tar -xz && cd linux_lab7_why_script_doesnt_run && cd clues/level1 && cat clue1.txt
+    ```
 
 - **Lab 8**: Ownership and Groups
   - **Version**: v2.7
   - **Lab ID**: `linux_lab8_ownership_and_groups`
   - **Focus**: Understanding ownership and groups - chown and group permissions
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.7/linux_lab8_ownership_and_groups.tar.gz | tar -xz && cd linux_lab8_ownership_and_groups && cd clues/level1 && cat clue1.txt
+    ```
 
-- **Lab 9**: Understanding sudo - When and Why
+- **Lab 9**: Understanding sudo
   - **Version**: v2.8
   - **Lab ID**: `linux_lab9_sudo_mindset`
   - **Focus**: Understanding sudo - When to use it, when not to, and understanding audit logging
   - **Duration**: 60-75 minutes
-  - **Download**: See `Linux Module/STUDENT_COMMAND.txt`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.8/linux_lab9_sudo_mindset.tar.gz | tar -xz && cd linux_lab9_sudo_mindset && cd clues/level1 && cat clue1.txt
+    ```
 
-- **Lab 10**: Processes Basics
+- **Lab 10**: Default Permissions (umask)
+  - **Version**: v2.10
+  - **Lab ID**: `linux_lab10_default_permissions`
+  - **Focus**: Understanding umask and default permissions
+  - **Duration**: 60-75 minutes
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v2.10/linux_lab10_default_permissions.tar.gz | tar -xz && cd linux_lab10_default_permissions && cd clues/level1 && cat clue1.txt
+    ```
+
+- **Lab 11**: Debug Mindset
+  - **Version**: v4.1
+  - **Lab ID**: `linux_lab11_debug_mindset`
+  - **Focus**: Systematic debugging approach for permission issues
+  - **Duration**: 60-75 minutes
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v4.1/linux_lab11_debug_mindset.tar.gz | tar -xz && cd linux_lab11_debug_mindset && cd clues/level1 && cat clue1.txt
+    ```
+
+#### Processes and Services
+
+- **Lab 12**: Processes Basics
   - **Version**: v1.1
   - **Lab ID**: `linux_lab_processes_basics`
-  - **Focus**: Understanding what a process is, using ps, top, htop, and identifying process resources
+  - **Focus**: Understanding what a process is, using ps, top, htop
   - **Duration**: 40-45 minutes
   - **Download**:
     ```bash
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.1-processes-basics/linux_lab_processes_basics.tar.gz | tar -xz && cd linux_lab_processes_basics && cd clues/level1 && cat clue1.txt
     ```
 
-- **Lab 11**: Process Management (kill)
+- **Lab 13**: Process Management (kill)
   - **Version**: v1.0
   - **Lab ID**: `linux_lab_processes_kill`
-  - **Focus**: Understanding the kill command, SIGTERM vs SIGKILL, and controlled process termination
+  - **Focus**: Understanding kill, SIGTERM vs SIGKILL
   - **Duration**: 20-25 minutes
   - **Download**:
     ```bash
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/linux_lab_processes_kill.tar.gz | tar -xz && cd linux_lab_processes_kill && cd clues/level1 && cat clue1.txt
     ```
 
-- **Lab 12**: Process vs Service
+- **Lab 14**: Process vs Service
   - **Version**: v1.0
   - **Lab ID**: `linux_lab_processes_vs_service`
-  - **Focus**: Understanding the difference between processes and services, systemd concepts
+  - **Focus**: Understanding the difference between processes and services
   - **Duration**: 20-25 minutes
   - **Download**:
     ```bash
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/linux_lab_processes_vs_service.tar.gz | tar -xz && cd linux_lab_processes_vs_service && cd clues/level1 && cat clue1.txt
     ```
 
-- **Lab 13**: systemd and Services
+- **Lab 15**: systemd and Services
   - **Version**: v1.0
   - **Lab ID**: `linux_lab_systemd_services`
   - **Focus**: Managing services with systemctl (status, start, stop, restart)
@@ -132,27 +185,27 @@ Labs are numbered in the order they should be completed, following the course st
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/linux_lab_systemd_services.tar.gz | tar -xz && cd linux_lab_systemd_services && cd clues/level1 && cat clue1.txt
     ```
 
-- **Lab 14**: Logs-First: journalctl
+- **Lab 16**: Logs-First (journalctl)
   - **Version**: v1.1
   - **Lab ID**: `linux_lab_journalctl_logs_first`
-  - **Focus**: Using journalctl to view and filter system logs, finding errors, and describing problems professionally
+  - **Focus**: Using journalctl to view and filter system logs
   - **Duration**: 45-50 minutes
   - **Download**:
     ```bash
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.1-journalctl-logs/linux_lab_journalctl_logs_first.tar.gz | tar -xz && cd linux_lab_journalctl_logs_first && cd clues/level1 && cat clue1.txt
     ```
 
-- **Lab 15**: Troubleshooting Flow
+- **Lab 17**: Troubleshooting Flow
   - **Version**: v1.0
   - **Lab ID**: `linux_lab_troubleshooting_flow`
-  - **Focus**: Applying a 5-step troubleshooting methodology to diagnose broken services and processes
+  - **Focus**: Applying a 5-step troubleshooting methodology
   - **Duration**: 30-35 minutes
   - **Download**:
     ```bash
     curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0/linux_lab_troubleshooting_flow.tar.gz | tar -xz && cd linux_lab_troubleshooting_flow && cd clues/level1 && cat clue1.txt
     ```
 
-### Shell Scripting Module
+#### Shell Scripting
 
 Hands-on coding exercises for mastering bash scripting. Each lab is a self-contained exercise with tasks, hints, and starter files.
 
@@ -438,12 +491,15 @@ Every lab must meet these criteria:
 
 ## 📊 Lab Statistics
 
-| Module         | Labs | Total Files | Total Size |
-|----------------|------|-------------|------------|
-| Linux          | 15   | 400+        | ~200KB     |
-| Shell Scripting| 11   | 130+        | ~150KB     |
-| Docker         | -    | -           | -          |
-| K8s            | -    | -           | -          |
+| Module          | Category              | Labs | Total Files | Total Size |
+|-----------------|-----------------------|------|-------------|------------|
+| Linux           | Files & Navigation    | 5    | 150+        | ~50KB      |
+| Linux           | Permissions           | 6    | 200+        | ~80KB      |
+| Linux           | Processes & Services  | 6    | 150+        | ~70KB      |
+| Linux           | Shell Scripting       | 11   | 130+        | ~45KB      |
+| **Total Linux** |                       | **28** | **630+**    | **~245KB** |
+| Docker          | -                     | -    | -           | -          |
+| K8s             | -                     | -    | -           | -          |
 
 ---
 
