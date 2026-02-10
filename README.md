@@ -161,77 +161,115 @@ Hands-on coding exercises for mastering bash scripting. Each lab is a self-conta
 - `HINTS.md` - Helpful tips (no complete solutions)
 - `src/` - Ready-to-use starter files
 
-**Getting Started**: Clone the repo and navigate to the lab folder, then open `TASKS.md`:
-```bash
-cd "Linux/Shell Scripting/linux_lab_script_basics"
-cat TASKS.md
-```
-
 - **Lab 1**: Script Basics
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_basics`
   - **Focus**: Creating scripts, shebangs, permissions, chmod, execution methods
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_basics/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-basics/linux_lab_script_basics.tar.gz | tar -xz && cd linux_lab_script_basics && cat TASKS.md
+    ```
 
 - **Lab 2**: Variables
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_variables`
   - **Focus**: Variables, command substitution, timestamps, dynamic values
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_variables/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-variables/linux_lab_script_variables.tar.gz | tar -xz && cd linux_lab_script_variables && cat TASKS.md
+    ```
 
 - **Lab 3**: User Input
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_input`
   - **Focus**: Reading input with read, validation importance, empty input handling
   - **Duration**: 20-30 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_input/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-input/linux_lab_script_input.tar.gz | tar -xz && cd linux_lab_script_input && cat TASKS.md
+    ```
 
 - **Lab 4**: Conditionals
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_conditionals`
   - **Focus**: File/directory checks, input validation, if/elif/else, building validators
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_conditionals/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-conditionals/linux_lab_script_conditionals.tar.gz | tar -xz && cd linux_lab_script_conditionals && cat TASKS.md
+    ```
 
 - **Lab 5**: Case Statements
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_case`
   - **Focus**: Case syntax, menu systems, pattern matching, default branches
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_case/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-case/linux_lab_script_case.tar.gz | tar -xz && cd linux_lab_script_case && cat TASKS.md
+    ```
 
 - **Lab 6**: Loops
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_loops`
   - **Focus**: For loops, while loops, retry patterns, nested loops
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_loops/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-loops/linux_lab_script_loops.tar.gz | tar -xz && cd linux_lab_script_loops && cat TASKS.md
+    ```
 
 - **Lab 7**: Functions
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_functions`
   - **Focus**: Defining functions, parameters, code organization, reusability
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_functions/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-functions/linux_lab_script_functions.tar.gz | tar -xz && cd linux_lab_script_functions && cat TASKS.md
+    ```
 
 - **Lab 8**: Exit Codes
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_exit_codes`
   - **Focus**: Exit codes, $?, chaining with && and ||, fail-fast patterns, CI/CD integration
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_exit_codes/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-exit-codes/linux_lab_script_exit_codes.tar.gz | tar -xz && cd linux_lab_script_exit_codes && cat TASKS.md
+    ```
 
 - **Lab 9**: Debugging
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_debugging`
   - **Focus**: Finding and fixing common bash errors, syntax debugging, error messages
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_debugging/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-debugging/linux_lab_script_debugging.tar.gz | tar -xz && cd linux_lab_script_debugging && cat TASKS.md
+    ```
 
 - **Lab 10**: Ops Helper Tool
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_ops_helper`
   - **Focus**: Building a practical ops tool combining all concepts
   - **Duration**: 25-35 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_ops_helper/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-ops-helper/linux_lab_script_ops_helper.tar.gz | tar -xz && cd linux_lab_script_ops_helper && cat TASKS.md
+    ```
 
 - **Lab 11**: Mini DevOps Tool (Capstone)
+  - **Version**: v1.0
   - **Lab ID**: `linux_lab_script_mini_devops_tool`
   - **Focus**: Comprehensive capstone project - menu-driven tool with health checks, status, backups, and CI/CD pipeline
   - **Duration**: 35-45 minutes
-  - **Path**: `Linux/Shell Scripting/linux_lab_script_mini_devops_tool/`
+  - **Download**:
+    ```bash
+    curl -L https://github.com/IITC-College/DevOps-Jan26/releases/download/v1.0-script-mini-devops-tool/linux_lab_script_mini_devops_tool.tar.gz | tar -xz && cd linux_lab_script_mini_devops_tool && cat TASKS.md
+    ```
 
 ---
 
