@@ -209,11 +209,16 @@ Labs are numbered in the order they should be completed, following the course st
 
 Hands-on coding exercises for mastering bash scripting. Each lab is a self-contained exercise with tasks, hints, and starter files.
 
-**Hardened format (v1.1)**: Labs are instruction-based so students write code instead of copying. Structure:
-- `TASKS.md` - Requirements, objectives, and expected output (no full code to copy)
-- `HINTS.md` - Syntax tips and a **Solutions** section at the end (use when stuck)
-- `src/` - Starter files and data (e.g. configs, logs)
-- **Basics** lab (Lab 18) keeps full examples; Labs 19–30 use progressive difficulty (more guidance early, less later)
+**Hardened format (v1.1)** — [Release notes](https://github.com/IITC-College/DevOps-Jan26/releases/tag/v1.1-shell-scripting-hardened): Labs are instruction-based so students **write code** instead of copying.
+
+| Item | Description |
+|------|-------------|
+| `TASKS.md` | Requirements, objectives, expected output, and testing steps (no full code to copy) |
+| `HINTS.md` | Syntax tips and a **Solutions** section at the end (use when stuck) |
+| `src/` | Starter files and data (configs, logs, broken scripts for debugging lab) |
+
+- **Lab 18 (Basics)** keeps full examples for first-time learners.
+- **Labs 19–30** use progressive difficulty: more guidance in early tasks, less in later tasks.
 
 - **Lab 18**: Script Basics
   - **Version**: v1.0
@@ -451,8 +456,9 @@ All labs follow these core principles:
 1. **Progressive Learning**: Start simple, increase complexity
 2. **Learning by Doing**: Exploration over lectures
 3. **Real-World Simulation**: Authentic scenarios and files
-4. **Hidden Information**: Scattered clues, treasure hunt style
+4. **Hidden Information**: Scattered clues, treasure hunt style (where applicable)
 5. **Self-Contained**: No external dependencies
+6. **Shell Scripting (Labs 18–30)**: Instruction-based — students implement from requirements; solutions in `HINTS.md` when stuck
 
 ---
 
@@ -475,9 +481,9 @@ All labs follow these core principles:
 
 Every lab must meet these criteria:
 
-- ✅ Clear entry point (`start_here.txt`)
+- ✅ Clear entry point (`start_here.txt` or `TASKS.md` for Shell Scripting)
 - ✅ Progressive difficulty (3+ levels)
-- ✅ Complete solutions (`.answers/solutions.txt`)
+- ✅ Complete solutions (`.answers/solutions.txt` or **Solutions** in `HINTS.md` for Shell Scripting)
 - ✅ Tested end-to-end
 - ✅ One-command download works
 - ✅ Documentation complete
@@ -490,6 +496,9 @@ Every lab must meet these criteria:
 - `v1.0` - Initial release
 - `v1.x` - Minor updates, fixes
 - `v2.0` - Major content changes
+
+### Recent Releases
+- **v1.1-shell-scripting-hardened** — Shell Scripting labs (19–30) hardened: requirements-based tasks, solutions in `HINTS.md`. [Release](https://github.com/IITC-College/DevOps-Jan26/releases/tag/v1.1-shell-scripting-hardened)
 
 ### Release Process
 1. Create and test lab
@@ -551,7 +560,7 @@ Every lab must meet these criteria:
 ## 🔗 Links
 
 - **Repository**: https://github.com/IITC-College/DevOps-Jan26
-- **Releases**: https://github.com/IITC-College/DevOps-Jan26/releases
+- **Releases**: https://github.com/IITC-College/DevOps-Jan26/releases (latest: [v1.1-shell-scripting-hardened](https://github.com/IITC-College/DevOps-Jan26/releases/tag/v1.1-shell-scripting-hardened))
 - **Issues**: https://github.com/IITC-College/DevOps-Jan26/issues
 
 ---
