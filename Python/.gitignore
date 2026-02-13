@@ -1,0 +1,2 @@
+# Built release archives (created by build_release.sh; attached to GitHub releases only)
+python_lab_*.tar.gz

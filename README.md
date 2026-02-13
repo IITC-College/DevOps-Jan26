@@ -391,6 +391,48 @@ Hands-on coding exercises for mastering bash scripting. Each lab is a self-conta
 
 ---
 
+### Python Module
+
+#### Python Basics (28 labs)
+
+Hands-on coding labs with **TASKS.md** (requirements and objectives), **HINTS.md** (syntax tips and solutions). Run scripts with `python3 script_name.py`. Each archive extracts to a folder (e.g. `01_print_basics`); open `TASKS.md` to start.
+
+| # | Topic | Download |
+|---|--------|----------|
+| 1 | Print, sep, and end | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_01_print_basics.tar.gz &#124; tar -xz && cd 01_print_basics && cat TASKS.md` |
+| 2 | Literals and Data Types | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_02_literals.tar.gz &#124; tar -xz && cd 02_literals && cat TASKS.md` |
+| 3 | Arithmetic Operators | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_03_operators.tar.gz &#124; tar -xz && cd 03_operators && cat TASKS.md` |
+| 4 | Variables | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_04_variables.tar.gz &#124; tar -xz && cd 04_variables && cat TASKS.md` |
+| 5 | Comments | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_05_comments.tar.gz &#124; tar -xz && cd 05_comments && cat TASKS.md` |
+| 6 | Shortcut Assignment Operators | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_06_shortcuts.tar.gz &#124; tar -xz && cd 06_shortcuts && cat TASKS.md` |
+| 7 | Type Casting | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_07_type_casting.tar.gz &#124; tar -xz && cd 07_type_casting && cat TASKS.md` |
+| 8 | input() and Using What You've Learned | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_08_input.tar.gz &#124; tar -xz && cd 08_input && cat TASKS.md` |
+| 9 | String Operations (concatenation, repetition, str()) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_09_string_methods.tar.gz &#124; tar -xz && cd 09_string_methods && cat TASKS.md` |
+| 10 | Comparison Operators | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_10_comparison_operators.tar.gz &#124; tar -xz && cd 10_comparison_operators && cat TASKS.md` |
+| 11 | if, elif, else (Conditions) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_11_conditions.tar.gz &#124; tar -xz && cd 11_conditions && cat TASKS.md` |
+| 12 | Intermediate Conditions (Input + Variables) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_12_conditions_intermediate.tar.gz &#124; tar -xz && cd 12_conditions_intermediate && cat TASKS.md` |
+| 13 | while Loops | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_13_while_loops.tar.gz &#124; tar -xz && cd 13_while_loops && cat TASKS.md` |
+| 14 | for Loops and range() | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_14_for_loops.tar.gz &#124; tar -xz && cd 14_for_loops && cat TASKS.md` |
+| 15 | break and continue in for Loops | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_15_break_continue.tar.gz &#124; tar -xz && cd 15_break_continue && cat TASKS.md` |
+| 16 | Logical Operators (and, or, not) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_16_logical_operators.tar.gz &#124; tar -xz && cd 16_logical_operators && cat TASKS.md` |
+| 17 | Combined Real-World (Everything So Far) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_17_combined_real_world.tar.gz &#124; tar -xz && cd 17_combined_real_world && cat TASKS.md` |
+| 18 | Lists in Python | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_18_lists.tar.gz &#124; tar -xz && cd 18_lists && cat TASKS.md` |
+| 19 | List Methods (insert, append, swap, sort, reverse) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_19_lists_methods.tar.gz &#124; tar -xz && cd 19_lists_methods && cat TASKS.md` |
+| 20 | Variables vs Lists, Slicing, Real Copies | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_20_lists_variables_copies.tar.gz &#124; tar -xz && cd 20_lists_variables_copies && cat TASKS.md` |
+| 21 | in and not in, Combined | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_21_in_notin_combined.tar.gz &#124; tar -xz && cd 21_in_notin_combined && cat TASKS.md` |
+| 22 | 2D and 3D Lists (Nested Lists) | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_22_lists_2d_3d.tar.gz &#124; tar -xz && cd 22_lists_2d_3d && cat TASKS.md` |
+| 23 | Lists Intermediate | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_23_lists_intermediate.tar.gz &#124; tar -xz && cd 23_lists_intermediate && cat TASKS.md` |
+| 24 | Functions Basics | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_24_functions_basics.tar.gz &#124; tar -xz && cd 24_functions_basics && cat TASKS.md` |
+| 25 | Parameters in Python | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_25_parameters.tar.gz &#124; tar -xz && cd 25_parameters && cat TASKS.md` |
+| 26 | return Statement | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_26_return.tar.gz &#124; tar -xz && cd 26_return && cat TASKS.md` |
+| 27 | List as Argument to a Function | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_27_list_as_argument.tar.gz &#124; tar -xz && cd 27_list_as_argument && cat TASKS.md` |
+| 28 | Scopes in Python | `curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-python-labs/python_lab_28_scopes.tar.gz &#124; tar -xz && cd 28_scopes && cat TASKS.md` |
+
+- **Version**: v1.0
+- **Release**: [v1.0-python-labs](https://github.com/IITC-College/DevOps-Materials/releases/tag/v1.0-python-labs)
+
+---
+
 ## 👨‍🎓 For Students
 
 ### How to Use This Repository
@@ -570,6 +612,7 @@ Every lab must meet these criteria:
 | Linux           | Users & Groups        | 1    | 30+         | ~10KB      |
 | **Total Linux** |                       | **32** | **720+**    | **~280KB** |
 | Docker          | Container Basics      | 1    | 10+         | ~75KB      |
+| Python          | Python Basics         | 28   | 85+         | ~25KB      |
 | K8s             | -                     | -    | -           | -          |
 
 ---
