@@ -385,7 +385,7 @@ Hands-on coding exercises for mastering bash scripting. Each lab is a self-conta
   - **Duration**: 30-40 minutes
   - **Download**:
     ```bash
-    curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0/docker_lab_basics.tar.gz | tar -xz && cd docker_lab_basics && cat README.md
+    curl -L https://github.com/IITC-College/DevOps-Materials/releases/download/v1.0-docker-container-basics/docker_lab_basics.tar.gz | tar -xz && cd docker_lab_basics && cat README.md
     ```
   - **Start**: Open `TASKS.md` to begin the lab
 
