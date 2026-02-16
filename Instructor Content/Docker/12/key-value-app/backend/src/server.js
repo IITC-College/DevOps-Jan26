@@ -2,11 +2,21 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+// routes imports
+const healthRouter = require('./routes/health');
+const keyValueRouter = require('./routes/store');
+
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(bodyParser.json());
 
+
+// routes
+app.use('/health', healthRouter);
+app.use('/store', keyValueRouter);
+
+// connect to MongoDB
 mongoose.connect(`mongodb://${process.env.MONGODB_HOST}/${process.env.KEY_VALUE_DB}`,
     {
         auth: {
