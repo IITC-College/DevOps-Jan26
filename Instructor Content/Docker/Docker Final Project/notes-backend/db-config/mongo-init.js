@@ -1,18 +1,18 @@
-const notebooksDbUser = process.env.NOTEBOOKS_DB_USER;
-const notebooksDbPassword = process.env.NOTEBOOKS_DB_PASSWORD;
-const notebooksDbName = process.env.NOTEBOOKS_DB_NAME;
+const notesDbUser = process.env.NOTES_DB_USER;
+const notesDbPassword = process.env.NOTES_DB_PASSWORD;
+const notesDbName = process.env.NOTES_DB_NAME;
 
 console.log("Initializing notebooks DB user");
 
-db = db.getSiblingDB(notebooksDbName);
+db = db.getSiblingDB(notesDbName);
 
 db.createUser({
-  user: notebooksDbUser,
-  pwd: notebooksDbPassword,
+  user: notesDbUser,
+  pwd: notesDbPassword,
   roles: [
     {
       role: "readWrite",
-      db: notebooksDbName,
+      db: notesDbName,
     },
   ],
 });

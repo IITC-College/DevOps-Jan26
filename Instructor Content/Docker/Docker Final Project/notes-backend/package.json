@@ -18,5 +18,12 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
+  },
+  "nodemonConfig": {
+    "watch": ["src"],
+    "ext": "js",
+    "ignore": ["src/**/*.test.js"],
+    "exec": "node src/server.js",
+    "legacyWatch": true
   }
 }
