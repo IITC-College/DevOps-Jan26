@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT;
-
+const bodyParser = require("body-parser");
+const noteRouter = require("./routes");
 const mongoose = require("mongoose");
 
-app.get("/api/notes", (req, res) => {
+app.use(bodyParser.json());
+app.use("/api/notes", noteRouter);
+app.get("/api/notes/health", (req, res) => {
   res.json({
     message: "hello from notes",
   });

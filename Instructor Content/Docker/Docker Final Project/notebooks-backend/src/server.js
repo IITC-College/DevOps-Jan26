@@ -9,13 +9,12 @@ app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
 
-
-app.get("/api/notebooks", (req, res) => {
+app.use("/api/notebooks", notebookRouter);
+app.get("/api/notebooks/health", (req, res) => {
   res.json({
     message: "hello from notebooks",
   });
 });
-app.use("/api/notebooks", notebookRouter);
 
 
 mongoose
