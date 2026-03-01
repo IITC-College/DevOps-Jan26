@@ -5,7 +5,9 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/', rootRouter);
+app.use('/', (req, res) => {
+  res.send('<h1 style="color:blue;">Hello from Color API!</h1>');
+});
 
 app.listen(port, () => {
   console.log(`Color API listening on port: ${port}`);
